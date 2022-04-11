@@ -13,7 +13,15 @@
     echo "Hello World";
 
     #connect to postgresql
-    $conn = pg_connect("host=localhost port=5433 dbname=postgres user=postgres password=password");
+    $conn = pg_connect("host=localhost port=5432 dbname=infohealth user=postgres password=password");
+    if(!$conn){
+        echo "Not connected to database";
+    }
+    else{
+        echo "Connected to database";
+    }
+    
+    
 
 
     ?>
