@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.header
+{
+
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    top: 0;
+    left: 0;
+
+}
+.header-video
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top:0;
+    left:0;
+    object-fit: cover;
+
+}
+.nav
+{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+    align-items: center;
+    height: 90px;
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    text-shadow:5px 5px 5px rgba(0,0,0,.3);
+}
+
+.nav-logo
+{
+
+    width: auto;
+    height: 130px;
+
+    filter: invert(100%);
+}
+.nav-menu ul
+{
+    display:flex;
+    list-style: none;
+
+}
+.nav-menu ul a
+{
+    text-decoration: none;
+    color: white;
+    text-shadow: 5px 5px 5px rgba(0,0,0,.3);
+    font-size: 18px;
+    margin: 0 15px;
+    transition: color 0.4s;
+
+}
+.nav-menu ul a:hover
+{
+    color: #4cbfff;
+
+}
+.header-content
+{
+    width: 100%;
+    padding-top: 15%;
+    place-items:center;
+    height: calc(100% - 80px);
+    text-align: center;
+
+}
+
+.header-content h1
+{
+    color: white;
+    text-shadow: 5px 5px 5px rgba(0,0,0,.3);
+    text-transform:  uppercase;
+    font-size: 40px;
+}
+.header-content p
+{
+    color:white;
+    text-shadow: 5px 5px 5px rgba(0,0,0,.5);
+    margin: 5px 0 40px 0;
+}
+.header-content input[type=button]
+{
+    padding: 10px 30px;
+    margin: 0 10px;
+    font-size:18px;
+    color: white;
+    border: 2px solid white;
+    background-color: rgba(0,0,0,.3);
+    cursor: pointer;
+    transition: background 0.4s;
+}
+.header-content input[type=button]:hover
+{
+    background-color: rgba(0,0,0,.5);
+}
+
+.our-project
+{
+    margin: 0;
+    display: flex;
+    align-items:center;
+
+}
+.our-project-logo
+{
+    margin-left:-350px;
+    -left: -1000px;
+    filter: invert(100%);
+    width: auto;
+
+
+}
