@@ -47,7 +47,6 @@
     color: white;
     font-weight: bold;
     text-shadow:5px 5px 5px rgba(0,0,0,.3);
-
 }
 
 .nav-logo
@@ -151,10 +150,11 @@
     text-shadow: 5px 5px 5px rgba(0,0,0,.3);
     text-transform:  uppercase;
     font-size: 60px;
+    padding-right: 30px;
 }
 .our-project-text
 {
     color: white;
-    margin: 5px 0 40px 0;
+    padding-right: 30px;
     font-size: 20px;
 }
