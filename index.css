@@ -98,15 +98,24 @@
     text-shadow: 5px 5px 5px rgba(0,0,0,.3);
     text-transform:  uppercase;
     font-size: 40px;
+    animation: revealText 1s forwards ;
+
 }
+
+
 .header-content p
 {
     color:white;
     text-shadow: 5px 5px 5px rgba(0,0,0,.5);
     margin: 5px 0 40px 0;
+    animation: revealTextReverse 1s forwards;
+    animation-delay: .200s;
+    opacity: 0;
 }
+
 .header-content input[type=button]
 {
+    opacity: 0;
     padding: 10px 30px;
     margin: 0 10px;
     font-size:18px;
@@ -115,10 +124,13 @@
     background-color: rgba(0,0,0,.3);
     cursor: pointer;
     transition: background 0.4s;
+    animation: revealText 2s forwards;
+    animation-delay: .550s;
+
 }
 .header-content input[type=button]:hover
 {
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(42, 91, 129, 0.5);
 }
 
 .our-project
@@ -141,7 +153,8 @@
 {
     height: auto;
     width: 30%;
-
+    animation: revealTextFromLeft 1s forwards;
+    animation-delay: .350s;
     padding-left: 10%;
 }
 .our-project-title
@@ -150,6 +163,8 @@
     text-shadow: 5px 5px 5px rgba(0,0,0,.3);
     text-transform:  uppercase;
     font-size: 60px;
+    animation: revealTextFromLeft 1s forwards;
+    animation-delay: .150s;
     padding-right: 30px;
 }
 .our-project-text
@@ -157,4 +172,47 @@
     color: white;
     padding-right: 30px;
     font-size: 20px;
+    animation: revealTextFromLeft 1s forwards;
+    animation-delay: .250s;
+}
+
+
+@keyframes revealText
+{
+    from
+    {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes revealTextReverse
+{
+    from
+    {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes revealTextFromLeft
+{
+    from
+    {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+        transform: none;
+    }
 }
