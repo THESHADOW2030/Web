@@ -4,8 +4,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width-device-width, inital-scale=1.0">
         <title> InfoHealth</title>
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="resources/css/index.css">
+
         <link rel="icon" href="resources/images/logo4000x4000.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="resources/jquery/index.js"></script>
     </head>
     <body>
     <div class="nav">
@@ -13,10 +16,9 @@
         <div class="nav-menu">
             <ul>
                 <li><a href="#OUR_PROJECT">Chi Siamo</a></li>
+                <li><a href="#">Contatti</a></li>
                 <li><a href="#">Login</a></li>
                 <li><a href="#">Registrati</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contatti</a></li>
 
             </ul>
         </div>
@@ -38,12 +40,12 @@
         </div>
         <div class="our-project">
             <a id = "OUR_PROJECT" class="our-project-anchor"></a>
-            <img src="resources/images/logo4000x4000.png" alt="InfoHealth" class="our-project-logo">
+            <img src="resources/images/logo4000x4000.png" alt="InfoHealth" class="our-project-logo" id="our-project-logo-id">
             <div class="our-project-main">
-                <h1 class="our-project-title">
+                <h1 class="our-project-title" id="our-project-title-id">
                     Titolo a caso
                 </h1>
-                <p class="our-project-text">
+                <p class="our-project-text" id="our-project-text-id">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
                     totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae
                     dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit,

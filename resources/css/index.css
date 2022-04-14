@@ -35,12 +35,12 @@
 .nav
 {
     width: 100%;
-    position: sticky;
+    position: fixed;
     top:0;
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: space-between;
-
+    z-index: 999;
     align-items: center;
     height: 90px;
     font-size: 25px;
@@ -85,7 +85,7 @@
 .header-content
 {
     width: 100%;
-    padding-top: 15%;
+    padding-top: 16%;
     place-items:center;
     height: calc(100% - 80px);
     text-align: center;
@@ -153,9 +153,13 @@
 {
     height: auto;
     width: 30%;
+    padding-left: 10%;
+    opacity: 0;
+}
+.our-project-logo-animation
+{
     animation: revealTextFromLeft 1s forwards;
     animation-delay: .350s;
-    padding-left: 10%;
 }
 .our-project-title
 {
@@ -163,6 +167,10 @@
     text-shadow: 5px 5px 5px rgba(0,0,0,.3);
     text-transform:  uppercase;
     font-size: 60px;
+    opacity: 0;
+}
+.our-project-title-animation
+{
     animation: revealTextFromLeft 1s forwards;
     animation-delay: .150s;
     padding-right: 30px;
@@ -172,6 +180,10 @@
     color: white;
     padding-right: 30px;
     font-size: 20px;
+    opacity: 0;
+}
+.our-project-text-animation
+{
     animation: revealTextFromLeft 1s forwards;
     animation-delay: .250s;
 }
