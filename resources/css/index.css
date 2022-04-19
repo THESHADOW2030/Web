@@ -375,13 +375,11 @@
 
 .grid-container
 {
-    width: 100%;
-    height: 100%;
+
     display: grid;
     grid-template-columns: auto auto auto;
     background-color: white;
-    grid-auto-flow:dense;
-    align-content: center
+
 
 }
 .grid-item {
@@ -395,14 +393,13 @@
     width: 100%;
     background-color: black;
     display: flex;
-
+    align-items: center;
+    justify-content: center;
 }
 
-
-
-.container {
+.container
+{
     position: relative;
-    width: 100%;
 }
 
 .image
@@ -441,4 +438,13 @@
     -ms-transform: translate(-50%, -50%);
 }
 
+.utility-text
+{
+    position:absolute;
+    color: white;
+    text-shadow: 5px 5px 5px rgb(0 0 0 / 30%);
+    text-transform: uppercase;
+    font-size: 60px;
+    z-index: 99;
+}
 
