@@ -3,10 +3,11 @@
     $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=password");
     if(!$conn)
     {
-        echo "Not connected to database";
+        echo "Not connected to database<br>";
     }
-    else{
-        echo "\nConnected to database";
+    else
+    {
+        echo "Connected to database<br>";
 
     //    $q1=" select * from user where email= $1 ";
   //      $result=pg_query_params($conn, $q1, array($email));
