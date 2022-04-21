@@ -10,8 +10,6 @@
 
     <?php
 
-    echo "Hello World<hr>";
-
     #connect to postgresql
     $conn = pg_connect("host=localhost port=5432 dbname= infohealth user=postgres password=password");
     if(!$conn){

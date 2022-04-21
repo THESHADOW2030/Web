@@ -16,7 +16,5 @@ function fadeDivs()
     {
         $(this).attr('src', images[i]).fadeIn(1000);
     })
-
-
     i++;
 }
