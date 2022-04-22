@@ -11,77 +11,76 @@
     <title>InfoHealth</title>
     <link rel="icon" href="resources/images/logo4000x4000.png">
 </head>
-<body style="background-color: rgba(40,57,101,.9);">
-<div class="main">
-    <div class="image-fader" id="image-fader">
-        <img class = "image0" src="resources/images/login/6999301.jpg" />
-        <img class = "image1" src="resources/images/login/6999299.jpg" />
-        <img class = "image2" src="resources/images/login/6999309.jpg" />
-        <img class = "image3" src="resources/images/login/6999319.jpg" />
-    </div>
-    <div class="login-wrap">
-        <div class="login-html">
-            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Accedi</label>
-            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrati</label>
-            <div class="login-form">
-                <form method="POST" action="resources/php/login.php">
-                    <div class="sign-in-htm">
-                        <div class="group">
-                            <label for="userLogin" class="label">Username</label>
-                            <input id="userLogin" type="text" class="input">
-                        </div>
-                        <div class="group">
-                            <label for="passwordLogin" class="label">Password</label>
-                            <input id="passwordLogin" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <input id="check" type="checkbox" class="check" checked>
-                            <label for="check"><span class="icon"></span> Ricordami</label>
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Accedi">
-                        </div>
-                        <div class="hr">
+    <body style="background-color: rgba(40,57,101,.9);">
+        <div class="main">
+            <div class="image-fader" id="image-fader">
+                <img class = "image0" src="resources/images/login/6999301.jpg" />
+                <img class = "image1" src="resources/images/login/6999299.jpg" />
+                <img class = "image2" src="resources/images/login/6999309.jpg" />
+                <img class = "image3" src="resources/images/login/6999319.jpg" />
+            </div>
+            <div class="login-wrap">
+                <div class="login-html">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Accedi</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrati</label>
+                    <div class="login-form">
+                        <form method="POST" action="resources/php/login.php">
+                            <div class="sign-in-htm">
+                                <div class="group">
+                                    <label for="userLogin" class="label">Username</label>
+                                    <input id="userLogin" name="userLogin" type="text" class="input" required>
+                                </div>
+                                <div class="group">
+                                    <label for="passwordLogin" class="label">Password</label>
+                                    <input id="passwordLogin" name="passwordLogin" type="password" class="input" data-type="password" required>
+                                </div>
+                                <div class="group">
+                                    <input id="check" type="checkbox" class="check" checked>
+                                    <label for="check"><span class="icon"></span> Ricordami</label>
+                                </div>
+                                <div class="group">
+                                    <input type="submit" class="button" value="Accedi">
+                                </div>
+                                <div class="hr">
 
-                        </div>
-                        <div class="foot-lnk">
-                            <a href="#forgot">Password Dimenticata?</a>
-                        </div>
-                    </div>
-                </form>
-                <form method="POST" action="resources/php/database.php">
-                    <div class="sign-up-htm">
-                        <div class="group">
-                            <label for="userRegistration" class="label">Username</label>
-                            <input id="userRegistration" name = "userRegistration" type="text" class="input">
-                        </div>
-                        <div class="group">
-                            <label for="passwordRegistration" class="label">Password</label>
-                            <input id="passwordRegistration" name = "passwordRegistration" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <label for="repeatPassword" class="label">Ripeti Password</label>
-                            <input id="repeatpassword" name = "repeatpassword" type="password" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <label for="email" class="label">Email</label>
-                            <input id="email" type="text" name = "email" class="input">
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Iscrivimi">
-                        </div>
-                        <div class="hr">
+                                </div>
+                                <div class="foot-lnk">
+                                    <a href="#forgot">Password Dimenticata?</a>
+                                </div>
+                            </div>
+                        </form>
+                        <form method="POST" action="resources/php/registration.php">
+                            <div class="sign-up-htm">
+                                <div class="group">
+                                    <label for="userRegistration" class="label">Username</label>
+                                    <input id="userRegistration" name = "userRegistration" type="text" class="input" required>
+                                </div>
+                                <div class="group">
+                                    <label for="passwordRegistration" class="label">Password</label>
+                                    <input id="passwordRegistration" name = "passwordRegistration" type="password" class="input" data-type="password" required>
+                                </div>
+                                <div class="group">
+                                    <label for="repeatPassword" class="label">Ripeti Password</label>
+                                    <input id="repeatpassword" name = "repeatpassword" type="password" class="input" data-type="password" required>
+                                </div>
+                                <div class="group">
+                                    <label for="email" class="label">Email</label>
+                                    <input id="email" type="text" name = "email" class="input" required>
+                                </div>
+                                <div class="group">
+                                    <input type="submit" class="button" id="buttonRegistration" value="Iscrivimi">
+                                </div>
+                                <div class="hr">
 
-                        </div>
-                        <div class="foot-lnk">
-                            <label for="tab-1">Sei già iscritto?</label>
-                        </div>
+                                </div>
+                                <div class="foot-lnk">
+                                    <label for="tab-1">Sei già iscritto?</label>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-</body>
+    </body>
 </html>

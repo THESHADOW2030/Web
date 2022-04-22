@@ -18,3 +18,29 @@ function fadeDivs()
     })
     i++;
 }
+
+$(function()
+{
+    $("#buttonRegistration").on("click", function() {
+        console.log("test");
+        var data = "user="+$("#username").val();
+
+        $.ajax({
+            type: 'POST',
+            url: 'registration.php',
+            data: data,
+            dataType: 'json',
+            success: function(r)
+            {
+                if(r=="1")
+                {
+                    //Exists
+                    $("#info").html("Username already exists");
+                }else{
+                    //Doesn't exist
+                    $("#info").html("Username available!");
+                }
+            }
+        });
+    });
+});
