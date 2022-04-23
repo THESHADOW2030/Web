@@ -21,13 +21,13 @@ function fadeDivs()
 
 $(function()
 {
-    $("#buttonRegistration").on("click", function() {
-        console.log("test");
+    $("#buttonRegistration").on("click", function()
+    {
         var data = "user="+$("#username").val();
-
+        console.log("test");
         $.ajax({
             type: 'POST',
-            url: 'registration.php',
+            url: 'php/registration.php',
             data: data,
             dataType: 'json',
             success: function(r)
