@@ -19,15 +19,41 @@ function fadeDivs()
     i++;
 }
 
+function test()
+{
+
+        var form = $("#formRegistration");
+        var actionUrl = form.attr('action');
+        console.log("sending data...");
+        $.ajax({
+            type: 'POST',
+            url: actionUrl,
+            data: form.serialize(),
+            success: function(response)
+            {
+                var jsvar = '<?php echo json_encode($return)?>';
+                alert(response);
+                return false;
+            },
+            error: function(xhr, status, error)
+            {
+                alert(xhr.responseText);
+                return false;
+            }
+        });
+        return false;
+
+}
+
 $(function()
 {
-    $("#buttonRegistration").on("click", function()
+    $("#buttonLogin").on("click", function()
     {
-        var data = "user="+$("#username").val();
+        var data = "user="+$("#username").val().trim();
         console.log("test");
         $.ajax({
             type: 'POST',
-            url: 'php/registration.php',
+            url: 'php/login.php',
             data: data,
             dataType: 'json',
             success: function(r)

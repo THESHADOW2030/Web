@@ -19,18 +19,19 @@
                 FROM public.users
                 WHERE username = $1";
 
+        $q3 = " SELECT *
+                FROM public.users
+                WHERE email = $1";
 
         $result = pg_query_params($conn, $q1, array($user));
+        $result1 = pg_query_params($conn, $q3, array($email));
         if($line = pg_fetch_array($result,null,PGSQL_ASSOC))
         {
-            //echo "Account già esistente!";
-            //create an alert saying "User is already registered"
-
-            //header('location:../../login.html');
-            echo '<script type="text/javascript">',
-            'alert("Utente già registrato");
-            ',
-            '</script>';
+            echo "Utente già registrato";
+        }
+        elseif($line = pg_fetch_array($result1,null,PGSQL_ASSOC))
+        {
+            echo "Email già registrata";
         }
         else
         {
@@ -38,7 +39,7 @@
             $data = pg_query_params($conn, $q2, array($user, $password,$email));
             if ($data)
             {
-                echo "<h1> Account Creato!";
+                echo "Account Creato!";
             }
             else
             {
