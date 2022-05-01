@@ -19,54 +19,87 @@ function fadeDivs()
     i++;
 }
 
-function test()
+function registration()
 {
+    var form = $("#formRegistration");
+    var actionUrl = form.attr('action');
+    var elementUsername = $("#userRegistration")[0];
+    var elementEmail = $("#email")[0];
 
-        var form = $("#formRegistration");
-        var actionUrl = form.attr('action');
-        console.log("sending data...");
-        $.ajax({
-            type: 'POST',
-            url: actionUrl,
-            data: form.serialize(),
-            success: function(response)
+    elementUsername.addEventListener('input',e => {
+        elementUsername.setCustomValidity(''); //this was missing
+    });
+    elementEmail.addEventListener('input',e => {
+        elementEmail.setCustomValidity(''); //this was missing
+    });
+
+    console.log("sending data...");
+    $.ajax({
+        type: 'POST',
+        url: actionUrl,
+        data: form.serialize(),
+        success: function(response)
+        {
+            console.log(response);
+            if(response==='1')
             {
-                var jsvar = '<?php echo json_encode($return)?>';
-                alert(response);
-                return false;
-            },
-            error: function(xhr, status, error)
-            {
-                alert(xhr.responseText);
-                return false;
+                elementUsername.setCustomValidity('//TODO:reindirizzamento');
+                elementUsername.reportValidity();
             }
-        });
-        return false;
-
+            else if(response==='0')
+            {
+                elementUsername.setCustomValidity('Username già esistente!');
+                elementUsername.reportValidity();
+            }
+            else if(response==='-1')
+            {
+                elementEmail.setCustomValidity('Email già esistente!');
+                elementEmail.reportValidity();
+            }
+        },
+        error: function(xhr, status, error)
+        {
+            alert(xhr.responseText);
+        }
+    });
+    return false;
 }
 
-$(function()
+function login()
 {
-    $("#buttonLogin").on("click", function()
-    {
-        var data = "user="+$("#username").val().trim();
-        console.log("test");
-        $.ajax({
-            type: 'POST',
-            url: 'php/login.php',
-            data: data,
-            dataType: 'json',
-            success: function(r)
-            {
-                if(r=="1")
-                {
-                    //Exists
-                    $("#info").html("Username already exists");
-                }else{
-                    //Doesn't exist
-                    $("#info").html("Username available!");
-                }
-            }
-        });
+    var form = $("#formLogin");
+    var actionUrl = form.attr('action');
+    var element = $("#passwordLogin")[0];
+    element.addEventListener('input',e => {
+        element.setCustomValidity(''); //this was missing
+
     });
-});
+
+    console.log("sending data...");
+    $.ajax({
+        type: 'POST',
+        url: actionUrl,
+        data: form.serialize(),
+        success: function(response)
+        {
+            console.log(response);
+            if(response==='1')
+            {
+                element.setCustomValidity('//TODO:reindirizzamento');
+                element.reportValidity();
+            }
+            else
+            {
+                element.setCustomValidity('Username o Password non corretti!');
+                element.reportValidity();
+            }
+        },
+        error: function(xhr, status, error)
+        {
+            alert(xhr.responseText);
+        }
+    });
+    return false;
+}
+
+

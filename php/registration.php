@@ -27,11 +27,11 @@
         $result1 = pg_query_params($conn, $q3, array($email));
         if($line = pg_fetch_array($result,null,PGSQL_ASSOC))
         {
-            echo "Utente già registrato";
+            echo "0";
         }
         elseif($line = pg_fetch_array($result1,null,PGSQL_ASSOC))
         {
-            echo "Email già registrata";
+            echo "-1";
         }
         else
         {
@@ -39,7 +39,7 @@
             $data = pg_query_params($conn, $q2, array($user, $password,$email));
             if ($data)
             {
-                echo "Account Creato!";
+                echo "1";
             }
             else
             {

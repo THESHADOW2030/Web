@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link style.css-->
+    <link rel="stylesheet" type="text/css" href="resources/css/reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jquery/reset.js"></script>
+
+    <title>InfoHealth</title>
+    <link rel="icon" href="resources/images/logo4000x4000.png">
+</head>
+<body style="background-color: rgba(40,57,101,.9);">
+<div class="main">
+    <div class="image-fader" id="image-fader">
+        <img class = "image0" src="resources/images/login/6999301.jpg" />
+        <img class = "image1" src="resources/images/login/6999299.jpg" />
+        <img class = "image2" src="resources/images/login/6999309.jpg" />
+        <img class = "image3" src="resources/images/login/6999319.jpg" />
+    </div>
+    <span></span>
+
+
+    <div class="login-wrap">
+        <div class="login-html">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Password Dimenticata</label>
+            <div class="login-form">
+                <form method="POST" id="formReset" onsubmit="return resetPassword();" action="php/reset.php">
+                    <div class="sign-in-htm">
+
+                        <div class="group">
+                            <label for="email" class="label">Email</label>
+                            <input id="email" name="email" type="email" class="input" data-type="email" required>
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" id="buttonReset" value="Accedi">
+                        </div>
+                        <div class="foot-lnk">
+                            <a href="login.html">Hai un account?</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
