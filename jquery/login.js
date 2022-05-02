@@ -34,7 +34,7 @@ function registration()
     });
 
     console.log("sending data...");
-    $.ajax({
+    var request = $.ajax({
         type: 'POST',
         url: actionUrl,
         data: form.serialize(),
@@ -45,6 +45,7 @@ function registration()
             {
                 elementUsername.setCustomValidity('//TODO:reindirizzamento');
                 elementUsername.reportValidity();
+
             }
             else if(response==='0')
             {
@@ -62,7 +63,11 @@ function registration()
             alert(xhr.responseText);
         }
     });
-    return false;
+
+   request.done(function(response)
+   {
+       console.log(response);
+   });
 }
 
 function login()
@@ -83,10 +88,12 @@ function login()
         success: function(response)
         {
             console.log(response);
-            if(response==='1')
-            {
+            if(response==='1') {
                 element.setCustomValidity('//TODO:reindirizzamento');
                 element.reportValidity();
+                console.log("success");
+                //Redirect to the page
+                window.location.href = "../homepage/boh.html";
             }
             else
             {

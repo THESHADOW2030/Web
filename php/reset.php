@@ -25,6 +25,7 @@
             $msg = wordwrap($msg,70);
             $headers = "From: info@infohealth.com";
             mail($to, $subject, $msg, $headers);
+
             echo "1";
         }
         else
