@@ -27,7 +27,7 @@
             $_SESSION['password'] = $password;
 
             //Redirect to homepage
-            //("Location: ../homepage/boh.html");
+            //("Location: ../homepage/homepage.html");
         }
         else
         {

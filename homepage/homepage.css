@@ -106,6 +106,16 @@ html, body {
 }
 
 
+.col-sm-3{
+    padding: 20px 30px 20px 30px;
 
+}
+
+.card{
+    min-width: 122px;
+}
+.table-responsive {
+    padding: 0px 20px 0px 20px;
+}
 
 
