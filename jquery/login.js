@@ -93,7 +93,7 @@ function login()
                 element.reportValidity();
                 console.log("success");
                 //Redirect to the page
-                window.location.href = "homepage/homepage.html";
+                window.location.href = "homepage/homepage.php";
             }
             else
             {
