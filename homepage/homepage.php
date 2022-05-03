@@ -41,8 +41,9 @@
     <img src="../resources/images/logo4000x4000.png" alt="InfoHealth" class="nav-logo" id = "profilePicture">
     <div class="nav-menu">
         <ul>
-            <li><a href="#">Impostazioni</a></li>
             <li><a href="#">Home</a></li>
+            <li><a href="#">Impostazioni</a></li>
+            <li><a href="../php/logout.php">Logout</a></li>
         </ul>
     </div>
 </div>
@@ -84,7 +85,36 @@
                     }
                     ?>
 
-                    <a href="#" class="btn btn-primary float-right mybtn">Aggiorna</a>
+                    <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#modalViewPeso">
+                        Aggiorna Peso
+                    </button>
+                    <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog" aria-labelledby="modalViewPeso" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Peso</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form method="post" id="formAliment" action="../php/updatePeso.php">
+                                    <div class="modal-body">
+                                        <div class="it-datepicker-wrapper theme-dark">
+                                            <div class="form-group">
+                                                <label for="pesoNuovo ">Nuovo Peso</label>
+                                                <input class="form-control it-date-datepicker" id="pesoNuovo" name="pesoNuovo" type="number">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
+                                        <button type="submit" class="btn btn-primary">Aggiungi Alimento</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,7 +131,7 @@
                     $totale = 0;
                     while($rowUser_info = pg_fetch_assoc($result)) {
 
-                        $totale = $totale + $rowUser_info['calorieBruciate'];
+                        $totale = $totale + $rowUser_info['calorie_bruciate'];
 
                     }
                     echo '<p class="card-text text-white">' . $totale . 'Kcal</p>';
@@ -123,7 +153,7 @@
                     while($rowUser_info = pg_fetch_assoc($result)) {
 
 
-                        $totale = $totale + $rowUser_info['calorieAssunte'];
+                        $totale = $totale + $rowUser_info['calorie_assunte'];
 
                     }
                     echo '<p class="card-text text-white">' . $totale . 'Kcal</p>';
@@ -173,24 +203,32 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
-                            <div class="it-datepicker-wrapper theme-dark">
-                                <div class="form-group">
-                                    <label for="dateAllenamento">Data Allenamento</label>
-                                    <input class="form-control it-date-datepicker" id="dateAllenamento" type="date">
-                                    <label for="activityInput" style="padding-top: 15px">Attività Svolta</label>
-                                    <input class="form-control" id="calorieBruciateInput" type="text">
-                                    <label for="calorieBruciateInput" style="padding-top: 15px" >Calorie Bruciate</label>
-                                    <input class="form-control" id="passiInput" type="number">
-                                    <label for="passiInput" style="padding-top: 15px">Passi Effettuati</label>
-                                    <input class="form-control" id="passiInput" type="number">
+                        <form method="post" id="" action="../php/insertItemsInuser_activity.php">
+
+                            <div class="modal-body">
+                                <div class="it-datepicker-wrapper theme-dark">
+                                    <div class="form-group">
+                                        <label for="dateAllenamento">Data Allenamento</label>
+                                        <input class="form-control it-date-datepicker" id="dateAllenamento" name="dateAllenamento" type="date">
+
+                                        <label for="durata">Durata Allenamento</label>
+                                        <input class="form-control it-date-datepicker" id="durata" name="durata" type="number">
+
+
+                                        <label for="attivita" style="padding-top: 15px">Attività Svolta</label>
+                                        <input class="form-control" id="attivita" name="attivita" type="text">
+                                        <label for="calorie_bruciateInput" style="padding-top: 15px" >Calorie Bruciate</label>
+                                        <input class="form-control" id="calorie_bruciateInput" name="calorie_bruciateInput" type="number">
+                                        <label for="passiInput" style="padding-top: 15px">Passi Effettuati</label>
+                                        <input class="form-control" id="passiInput" name="passiInput" type="number">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
-                            <button type="button" class="btn btn-primary">Aggiungi Allenamento</button>
+                            <button type="submit" class="btn btn-primary">Aggiungi Allenamento</button>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -220,8 +258,8 @@
                 echo '<tr>';
                 echo '<td>'.$rowUser_info['data'].'</td>';
                 echo '<td>'.$rowUser_info['activity'].'</td>';
-                echo '<td>'.$rowUser_info['calorieBruciate'].'</td>';
-                echo '<td>'.$rowUser_info['durataMinuti'].'</td>';
+                echo '<td>'.$rowUser_info['calorie_bruciate'].'</td>';
+                echo '<td>'.$rowUser_info['durata_minuti'].'</td>';
                 echo '</tr>';
 
             }
@@ -251,18 +289,18 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="POST" id="formAliment" action="../php/databaseSendData.php">
+                    <form method="post" id="formAliment" action="../php/insertItemsInuser_alimenti.php">
                         <div class="modal-body">
                             <div class="it-datepicker-wrapper theme-dark">
                                 <div class="form-group">
                                      <label for="date2 ">Data Alimento</label>
-                                        <input class="form-control it-date-datepicker" id="date2" type="date">
-                                        <label for="orario" style="padding-top: 15px"> Orario Pasto</label>
-                                        <input class="form-control it-time-picker" id="orario" type="time">
-                                        <label for="alimentoInput" style="padding-top: 15px">Alimento Mangiato</label>
-                                        <input class="form-control" id="alimentoInput" type="text">
-                                        <label for="calorieBruciateInput" style="padding-top: 15px" >Calorie Alimento</label>
-                                        <input class="form-control" id="calorieBruciateInput" type="number">
+                                     <input class="form-control it-date-datepicker" id="date2" name="date2" type="date">
+                                     <label for="orario" style="padding-top: 15px"> Orario Pasto</label>
+                                     <input class="form-control it-time-picker" id="orario" name="orario" type="time">
+                                     <label for="alimentoInput" style="padding-top: 15px">Alimento Mangiato</label>
+                                     <input class="form-control" id="alimentoInput" name="alimentoInput" type="text">
+                                     <label for="calorie_bruciateInput" style="padding-top: 15px" >Calorie Alimento</label>
+                                     <input class="form-control" id="calorieAssunteInput" name="calorieAssunteInput" type="number">
                                 </div>
                             </div>
                         </div>
@@ -301,7 +339,7 @@
              echo '<tr>';
              echo '<td>'.$rowUser_info['data'].'</td>';
              echo '<td>'.$rowUser_info['alimento'].'</td>';
-             echo '<td>'.$rowUser_info['calorieAssunte'].'</td>';
+             echo '<td>'.$rowUser_info['calorie_assunte'].'</td>';
              echo '</tr>';
 
          }

@@ -1,5 +1,5 @@
 <?php
-    $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=password");
+    $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
     if(!$conn)
     {
         //echo "Not connected to database<br>";
@@ -28,10 +28,30 @@
         if($line = pg_fetch_array($result,null,PGSQL_ASSOC))
         {
             echo "0";
+            $q2 = "INSERT INTO public.users (username, password,email) VALUES ($1, $2,$3);";
+            $data = pg_query_params($conn, $q2, array($user, $password,$email));
+            if ($data)
+            {
+                echo "1";
+            }
+            else
+            {
+                echo "Errore Interno!";
+            }
+
+            $q3 = "INSERT INTO public.user_info (username) VALUES ($1)";
+            $data = pg_query_params($conn, $q3, array($user));
+
+
+
+
+
+            header("Location: ../login.html");
         }
         elseif($line = pg_fetch_array($result1,null,PGSQL_ASSOC))
         {
             echo "-1";
+
         }
         else
         {
