@@ -19,12 +19,13 @@
 
         if ($line = pg_fetch_array($result, null, PGSQL_ASSOC))
         {
+            session_start();
             //If user and password found
             $_SESSION['user'] = $user;
             $_SESSION['password'] = $password;
             echo "1";
             //Start session
-            session_start();
+
 
 
             //Redirect to homepage
