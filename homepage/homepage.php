@@ -50,6 +50,10 @@
 
 
 
+
+
+
+
 <div class="" style="margin-top: 90px;;">
 
 
@@ -109,7 +113,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
-                                        <button type="submit" class="btn btn-primary">Aggiungi Alimento</button>
+                                        <button type="submit" class="btn btn-primary">Aggiungi Alimenti</button>
                                     </div>
                                 </form>
                             </div>
@@ -278,7 +282,7 @@
     </div>
     <div class="col-sm-6">
         <button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#modalViewAlimento">
-            Aggiungi Alimento
+            Aggiungi Alimenti
         </button>
         <div class="modal fade" id="modalViewAlimento" tabindex="-1" role="dialog" aria-labelledby="modalViewAlimento" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
