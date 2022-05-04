@@ -65,6 +65,7 @@
             {
                 echo "Errore Interno!";
             }
+            header("Location: ../login.html");
         }
     }
 
