@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
-                                        <button type="submit" class="btn btn-primary">Aggiungi Alimenti</button>
+                                        <button type="submit" class="btn btn-primary">Aggiorna Peso</button>
                                     </div>
                                 </form>
                             </div>
@@ -245,6 +245,7 @@
             <thead>
             <tr>
                 <th scope="col">Data</th>
+
                 <th scope="col">Attività</th>
                 <th scope="col">Calorie Bruciate</th>
                 <th scope="col">Durata Minuti</th>
@@ -326,6 +327,7 @@
         <thead>
         <tr>
             <th scope="col">Data</th>
+            <th scope="col">Orario</th>
             <th scope="col">Alimento</th>
             <th scope="col">Calorie Assunte</th>
 
@@ -342,6 +344,8 @@
          while($rowUser_info = pg_fetch_assoc($result)) {
              echo '<tr>';
              echo '<td>'.$rowUser_info['data'].'</td>';
+             echo '<td>'.$rowUser_info['ora'].'</td>';
+
              echo '<td>'.$rowUser_info['alimento'].'</td>';
              echo '<td>'.$rowUser_info['calorie_assunte'].'</td>';
              echo '</tr>';
