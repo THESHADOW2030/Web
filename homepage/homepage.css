@@ -2,12 +2,30 @@ th, td{
     color: white;
 }
 
-
 html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
 
+.jumbotron
+{
+    background: white;
+    min-height: 100vh;
+}
+
+.nav-space
+{
+    height: 90px;
+}
+
+.jumbotron-fluid
+{
+    display:flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10vh;
+}
 
 .rwd-video {
     height: 0;
@@ -15,6 +33,11 @@ html, body {
     padding-bottom: 56.25%;
     padding-top: 30px;
     position: relative;
+}
+
+.main-title
+{
+
 }
 .rwd-video iframe,
 .rwd-video object,
@@ -27,29 +50,23 @@ html, body {
 }
 
 
-.card {
+.card
+{
     border-radius: 20px;
+    box-shadow: 0 0 15px 1px #bdbdbd;
 }
-
 
 .mybtn:hover {
 
     background-color: transparent;
     color: white;
-
 }
 
-
-
-
-
-
-
-
-
-
-
-
+.row
+{
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
 * {
     -webkit-box-sizing: border-box;
