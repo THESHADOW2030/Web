@@ -1,6 +1,9 @@
 <?php
-    $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-    if(!$conn)
+   // $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
+
+$conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
+
+if(!$conn)
     {
         //echo "Not connected to database<br>";
     }

@@ -3,7 +3,10 @@
 
 session_start();
 //connect to database
-$conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=password");
+//$conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=password");
+
+$conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
+
 if (!$conn) {
     echo "Errore: impossibile raggiungere i nostri database";
 }
