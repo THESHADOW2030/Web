@@ -44,10 +44,6 @@ else
     //return to the page
     header("Location: ../homepage/homepage.php");
 
-
-
-
-
 }
 
 

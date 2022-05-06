@@ -1,5 +1,11 @@
 <?php
-//TODO: Add preselected arguments on modal views
+//TODO: Add preselected arguments on modal views (example: preset day as actual day)
+//TODO: Execute php using ajax
+//TODO: Add favicon
+//TODO: Add homepage title
+//TODO: fix top and button padding in nav class (they are actually different)
+//TODO: add icons inside cards
+//TODO: Idea: Add button to scroll down with animation (less important)
 
 session_start();
 //connect to database
@@ -37,7 +43,6 @@ if (!isset($_SESSION['user'])) {
 </head>
 <body>
 <div id="container-floating">
-
     <a class="nd4 nds" data-toggle="modal" data-target="#modalViewAlimento">
         <img class="reminder" src="../resources/icons/food24x24white.png">
     </a>
@@ -61,7 +66,7 @@ if (!isset($_SESSION['user'])) {
     <img src="../resources/images/logo4000x4000.png" alt="InfoHealth" class="nav-logo" id="profilePicture">
     <div class="nav-menu">
         <ul>
-            <!--TODO: fix top and button padding (they are actually different)-->
+
             <li><a href="#">Home</a></li>
             <li><a href="#">Impostazioni</a></li>
             <li><a href="../php/logout.php">Logout</a></li>
@@ -90,7 +95,7 @@ if (!isset($_SESSION['user'])) {
     <div class="row cards">
         <div class="col-sm-3">
             <div class="card">
-                <!--TODO: add icons inside cards-->
+
                 <div class="card-body">
                     <h3 class="card-title">Peso</h3>
                     <?php
@@ -202,6 +207,7 @@ if (!isset($_SESSION['user'])) {
             </div>
         </div>
     </div>
+
 </div>
 <div class="row" style="margin: 30px;">
     <div class="col-sm-6">
