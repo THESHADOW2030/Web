@@ -79,6 +79,8 @@ if (!isset($_SESSION['user'])) {
 
             <li><a href="#">Home</a></li>
             <li>
+                <a type="button" class="li" data-toggle="modal" data-target="#ImpostazioniModal">Impostazioni</a>
+                <!--
                 <button type="button" class="li" data-toggle="modal" data-target="#ImpostazioniModal" style="background-color: transparent;
                                                                                                         color: white;
                                                                                                          font-size: 18px;
@@ -86,7 +88,7 @@ if (!isset($_SESSION['user'])) {
                                                                                                          border: none">
                     Impostazioni
                 </button>
-
+                -->
             <li><a href="../php/logout.php">Logout</a></li>
         </ul>
     </div>
