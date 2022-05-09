@@ -80,7 +80,7 @@ if (!isset($_SESSION['user'])) {
         <?php
         // echo $_SESSION['user'];
         if (isset($_SESSION['user'])) {
-            echo '<h1 class="display-3 main-title">Benvenuto ' . $_SESSION['user'] . '</h1>';
+            echo '<h1 class="display-3 main-title" style="padding: 90px 0px 0px 0px">Benvenuto ' . $_SESSION['user'] . '</h1>';
         } else {
             echo '<h1 class="display-4">Benvenuto</h1>';
         }
@@ -275,7 +275,7 @@ if (!isset($_SESSION['user'])) {
 
         </tr>
         </thead>
-        <tbody>
+        <tbody name="bodyAllenamento" id = "bodyAllenamento">
 
 
         <?php
