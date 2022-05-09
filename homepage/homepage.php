@@ -154,6 +154,10 @@ if (!isset($_SESSION['user'])) {
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Calorie Bruciate</h3>
+                    <div class="row">
+
+
+                    <div class="col-sm-6">
                     <?php
                     $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
 
@@ -168,8 +172,13 @@ if (!isset($_SESSION['user'])) {
                     }
                     echo '<p class="card-text">' . $totale . 'Kcal</p>';
                     ?>
+                    </div>
+                    <div class="col-sm-6">
+                       test
+                    </div>
+                    </div>
 
-                    <!-- <a href="#" class="btn btn-primary float-right mybtn">Aggiorna</a> -->
+
                 </div>
             </div>
         </div>
