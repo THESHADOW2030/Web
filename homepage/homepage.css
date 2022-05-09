@@ -154,6 +154,44 @@ html, body {
 
 }
 
+.tooltipss {
+
+    display: inline-block;
+    border-bottom: 1px dotted #424242;
+}
+
+.tooltipss .tooltiptextss {
+    visibility: hidden;
+    width: 167px;
+    background-color: #424242;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 3px;
+    /* right: 3px; */
+    right: 120%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltipss .tooltiptextss::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #424242;
+}
+.tooltipss:hover .tooltiptextss {
+    visibility: visible;
+    opacity: 1;
+}
+
 
 
 

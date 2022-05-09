@@ -1,8 +1,6 @@
 <?php
 //TODO: Add preselected arguments on modal views (example: preset day as actual day)
 //TODO: Execute php using ajax
-//TODO: Add favicon
-//TODO: Add homepage title
 //TODO: fix top and button padding in nav class (they are actually different)
 //TODO: add icons inside cards
 //TODO: Idea: Add button to scroll down with animation (less important)
@@ -40,24 +38,35 @@ if (!isset($_SESSION['user'])) {
             crossorigin="anonymous"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prova boh</title>
+    <title>InfoHealth</title>
+    <link rel="icon" href="../resources/images/logo4000x4000.png">
 </head>
 <body style="">
 <div id="container-floating">
     <a class="nd4 nds" data-toggle="modal" data-target="#modalViewAlimento">
-        <img class="reminder" src="../resources/icons/food24x24white.png">
+        <div class="tooltipss">
+            <span class="tooltiptextss">Aggiungi Alimento</span>
+            <img class="reminder" src="../resources/icons/food24x24white.png">
+        </div>
     </a>
 
     <a class="nd3 nds" data-toggle="modal" data-target="#modalViewAllenamento">
-        <img class="reminder" src="../resources/icons/running24x24white.png"/>
+        <div class="tooltipss">
+            <span class="tooltiptextss">Aggiungi Allenamento</span>
+            <img class="reminder" src="../resources/icons/running24x24white.png"/>
+        </div>
     </a>
 
     <a class="nd1 nds" data-toggle="modal" data-target="#modalViewPeso" style="color: #ffffff">
-        <img class="reminder" src="../resources/icons/scale24x24white.png"/>
+        <div class="tooltipss">
+            <span class="tooltiptextss">Aggiungi Peso</span>
+            <img class="reminder" title="Aggiungi Peso" src="../resources/icons/scale24x24white.png"/>
+        </div>
     </a>
 
     <div id="floating-button">
         <p class="plus">+</p>
+
         <img class="edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
     </div>
 </div>
@@ -107,7 +116,6 @@ if (!isset($_SESSION['user'])) {
                         echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
                    // }
                     ?>
-
 
                     <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
                          aria-labelledby="modalViewPeso" aria-hidden="true">
