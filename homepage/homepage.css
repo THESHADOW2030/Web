@@ -143,10 +143,17 @@ html, body {
 
 }
 
-.nav-menu{
 
-    padding: 0px;
+/*Do a media query*/
+@media (max-width: 991px) {
+    .nav-menu{
+
+        padding: 0px;
+
+    }
 
 }
+
+
 
 

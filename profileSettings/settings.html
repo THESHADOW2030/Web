@@ -34,43 +34,40 @@
                         <h4 class="logo">Impostazioni</h4>
                     </div>
                     <nav>
-                        <button class="btn btn-primary ">Save</button>
+                        <form action="annulla.php" method="post">
+                            <button class="btn btn-danger ">Annulla</button>
+                        </form>
                     </nav>
                 </header>
-                <button style="background: none;
-                                border: 0ch;">
-                <div class="profile"> <img src="../resources/images/saymon640x640.jpg" class="rounded-circle" width="80"> </div>
-                </button>
-                <br>
-                <br>
 
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
-                    <input type="text" class="form-control" id = "sername" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
+                <form method="post" action="settings.php" >
 
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
-                    <input type="text" class="form-control" id = "passwordUtente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-                
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
-                    <input type="text" class="form-control" id="emailUtente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Username</span>
+                        <input type="text" class="form-control" name="username" id = "username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
 
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Altezza</span>
-                    <input type="text" id="altezzaUtente" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Peso</span>
-                    <input type="text" id="pesoUtente" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Password</span>
+                        <input type="text" class="form-control" id = "passwordUtente" name="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
 
-                <button type="button" class="btn btn-primary btn-lg btn-block" style="width: 100%;">Save</button>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Email</span>
+                        <input type="text" class="form-control" id="emailUtente"name="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
 
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Altezza</span>
+                        <input type="text" id="altezzaUtente" class="form-control"name="altezza" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Peso</span>
+                        <input type="text" id="pesoUtente" class="form-control" name="peso" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
 
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" style="width: 100%;">Salva</button>
+                    </form>
 
             </div>
         </div>

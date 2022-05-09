@@ -6,7 +6,7 @@
 //TODO: fix top and button padding in nav class (they are actually different)
 //TODO: add icons inside cards
 //TODO: Idea: Add button to scroll down with animation (less important)
-
+//NON MOSTRARE IL PROGETTO CON LO USERNAME LUPOSAYMON. IL TESTO VIENE TAGLIATO
 session_start();
 //connect to database
 //$conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=password");
@@ -27,6 +27,7 @@ if (!isset($_SESSION['user'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../resources/images/logo4000x4000.png">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -41,7 +42,7 @@ if (!isset($_SESSION['user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prova boh</title>
 </head>
-<body>
+<body style="">
 <div id="container-floating">
     <a class="nd4 nds" data-toggle="modal" data-target="#modalViewAlimento">
         <img class="reminder" src="../resources/icons/food24x24white.png">
@@ -68,7 +69,7 @@ if (!isset($_SESSION['user'])) {
         <ul>
 
             <li><a href="#">Home</a></li>
-            <li><a href="#">Impostazioni</a></li>
+            <li><a href="../profileSettings/settings.html">Impostazioni</a></li>
             <li><a href="../php/logout.php">Logout</a></li>
         </ul>
     </div>
@@ -101,9 +102,10 @@ if (!isset($_SESSION['user'])) {
                     <?php
                     $q1 = "SELECT * FROM public.user_info WHERE username = $1";
                     $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-                    while ($rowUser_info = pg_fetch_assoc($result)) {
+                    $rowUser_info = pg_fetch_assoc($result);
+                   // while ($rowUser_info = pg_fetch_assoc($result)) {
                         echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
-                    }
+                   // }
                     ?>
 
 
