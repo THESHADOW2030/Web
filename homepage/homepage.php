@@ -96,7 +96,6 @@ if (!isset($_SESSION['user'])) {
 
 <!-- Modal -->
 <div class="modal fade" id="ImpostazioniModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <form method="post" action="settings.php" >
 
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -109,43 +108,35 @@ if (!isset($_SESSION['user'])) {
 
             <div class="modal-body">
 
+                <form method="post" id="formAliment" action="../php/updatePeso.php">
+                    <div class="modal-body">
+                        <div class="it-datepicker-wrapper theme-dark">
+                            <div class="form-group">
+                                <label for="pesoNuovo ">Username</label>
+                                <input class="form-control it-date-datepicker" id="pesoNuovo" name="pesoNuovo" type="text">
+                                <label for="password" style="padding-top: 15px">Password</label>
+                                <input class="form-control it-date-datepicker" id="password" name="password" type="number">
+                                <label for="email" style="padding-top: 15px">Email</label>
+                                <input class="form-control it-date-datepicker" id="email" name="email" type="email">
+                                <label for="altezza" style="padding-top: 15px">Altezza</label>
+                                <input class="form-control it-date-datepicker" id="altezza" name="altezza" type="number">
+                                <label for="peso" style="padding-top: 15px" >Peso</label>
+                                <input class="form-control it-date-datepicker" id="peso" name="peso" type="number">
 
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default" >Username</span>
-                        <input type="text" class="form-control" name="username" id = "username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default" >Password</span>
-                        <input type="text" class="form-control" id = "passwordUtente" name="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
+                        <button type="submit" class="btn btn-primary">Salva</button>
                     </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default" >Email</span>
-                        <input type="text" class="form-control" id="emailUtente"name="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default" >Altezza</span>
-                        <input type="text" id="altezzaUtente" class="form-control"name="altezza" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default" >Peso</span>
-                        <input type="text" id="pesoUtente" class="form-control" name="peso" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
+                </form>
 
 
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
-                <button type="button" class="btn btn-primary">Salva</button>
             </div>
         </div>
     </div>
-    </form>
+
 </div>
 
 <div class="jumbotron jumbotron-fluid">
