@@ -162,6 +162,8 @@ if (!isset($_SESSION['user'])) {
 
                 <div class="card-body">
                     <h3 class="card-title">Peso</h3>
+                    <div class="row">
+                        <div class="col-sm-6">
                     <?php
                     $q1 = "SELECT * FROM public.user_info WHERE username = $1";
                     $result = pg_query_params($conn, $q1, array($_SESSION['user']));
@@ -170,7 +172,11 @@ if (!isset($_SESSION['user'])) {
                         echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
                    // }
                     ?>
-
+                </div>
+                <div class="col-sm-6">
+                    <img class= "card-img" src="../resources/images/pizza6000x6000.png">
+                </div>
+            </div>
                     <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
                          aria-labelledby="modalViewPeso" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -209,30 +215,26 @@ if (!isset($_SESSION['user'])) {
                 <div class="card-body">
                     <h3 class="card-title">Calorie Bruciate</h3>
                     <div class="row">
+                        <div class="col-sm-6">
+                            <?php
+                            $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
 
 
-                    <div class="col-sm-6">
-                    <?php
-                    $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
+                            $result = pg_query_params($conn, $q1, array($_SESSION['user']));
 
+                            $totale = 0;
+                            while ($rowUser_info = pg_fetch_assoc($result)) {
 
-                    $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+                                $totale = $totale + $rowUser_info['calorie_bruciate'];
 
-                    $totale = 0;
-                    while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                        $totale = $totale + $rowUser_info['calorie_bruciate'];
-
-                    }
-                    echo '<p class="card-text">' . $totale . 'Kcal</p>';
-                    ?>
+                            }
+                            echo '<p class="card-text">' . $totale . 'Kcal</p>';
+                            ?>
+                        </div>
+                        <div class="col-sm-6">
+                            <img class= "card-img" src="../resources/images/fire6000x6000.png">
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                       test
-                    </div>
-                    </div>
-
-
                 </div>
             </div>
         </div>
@@ -240,6 +242,8 @@ if (!isset($_SESSION['user'])) {
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title ">Calorie Assunte</h3>
+                    <div class="row">
+                        <div class="col-sm-6">
                     <?php
                     $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
 
@@ -253,7 +257,11 @@ if (!isset($_SESSION['user'])) {
                     }
                     echo '<p class="card-text">' . $totale . 'Kcal</p>';
                     ?>
-
+                        </div>
+                        <div class="col-sm-6">
+                            <img class= "card-img" src="../resources/images/pizza6000x6000.png">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -261,6 +269,8 @@ if (!isset($_SESSION['user'])) {
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">Passi</h3>
+                    <div class="row">
+                        <div class="col-sm-6">
                     <?php
                     $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
 
@@ -275,6 +285,11 @@ if (!isset($_SESSION['user'])) {
                     }
                     echo '<p class="card-text">' . $totale . '</p>';
                     ?>
+                        </div>
+                        <div class="col-sm-6">
+                            <img class= "card-img" src="../resources/images/step6000x6000.png">
+                        </div>
+                    </div>
                     <!-- <a href="#" class="btn btn-primary float-right mybtn">Aggiorna</a> -->
                 </div>
             </div>
