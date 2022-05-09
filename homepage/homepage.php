@@ -1,8 +1,6 @@
 <?php
 //TODO: Add preselected arguments on modal views (example: preset day as actual day)
 //TODO: Execute php using ajax
-//TODO: Add favicon
-//TODO: Add homepage title
 //TODO: fix top and button padding in nav class (they are actually different)
 //TODO: add icons inside cards
 //TODO: Idea: Add button to scroll down with animation (less important)
@@ -39,20 +37,21 @@ if (!isset($_SESSION['user'])) {
             crossorigin="anonymous"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prova boh</title>
+    <title>InfoHealth</title>
+    <link rel="icon" href="../resources/images/logo4000x4000.png">
 </head>
 <body>
 <div id="container-floating">
     <a class="nd4 nds" data-toggle="modal" data-target="#modalViewAlimento">
-        <img class="reminder" src="../resources/icons/food24x24white.png">
+        <img class="reminder" title="Aggiungi Alimento" src="../resources/icons/food24x24white.png">
     </a>
 
     <a class="nd3 nds" data-toggle="modal" data-target="#modalViewAllenamento">
-        <img class="reminder" src="../resources/icons/running24x24white.png"/>
+        <img class="reminder" title="Aggiungi Allenamento" src="../resources/icons/running24x24white.png"/>
     </a>
 
     <a class="nd1 nds" data-toggle="modal" data-target="#modalViewPeso" style="color: #ffffff">
-        <img class="reminder" src="../resources/icons/scale24x24white.png"/>
+        <img class="reminder" title="Aggiungi Peso" src="../resources/icons/scale24x24white.png"/>
     </a>
 
     <div id="floating-button">
@@ -105,7 +104,6 @@ if (!isset($_SESSION['user'])) {
                         echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
                     }
                     ?>
-
 
                     <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
                          aria-labelledby="modalViewPeso" aria-hidden="true">

@@ -19,12 +19,6 @@ else
         $date = $_POST['dateAllenamento'];
 
 
-
-
-
-
-
-
     if (isset($_POST['attivita']))
         $attivita = $_POST['attivita'];
 
@@ -68,7 +62,4 @@ else
 
 
 }
-
-
-
 ?>
