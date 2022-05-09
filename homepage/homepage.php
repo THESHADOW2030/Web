@@ -43,19 +43,29 @@ if (!isset($_SESSION['user'])) {
 <body>
 <div id="container-floating">
     <a class="nd4 nds" data-toggle="modal" data-target="#modalViewAlimento">
-        <img class="reminder" title="Aggiungi Alimento" src="../resources/icons/food24x24white.png">
+        <div class="tooltipss">
+            <span class="tooltiptextss">Aggiungi Alimento</span>
+            <img class="reminder" src="../resources/icons/food24x24white.png">
+        </div>
     </a>
 
     <a class="nd3 nds" data-toggle="modal" data-target="#modalViewAllenamento">
-        <img class="reminder" title="Aggiungi Allenamento" src="../resources/icons/running24x24white.png"/>
+        <div class="tooltipss">
+            <span class="tooltiptextss">Aggiungi Allenamento</span>
+            <img class="reminder" src="../resources/icons/running24x24white.png"/>
+        </div>
     </a>
 
     <a class="nd1 nds" data-toggle="modal" data-target="#modalViewPeso" style="color: #ffffff">
-        <img class="reminder" title="Aggiungi Peso" src="../resources/icons/scale24x24white.png"/>
+        <div class="tooltipss">
+            <span class="tooltiptextss">Aggiungi Peso</span>
+            <img class="reminder" title="Aggiungi Peso" src="../resources/icons/scale24x24white.png"/>
+        </div>
     </a>
 
     <div id="floating-button">
         <p class="plus">+</p>
+
         <img class="edit" src="https://ssl.gstatic.com/bt/C3341AA7A1A076756462EE2E5CD71C11/1x/bt_compose2_1x.png">
     </div>
 </div>
