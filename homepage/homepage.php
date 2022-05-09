@@ -78,12 +78,75 @@ if (!isset($_SESSION['user'])) {
         <ul>
 
             <li><a href="#">Home</a></li>
-            <li><a href="../profileSettings/settings.html">Impostazioni</a></li>
+            <li>
+                <button type="button" class="li" data-toggle="modal" data-target="#ImpostazioniModal" style="background-color: transparent;
+                                                                                                        color: white;
+                                                                                                         font-size: 18px;
+                                                                                                         font-weight: bold;
+                                                                                                         border: none">
+                    Impostazioni
+                </button>
+
             <li><a href="../php/logout.php">Logout</a></li>
         </ul>
     </div>
 </div>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="ImpostazioniModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <form method="post" action="settings.php" >
+
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Impostazioni</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Username</span>
+                        <input type="text" class="form-control" name="username" id = "username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Password</span>
+                        <input type="text" class="form-control" id = "passwordUtente" name="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Email</span>
+                        <input type="text" class="form-control" id="emailUtente"name="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Altezza</span>
+                        <input type="text" id="altezzaUtente" class="form-control"name="altezza" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default" >Peso</span>
+                        <input type="text" id="pesoUtente" class="form-control" name="peso" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+                <button type="button" class="btn btn-primary">Salva</button>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
