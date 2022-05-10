@@ -193,6 +193,17 @@ html, body {
 .card-img
 {
     object-fit:cover;
+    width: 100%;
+    height: auto;
+}
+
+
+/*Do a media query where if the screen size if 559 then */
+@media (max-width: 576px) {
+    .card-img{
+        width: 24%;
+        height: auto;
+    }
 }
 
 
