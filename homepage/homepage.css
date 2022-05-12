@@ -146,11 +146,8 @@ html, body {
 /*Do a media query*/
 @media (max-width: 991px) {
     .nav-menu{
-
         padding: 0px;
-
     }
-
 }
 
 .tooltipss {
@@ -204,6 +201,15 @@ html, body {
         width: 24%;
         height: auto;
     }
+}
+
+@media (max-width: 394px) {
+
+    .nav-menu ul a {
+        margin: 0 10px;
+    }
+
+
 }
 
 
