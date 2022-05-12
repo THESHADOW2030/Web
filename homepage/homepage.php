@@ -176,7 +176,7 @@ if (!isset($_SESSION['user'])) {
                     ?>
                 </div>
                 <div class="col-sm-6">
-                    <img class= "card-img icona" src="../resources/images/pizza6000x6000.png">
+                    <img class= "card-img icona" src="../resources/icons/wight.png">
                 </div>
             </div>
                     <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
