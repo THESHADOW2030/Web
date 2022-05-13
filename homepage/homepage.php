@@ -100,8 +100,9 @@ if (!isset($_SESSION['user'])) {
 
 
 <!-- Modal -->
-<div class="modal fade" id="ImpostazioniModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <form method="post" action="settings.php" >
+<div class="modal fade" id="ImpostazioniModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <form method="post" action="settings.php">
 
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -114,19 +115,22 @@ if (!isset($_SESSION['user'])) {
 
                 <div class="modal-body">
 
-                    <form method="post" id="formAliment" action="../php/updatePeso.php">
+                    <form method="post" id="formSettings" action="../php/updatePeso.php">
                         <div class="modal-body">
                             <div class="it-datepicker-wrapper theme-dark">
                                 <div class="form-group">
                                     <label for="pesoNuovo ">Username</label>
-                                    <input class="form-control it-date-datepicker" id="pesoNuovo" name="pesoNuovo" type="text">
+                                    <input class="form-control it-date-datepicker" id="pesoNuovo" name="pesoNuovo"
+                                           type="text">
                                     <label for="password" style="padding-top: 15px">Password</label>
-                                    <input class="form-control it-date-datepicker" id="password" name="password" type="number">
+                                    <input class="form-control it-date-datepicker" id="password" name="password"
+                                           type="number">
                                     <label for="email" style="padding-top: 15px">Email</label>
                                     <input class="form-control it-date-datepicker" id="email" name="email" type="email">
                                     <label for="altezza" style="padding-top: 15px">Altezza</label>
-                                    <input class="form-control it-date-datepicker" id="altezza" name="altezza" type="number">
-                                    <label for="peso" style="padding-top: 15px" >Peso</label>
+                                    <input class="form-control it-date-datepicker" id="altezza" name="altezza"
+                                           type="number">
+                                    <label for="peso" style="padding-top: 15px">Peso</label>
                                     <input class="form-control it-date-datepicker" id="peso" name="peso" type="number">
 
                                 </div>
@@ -166,384 +170,210 @@ if (!isset($_SESSION['user'])) {
     </div>
 
 
+    <div class="grafico" style="">
+
+        <canvas id="pesoChart"></canvas>
+
+        <script>
+            const labels = [
+                'Gennaio',
+                'Febbraio',
+                'Marzo',
+                'Aprile',
+                'Maggio',
+                'Giugno',
+                'Luglio',
+                'Agosto',
+                'Settembre',
+                'Ottobre',
+                'Novembre',
+                'Dicembre',
+
+            ];
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Peso',
+                    backgroundColor: 'rgb(0, 0, 0)',
+                    borderColor: 'rgb(0, 0, 0)',
+                    data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 80],
+                }]
+            };
+
+            const config = {
+                type: 'line',
+                data: data,
+                options: {}
+            };
+        </script>
+        <script>
+            const pesoChart = new Chart(
+                document.getElementById('pesoChart'),
+                config
+            );
+        </script>
 
 
+    </div>
 
 
-    <div class="row cards">
-        <div class="col-sm-3">
-            <div class="card">
+    <div id="row-cards">
+        <div class="row cards">
+            <div class="col-sm-3">
+                <div class="card">
 
-                <div class="card-body">
-                    <h3 class="card-title">Peso</h3>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <?php
-                            $q1 = "SELECT * FROM public.user_info WHERE username = $1";
-                            $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-                            // $rowUser_info = pg_fetch_assoc($result);
-                            $peso = 0;
-                            $data = 0;
-
-
-                            while ($rowUser_info = pg_fetch_assoc($result)) {
-                                //echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
-                                if ($rowUser_info['data'] > $data) {
-                                    $peso = $rowUser_info['peso'];
-                                    $data = $rowUser_info['data'];
+                    <div class="card-body">
+                        <h3 class="card-title">Peso</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <?php
+                                $q1 = "SELECT * FROM public.user_info WHERE username = $1";
+                                $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+                                // $rowUser_info = pg_fetch_assoc($result);
+                                $peso = 0;
+                                $data = 0;
 
 
+                                while ($rowUser_info = pg_fetch_assoc($result)) {
+                                    //echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
+                                    if ($rowUser_info['data'] > $data) {
+                                        $peso = $rowUser_info['peso'];
+                                        $data = $rowUser_info['data'];
+                                    }
+
+                                    // echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
                                 }
+                                echo '<p class="card-text">' . $peso . 'Kg</p>';
 
-                                // echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
-                            }
-                            echo '<p class="card-text">' . $peso . 'Kg</p>';
-
-                            ?>
+                                ?>
+                            </div>
+                            <div class="col-sm-6">
+                                <img class="card-img icona" src="../resources/icons/wight.png">
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <img class= "card-img icona" src="../resources/icons/wight.png">
-                        </div>
-                    </div>
-                    <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
-                         aria-labelledby="modalViewPeso" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Peso</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form method="post" id="formWeight" action="../php/updatePeso.php">
-                                    <div class="modal-body">
-                                        <div class="it-datepicker-wrapper theme-dark">
-                                            <div class="form-group">
-                                                <label for="DataPesoNuovo ">Data</label>
-                                                <input class="form-control it-date-datepicker" id="dataPesoNuovo"
-                                                       name="dataPesoNuovo" type="date">
-                                                <label for="pesoNuovo ">Nuovo Peso</label>
-                                                <input class="form-control it-date-datepicker" id="pesoNuovo"
-                                                       name="pesoNuovo" type="number">
-
+                        <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
+                             aria-labelledby="modalViewPeso" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Peso</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form method="post" id="formWeight" onsubmit="return sendWeight();"
+                                          action="../php/updatePeso.php">
+                                        <div class="modal-body">
+                                            <div class="it-datepicker-wrapper theme-dark">
+                                                <div class="form-group">
+                                                    <label for="DataPesoNuovo ">Data</label>
+                                                    <input class="form-control it-date-datepicker" id="dataPesoNuovo"
+                                                           name="dataPesoNuovo" type="date">
+                                                    <label for="pesoNuovo ">Nuovo Peso</label>
+                                                    <input class="form-control it-date-datepicker" id="pesoNuovo"
+                                                           name="pesoNuovo" type="number">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta
-                                        </button>
-                                        <button type="submit" class="btn btn-primary">Aggiorna Peso</button>
-                                    </div>
-                                </form>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta
+                                            </button>
+                                            <button type="submit" class="btn btn-primary">Aggiorna Peso</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Calorie Bruciate</h3>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <?php
-                            $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Calorie Bruciate</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <?php
+                                $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
 
 
-                            $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+                                $result = pg_query_params($conn, $q1, array($_SESSION['user']));
 
-                            $totale = 0;
-                            while ($rowUser_info = pg_fetch_assoc($result)) {
+                                $totale = 0;
+                                while ($rowUser_info = pg_fetch_assoc($result)) {
 
-                                $totale = $totale + $rowUser_info['calorie_bruciate'];
+                                    $totale = $totale + $rowUser_info['calorie_bruciate'];
 
-                            }
-                            echo '<p class="card-text">' . $totale . 'Kcal</p>';
-                            ?>
-                        </div>
-                        <div class="col-sm-6">
-                            <img class= "card-img" src="../resources/images/fire6000x6000.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title ">Calorie Assunte</h3>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <?php
-                            $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
-
-                            $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-                            $totale = 0;
-                            while ($rowUser_info = pg_fetch_assoc($result)) {
-
-
-                                $totale = $totale + $rowUser_info['calorie_assunte'];
-
-                            }
-                            echo '<p class="card-text">' . $totale . 'Kcal</p>';
-                            ?>
-                        </div>
-                        <div class="col-sm-6">
-                            <img class= "card-img" src="../resources/images/pizza6000x6000.png">
+                                }
+                                echo '<p class="card-text">' . $totale . 'Kcal</p>';
+                                ?>
+                            </div>
+                            <div class="col-sm-6">
+                                <img class="card-img" src="../resources/images/fire6000x6000.png">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Passi</h3>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <?php
-                            $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title ">Calorie Assunte</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <?php
+                                $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
+
+                                $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+                                $totale = 0;
+                                while ($rowUser_info = pg_fetch_assoc($result)) {
 
 
-                            $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+                                    $totale = $totale + $rowUser_info['calorie_assunte'];
 
-                            $totale = 0;
-                            while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                $totale = $totale + $rowUser_info['passi'];
-
-                            }
-                            echo '<p class="card-text">' . $totale . '</p>';
-                            ?>
-                        </div>
-                        <div class="col-sm-6">
-                            <img class= "card-img" src="../resources/images/step6000x6000.png">
+                                }
+                                echo '<p class="card-text">' . $totale . 'Kcal</p>';
+                                ?>
+                            </div>
+                            <div class="col-sm-6">
+                                <img class="card-img" src="../resources/images/pizza6000x6000.png">
+                            </div>
                         </div>
                     </div>
-                    <!-- <a href="#" class="btn btn-primary float-right mybtn">Aggiorna</a> -->
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Passi</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <?php
+                                $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
+
+
+                                $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+
+                                $totale = 0;
+                                while ($rowUser_info = pg_fetch_assoc($result)) {
+
+                                    $totale = $totale + $rowUser_info['passi'];
+
+                                }
+                                echo '<p class="card-text">' . $totale . '</p>';
+                                ?>
+                            </div>
+                            <div class="col-sm-6">
+                                <img class="card-img" src="../resources/images/step6000x6000.png">
+                            </div>
+                        </div>
+                        <!-- <a href="#" class="btn btn-primary float-right mybtn">Aggiorna</a> -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-    <div class="grafico" style="padding: 0px 15px; width: 90%">
-
-        <div class="row">
-            <div class="col-md-6">
-                <canvas id="pesoChart" ></canvas>
-
-                <script>
-                    const labels = [
-                        'Gennaio',
-                        'Febbraio',
-                        'Marzo',
-                        'Aprile',
-                        'Maggio',
-                        'Giugno',
-                        'Luglio',
-                        'Agosto',
-                        'Settembre',
-                        'Ottobre',
-                        'Novembre',
-                        'Dicembre',
-
-                    ];
-
-                    const data = {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Peso',
-                            backgroundColor: 'rgb(0, 0, 0)',
-                            borderColor: 'rgb(0, 0, 0)',
-                            data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 85],
-                        }]
-                    };
-
-                    const config = {
-                        type: 'line',
-                        data: data,
-                        options: {}
-                    };
-                </script>
-                <script>
-                    const pesoChart = new Chart(
-                        document.getElementById('pesoChart'),
-                        config
-                    );
-                </script>
-
-
-
-
-
-
-
-
-
-              </div>
-        <div class="col-md-6">
-
-
-            <canvas id="calorieBruciateChart" ></canvas>
-
-            <script>
-                const labels = [
-                    'Gennaio',
-                    'Febbraio',
-                    'Marzo',
-                    'Aprile',
-                    'Maggio',
-                    'Giugno',
-                    'Luglio',
-                    'Agosto',
-                    'Settembre',
-                    'Ottobre',
-                    'Novembre',
-                    'Dicembre',
-
-                ];
-
-                const data = {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Peso',
-                        backgroundColor: 'rgb(0, 0, 0)',
-                        borderColor: 'rgb(0, 0, 0)',
-                        data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 80],
-                    }]
-                };
-
-                const config = {
-                    type: 'line',
-                    data: data,
-                    options: {}
-                };
-            </script>
-            <script>
-                const calorieBruciateChart = new Chart(
-                    document.getElementById('calorieBruciateChart'),
-                    config
-                );
-            </script>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <canvas id="calorieAssunteChart" ></canvas>
-
-                <script>
-                    const labels = [
-                        'Gennaio',
-                        'Febbraio',
-                        'Marzo',
-                        'Aprile',
-                        'Maggio',
-                        'Giugno',
-                        'Luglio',
-                        'Agosto',
-                        'Settembre',
-                        'Ottobre',
-                        'Novembre',
-                        'Dicembre',
-
-                    ];
-
-                    const data = {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Peso',
-                            backgroundColor: 'rgb(0, 0, 0)',
-                            borderColor: 'rgb(0, 0, 0)',
-                            data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 80],
-                        }]
-                    };
-
-                    const config = {
-                        type: 'line',
-                        data: data,
-                        options: {}
-                    };
-                </script>
-                <script>
-                    const calorieAssunteChart = new Chart(
-                        document.getElementById('calorieAssunteChart'),
-                        config
-                    );
-                </script>
-
-
-
-
-
-
-
-
-
-            </div>
-            <div class="col-md-6">
-
-
-                <canvas id="passiChart" ></canvas>
-
-                <script>
-                    const labels = [
-                        'Gennaio',
-                        'Febbraio',
-                        'Marzo',
-                        'Aprile',
-                        'Maggio',
-                        'Giugno',
-                        'Luglio',
-                        'Agosto',
-                        'Settembre',
-                        'Ottobre',
-                        'Novembre',
-                        'Dicembre',
-
-                    ];
-
-                    const data = {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Peso',
-                            backgroundColor: 'rgb(0, 0, 0)',
-                            borderColor: 'rgb(0, 0, 0)',
-                            data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 80],
-                        }]
-                    };
-
-                    const config = {
-                        type: 'line',
-                        data: data,
-                        options: {}
-                    };
-                </script>
-                <script>
-                    const passiChart = new Chart(
-                        document.getElementById('passiChart'),
-                        config
-                    );
-                </script>
-
-            </div>
-        </div>
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
 
 </div>
 
@@ -556,40 +386,39 @@ if (!isset($_SESSION['user'])) {
         <div class="card-body">
             <h3 class="card-title">Storico Allenamenti</h3>
 
-
-            <div class="table-responsive  table-striped table-borderless table-hover">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th scope="col">Data</th>
-
-                        <th scope="col">Attività</th>
-                        <th scope="col">Calorie Bruciate</th>
-                        <th scope="col">Durata Minuti</th>
-
-                    </tr>
-                    </thead>
-                    <tbody name="bodyAllenamento" id = "bodyAllenamento">
+            <div id="table-attivita">
+                <div class="table-responsive  table-striped table-borderless table-hover">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th scope="col">Data</th>
+                            <th scope="col">Attività</th>
+                            <th scope="col">Calorie Bruciate</th>
+                            <th scope="col">Durata Minuti</th>
+                        </tr>
+                        </thead>
+                        <tbody name="bodyAllenamento" id="bodyAllenamento">
 
 
-                    <?php
-                    $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
-                    $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+                        <?php
+                        $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
+                        $result = pg_query_params($conn, $q1, array($_SESSION['user']));
 
-                    while ($rowUser_info = pg_fetch_assoc($result)) {
-                        echo '<tr>';
-                        echo '<td>' . $rowUser_info['data'] . '</td>';
-                        echo '<td>' . $rowUser_info['activity'] . '</td>';
-                        echo '<td>' . $rowUser_info['calorie_bruciate'] . '</td>';
-                        echo '<td>' . $rowUser_info['durata_minuti'] . '</td>';
-                        echo '</tr>';
+                        while ($rowUser_info = pg_fetch_assoc($result)) {
+                            echo '<tr>';
+                            echo '<td>' . $rowUser_info['data'] . '</td>';
+                            echo '<td>' . $rowUser_info['activity'] . '</td>';
+                            echo '<td>' . $rowUser_info['calorie_bruciate'] . '</td>';
+                            echo '<td>' . $rowUser_info['durata_minuti'] . '</td>';
+                            echo '</tr>';
 
-                    }
+                        }
 
-                    ?>
+                        ?>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>
@@ -609,41 +438,42 @@ if (!isset($_SESSION['user'])) {
         <div class="card-body">
             <h3 class="card-title">Alimenti Mangiati</h3>
 
-
-            <div class="table-responsive table-striped table-borderless table-hover" id="table-alimenti">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th scope="col">Data</th>
-                        <th scope="col">Orario</th>
-                        <th scope="col">Alimento</th>
-                        <th scope="col">Calorie Assunte</th>
-
-
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <?php
-                    $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
-                    $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-
-                    while ($rowUser_info = pg_fetch_assoc($result)) {
-                        echo '<tr>';
-                        echo '<td>' . $rowUser_info['data'] . '</td>';
-                        echo '<td>' . $rowUser_info['ora'] . '</td>';
-
-                        echo '<td>' . $rowUser_info['alimento'] . '</td>';
-                        echo '<td>' . $rowUser_info['calorie_assunte'] . '</td>';
-                        echo '</tr>';
-
-                    }
-
-                    ?>
+            <div id="table-alimenti">
+                <div class="table-responsive table-striped table-borderless table-hover">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th scope="col">Data</th>
+                            <th scope="col">Orario</th>
+                            <th scope="col">Alimento</th>
+                            <th scope="col">Calorie Assunte</th>
 
 
-                    </tbody>
-                </table>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <?php
+                        $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
+                        $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+
+                        while ($rowUser_info = pg_fetch_assoc($result)) {
+                            echo '<tr>';
+                            echo '<td>' . $rowUser_info['data'] . '</td>';
+                            echo '<td>' . $rowUser_info['ora'] . '</td>';
+
+                            echo '<td>' . $rowUser_info['alimento'] . '</td>';
+                            echo '<td>' . $rowUser_info['calorie_assunte'] . '</td>';
+                            echo '</tr>';
+
+                        }
+
+                        ?>
+
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
 
@@ -668,7 +498,8 @@ if (!isset($_SESSION['user'])) {
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" id="" action="../php/insertItemsInuser_activity.php">
+            <form method="post" id="formActivity" onsubmit="return sendActivity();"
+                  action="../php/insertItemsInuser_activity.php">
 
                 <div class="modal-body">
                     <div class="it-datepicker-wrapper theme-dark">
@@ -715,7 +546,8 @@ if (!isset($_SESSION['user'])) {
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" id="formAliment" onsubmit="return sendAliment();" action="../php/insertItemsInuser_alimenti.php">
+            <form method="post" id="formAliment" onsubmit="return sendAliment();"
+                  action="../php/insertItemsInuser_alimenti.php">
                 <div class="modal-body">
                     <div class="it-datepicker-wrapper theme-dark">
                         <div class="form-group">
@@ -752,20 +584,20 @@ if (!isset($_SESSION['user'])) {
         <div class="rwd-video">
             <?php
 
-            $myMagicNumber = rand(0,3);
+            $myMagicNumber = rand(0, 3);
 
             if ($myMagicNumber == 0) {
                 echo '<iframe width="886" height="498" src="https://www.youtube.com/embed/tmmwtLWLBlI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             } elseif ($myMagicNumber == 1) {
                 echo '<iframe width="768" height="752" src="https://www.youtube.com/embed/Auo8veVyRIY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-            }elseif ($myMagicNumber == 2) {
+            } elseif ($myMagicNumber == 2) {
                 echo '<iframe width="956" height="538" src="https://www.youtube.com/embed/UItWltVZZmE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-            }elseif ($myMagicNumber == 3) {
+            } elseif ($myMagicNumber == 3) {
                 echo '<iframe width="956" height="538" src="https://www.youtube.com/embed/UheajlsZ72E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
             }
 
-            $arrayVideo = array("https://www.youtube.com/embed/Auo8veVyRIY","https://www.youtube.com/embed/tmmwtLWLBlI");
+            $arrayVideo = array("https://www.youtube.com/embed/Auo8veVyRIY", "https://www.youtube.com/embed/tmmwtLWLBlI");
 
             //$randomVideo = $arrayVideo[array_rand($arrayVideo, 1)];
             //echo $randomVideo;
