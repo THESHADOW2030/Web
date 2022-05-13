@@ -11,6 +11,7 @@ function sendAliment()
         success: function(response)
         {
             $('#table-alimenti').load('homepage.php #table-alimenti');
+
         },
         error: function(xhr, status, error)
         {

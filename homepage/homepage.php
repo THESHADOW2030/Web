@@ -509,7 +509,8 @@ if (!isset($_SESSION['user'])) {
 </div>
 
 
-<div class="table-responsive table-dark table-striped table-borderless table-hover" id="table-alimenti">
+<div id="table-alimenti">
+    <div class="table-responsive table-dark table-striped table-borderless table-hover">
     <table class="table table-striped table-sm">
         <thead>
         <tr>
@@ -543,6 +544,7 @@ if (!isset($_SESSION['user'])) {
 
         </tbody>
     </table>
+</div>
 </div>
 
 
