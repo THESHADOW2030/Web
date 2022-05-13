@@ -211,4 +211,23 @@ html, body {
 }
 
 
+.grafico{
+    display: inline-block;
+
+}
+
+@media (min-width: 800px) {
+    /*Selettore preso da "ispeziona elemento" da google chrome*/
+    .grafico{
+        width: 800px;
+        justify-content: center;
+
+
+
+    }
+}
+
+
+
+
 
