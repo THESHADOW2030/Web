@@ -222,16 +222,20 @@ if (!isset($_SESSION['user'])) {
                             <?php
                             $q1 = "SELECT * FROM public.user_info WHERE username = $1";
                             $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-                            $rowUser_info = pg_fetch_assoc($result);
+                           // $rowUser_info = pg_fetch_assoc($result);
                             $peso = 0;
                             $data = 0;
+
+
                             while ($rowUser_info = pg_fetch_assoc($result)) {
                                 //echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
                                 if ($rowUser_info['data'] > $data) {
                                     $peso = $rowUser_info['peso'];
                                     $data = $rowUser_info['data'];
 
+
                                 }
+
                                 // echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
                             }
                             echo '<p class="card-text">' . $peso . 'Kg</p>';
