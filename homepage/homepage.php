@@ -53,7 +53,7 @@ if (!isset($_SESSION['user'])) {
         </div>
     </a>
 
-    <a class="nd3 nds" data-toggle="modal" data-target="#modalViewAllenamento">
+    <a class="nd3 nds" data-toggle="modal" data-target="#modalViewAttivita">
         <div class="tooltipss">
             <span class="tooltiptextss">Aggiungi Allenamento</span>
             <img class="reminder" src="../resources/icons/running24x24white.png"/>
@@ -382,8 +382,8 @@ if (!isset($_SESSION['user'])) {
     <div class="col-sm-6">
         <!-- Button trigger modal -->
 
-        <div class="modal fade" id="modalViewAllenamento" tabindex="-1" role="dialog"
-             aria-labelledby="modalViewAllenamentoTitle" aria-hidden="true">
+        <div class="modal fade" id="modalViewAttivita" tabindex="-1" role="dialog"
+             aria-labelledby="modalViewAttivitaTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -392,7 +392,7 @@ if (!isset($_SESSION['user'])) {
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="post" id="" action="../php/insertItemsInuser_activity.php">
+                    <form method="post" id="formActivity" onsubmit="return sendActivity();"action="../php/insertItemsInuser_activity.php">
 
                         <div class="modal-body">
                             <div class="it-datepicker-wrapper theme-dark">
@@ -429,6 +429,7 @@ if (!isset($_SESSION['user'])) {
     </div>
 </div>
 
+<div id="table-attivita">
 <div class="table-responsive table-dark table-striped table-borderless table-hover">
     <table class="table table-striped table-sm">
         <thead>
@@ -463,7 +464,7 @@ if (!isset($_SESSION['user'])) {
         </tbody>
     </table>
 </div>
-
+</div>
 
 <div class="row" style="margin: 30px;">
     <div class="col-sm-6">
@@ -509,7 +510,8 @@ if (!isset($_SESSION['user'])) {
 </div>
 
 
-<div class="table-responsive table-dark table-striped table-borderless table-hover" id="table-alimenti">
+<div id="table-alimenti">
+    <div class="table-responsive table-dark table-striped table-borderless table-hover">
     <table class="table table-striped table-sm">
         <thead>
         <tr>
@@ -543,6 +545,7 @@ if (!isset($_SESSION['user'])) {
 
         </tbody>
     </table>
+</div>
 </div>
 
 
