@@ -167,21 +167,28 @@ if (!isset($_SESSION['user'])) {
 
         <script>
             const labels = [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
+                'Gennaio',
+                'Febbraio',
+                'Marzo',
+                'Aprile',
+                'Maggio',
+                'Giugno',
+                'Luglio',
+                'Agosto',
+                'Settembre',
+                'Ottobre',
+                'Novembre',
+                'Dicembre',
+
             ];
 
             const data = {
                 labels: labels,
                 datasets: [{
                     label: 'Peso',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: [0, 10, 5, 2, 20, 30, 45],
+                    backgroundColor: 'rgb(0, 0, 0)',
+                    borderColor: 'rgb(0, 0, 0)',
+                    data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 80],
                 }]
             };
 
