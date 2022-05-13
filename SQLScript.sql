@@ -12,11 +12,9 @@ alter table users
 
 create table user_info
 (
-    username          char(255),
-    peso              integer default 0,
-    passi             integer default 0,
-    "calorieBruciate" integer default 0,
-    "calorieAssunte"  integer default 0
+    username char(255),
+    peso     integer default 0,
+    data     date
 );
 
 comment on table user_info is 'Qui ci saranno le informazioni sul peso, sui passi e sulle calorie bruciate e assunte
