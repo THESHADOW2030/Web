@@ -36,6 +36,7 @@ if (!isset($_SESSION['user'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+    <script src="../jquery/homepage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
@@ -100,47 +101,52 @@ if (!isset($_SESSION['user'])) {
 
 <!-- Modal -->
 <div class="modal fade" id="ImpostazioniModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <form method="post" action="settings.php" >
 
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Impostazioni</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Impostazioni</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
-            <div class="modal-body">
+                <div class="modal-body">
 
-                <form method="post" id="formAliment" action="../php/updatePeso.php">
-                    <div class="modal-body">
-                        <div class="it-datepicker-wrapper theme-dark">
-                            <div class="form-group">
-                                <label for="pesoNuovo ">Username</label>
-                                <input class="form-control it-date-datepicker" id="pesoNuovo" name="pesoNuovo" type="text">
-                                <label for="password" style="padding-top: 15px">Password</label>
-                                <input class="form-control it-date-datepicker" id="password" name="password" type="number">
-                                <label for="email" style="padding-top: 15px">Email</label>
-                                <input class="form-control it-date-datepicker" id="email" name="email" type="email">
-                                <label for="altezza" style="padding-top: 15px">Altezza</label>
-                                <input class="form-control it-date-datepicker" id="altezza" name="altezza" type="number">
-                                <label for="peso" style="padding-top: 15px" >Peso</label>
-                                <input class="form-control it-date-datepicker" id="peso" name="peso" type="number">
+                    <form method="post" id="formAliment" action="../php/updatePeso.php">
+                        <div class="modal-body">
+                            <div class="it-datepicker-wrapper theme-dark">
+                                <div class="form-group">
+                                    <label for="pesoNuovo ">Username</label>
+                                    <input class="form-control it-date-datepicker" id="pesoNuovo" name="pesoNuovo" type="text">
+                                    <label for="password" style="padding-top: 15px">Password</label>
+                                    <input class="form-control it-date-datepicker" id="password" name="password" type="number">
+                                    <label for="email" style="padding-top: 15px">Email</label>
+                                    <input class="form-control it-date-datepicker" id="email" name="email" type="email">
+                                    <label for="altezza" style="padding-top: 15px">Altezza</label>
+                                    <input class="form-control it-date-datepicker" id="altezza" name="altezza" type="number">
+                                    <label for="peso" style="padding-top: 15px" >Peso</label>
+                                    <input class="form-control it-date-datepicker" id="peso" name="peso" type="number">
 
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
-                        <button type="submit" class="btn btn-primary">Salva</button>
-                    </div>
-                </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
+                            <button type="submit" class="btn btn-primary">Salva</button>
+                        </div>
+                    </form>
 
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+                    <button type="button" class="btn btn-primary">Salva</button>
+                </div>
             </div>
         </div>
-    </div>
-
+    </form>
 </div>
 
 <div class="jumbotron jumbotron-fluid">
@@ -148,7 +154,7 @@ if (!isset($_SESSION['user'])) {
         <?php
         // echo $_SESSION['user'];
         if (isset($_SESSION['user'])) {
-            echo '<h1 class="display-3 main-title" style="padding: 90px 0px 0px 0px">Benvenuto ' . $_SESSION['user'] . '</h1>';
+            echo '<h1 class="display-3 main-title" style="padding: 50px 0px 0px 0px">Benvenuto ' . $_SESSION['user'] . '</h1>';
         } else {
             echo '<h1 class="display-4">Benvenuto</h1>';
         }
@@ -222,18 +228,22 @@ if (!isset($_SESSION['user'])) {
                             <?php
                             $q1 = "SELECT * FROM public.user_info WHERE username = $1";
                             $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-                            $rowUser_info = pg_fetch_assoc($result);
+                            // $rowUser_info = pg_fetch_assoc($result);
                             $peso = 0;
                             $data = 0;
-                             while ($rowUser_info = pg_fetch_assoc($result)) {
-                            //echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
-                                 if ($rowUser_info['data'] > $data) {
-                                     $peso = $rowUser_info['peso'];
-                                     $data = $rowUser_info['data'];
 
-                                 }
+
+                            while ($rowUser_info = pg_fetch_assoc($result)) {
+                                //echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
+                                if ($rowUser_info['data'] > $data) {
+                                    $peso = $rowUser_info['peso'];
+                                    $data = $rowUser_info['data'];
+
+
+                                }
+
                                 // echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
-                             }
+                            }
                             echo '<p class="card-text">' . $peso . 'Kg</p>';
 
                             ?>
@@ -252,7 +262,7 @@ if (!isset($_SESSION['user'])) {
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form method="post" id="formAliment" action="../php/updatePeso.php">
+                                <form method="post" id="formWeight" action="../php/updatePeso.php">
                                     <div class="modal-body">
                                         <div class="it-datepicker-wrapper theme-dark">
                                             <div class="form-group">
@@ -365,12 +375,117 @@ if (!isset($_SESSION['user'])) {
     </div>
 
 </div>
-<div class="row" style="margin: 30px;">
-    <div class="col-sm-6">
-        <h2>Storico Allenamenti</h2>
+
+
+<div class="containerTableCards">
+
+<div class="card cardTable">
+
+
+    <div class="card-body">
+        <h3 class="card-title">Storico Allenamenti</h3>
+
+
+        <div class="table-responsive  table-striped table-borderless table-hover">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th scope="col">Data</th>
+
+                    <th scope="col">Attività</th>
+                    <th scope="col">Calorie Bruciate</th>
+                    <th scope="col">Durata Minuti</th>
+
+                </tr>
+                </thead>
+                <tbody name="bodyAllenamento" id = "bodyAllenamento">
+
+
+                <?php
+                $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
+                $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+
+                while ($rowUser_info = pg_fetch_assoc($result)) {
+                    echo '<tr>';
+                    echo '<td>' . $rowUser_info['data'] . '</td>';
+                    echo '<td>' . $rowUser_info['activity'] . '</td>';
+                    echo '<td>' . $rowUser_info['calorie_bruciate'] . '</td>';
+                    echo '<td>' . $rowUser_info['durata_minuti'] . '</td>';
+                    echo '</tr>';
+
+                }
+
+                ?>
+
+                </tbody>
+            </table>
+        </div>
+
     </div>
-    <div class="col-sm-6">
-        <!-- Button trigger modal -->
+</div>
+
+
+</div>
+
+
+
+
+<div class="containerTableCards">
+
+<div class="card cardTable">
+
+
+    <div class="card-body">
+        <h3 class="card-title">Alimenti Mangiati</h3>
+
+
+        <div class="table-responsive table-striped table-borderless table-hover" id="table-alimenti">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Orario</th>
+                    <th scope="col">Alimento</th>
+                    <th scope="col">Calorie Assunte</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+
+                <?php
+                $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
+                $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+
+                while ($rowUser_info = pg_fetch_assoc($result)) {
+                    echo '<tr>';
+                    echo '<td>' . $rowUser_info['data'] . '</td>';
+                    echo '<td>' . $rowUser_info['ora'] . '</td>';
+
+                    echo '<td>' . $rowUser_info['alimento'] . '</td>';
+                    echo '<td>' . $rowUser_info['calorie_assunte'] . '</td>';
+                    echo '</tr>';
+
+                }
+
+                ?>
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+</div>
+
+
 
         <div class="modal fade" id="modalViewAllenamento" tabindex="-1" role="dialog"
              aria-labelledby="modalViewAllenamentoTitle" aria-hidden="true">
@@ -416,50 +531,9 @@ if (!isset($_SESSION['user'])) {
             </div>
         </div>
         <!-- <a href="#" class="btn btn-dark float-right ">Aggiungi Allenamento</a> -->
-    </div>
-</div>
-
-<div class="table-responsive table-dark table-striped table-borderless table-hover">
-    <table class="table table-striped table-sm">
-        <thead>
-        <tr>
-            <th scope="col">Data</th>
-
-            <th scope="col">Attività</th>
-            <th scope="col">Calorie Bruciate</th>
-            <th scope="col">Durata Minuti</th>
-
-        </tr>
-        </thead>
-        <tbody name="bodyAllenamento" id = "bodyAllenamento">
 
 
-        <?php
-        $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
-        $result = pg_query_params($conn, $q1, array($_SESSION['user']));
 
-        while ($rowUser_info = pg_fetch_assoc($result)) {
-            echo '<tr>';
-            echo '<td>' . $rowUser_info['data'] . '</td>';
-            echo '<td>' . $rowUser_info['activity'] . '</td>';
-            echo '<td>' . $rowUser_info['calorie_bruciate'] . '</td>';
-            echo '<td>' . $rowUser_info['durata_minuti'] . '</td>';
-            echo '</tr>';
-
-        }
-
-        ?>
-
-        </tbody>
-    </table>
-</div>
-
-
-<div class="row" style="margin: 30px;">
-    <div class="col-sm-6">
-        <h2>Alimenti Mangiati</h2>
-    </div>
-    <div class="col-sm-6">
         <div class="modal fade" id="modalViewAlimento" tabindex="-1" role="dialog" aria-labelledby="modalViewAlimento"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -470,7 +544,7 @@ if (!isset($_SESSION['user'])) {
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="post" id="formAliment" action="../php/insertItemsInuser_alimenti.php">
+                    <form method="post" id="formAliment" onsubmit="return sendAliment();" action="../php/insertItemsInuser_alimenti.php">
                         <div class="modal-body">
                             <div class="it-datepicker-wrapper theme-dark">
                                 <div class="form-group">
@@ -495,45 +569,8 @@ if (!isset($_SESSION['user'])) {
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
 
-<div class="table-responsive table-dark table-striped table-borderless table-hover">
-    <table class="table table-striped table-sm">
-        <thead>
-        <tr>
-            <th scope="col">Data</th>
-            <th scope="col">Orario</th>
-            <th scope="col">Alimento</th>
-            <th scope="col">Calorie Assunte</th>
-
-
-        </tr>
-        </thead>
-        <tbody>
-
-        <?php
-        $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
-        $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-
-        while ($rowUser_info = pg_fetch_assoc($result)) {
-            echo '<tr>';
-            echo '<td>' . $rowUser_info['data'] . '</td>';
-            echo '<td>' . $rowUser_info['ora'] . '</td>';
-
-            echo '<td>' . $rowUser_info['alimento'] . '</td>';
-            echo '<td>' . $rowUser_info['calorie_assunte'] . '</td>';
-            echo '</tr>';
-
-        }
-
-        ?>
-
-
-        </tbody>
-    </table>
-</div>
 
 
 

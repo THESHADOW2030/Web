@@ -1,5 +1,5 @@
 th, td{
-    color: white;
+
 }
 
 html, body {
@@ -198,7 +198,7 @@ html, body {
 /*Do a media query where if the screen size if 559 then */
 @media (max-width: 576px) {
     .card-img{
-        width: 24%;
+        width: 20%;
         height: auto;
     }
 }
@@ -231,6 +231,18 @@ html, body {
 
 
     }
+}
+
+
+
+.cardTable {
+    max-height: 99999px;
+
+}
+
+
+.containerTableCards{
+    padding: 15px;
 }
 
 
