@@ -465,9 +465,11 @@
 .containerHazem{
     display: flex;
     flex-wrap: wrap;
+
+
 }
 
 .itemHazem{
-    flex:  1 1 150px;
+    warp: 1 1 150px;
 }
 
