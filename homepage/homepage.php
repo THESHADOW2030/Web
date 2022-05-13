@@ -36,6 +36,7 @@ if (!isset($_SESSION['user'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+    <script src="../jquery/homepage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
@@ -100,6 +101,7 @@ if (!isset($_SESSION['user'])) {
 
 <!-- Modal -->
 <div class="modal fade" id="ImpostazioniModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <form method="post" action="settings.php" >
 
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -138,9 +140,13 @@ if (!isset($_SESSION['user'])) {
 
 
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
+                <button type="button" class="btn btn-primary">Salva</button>
+            </div>
         </div>
     </div>
-
+    </form>
 </div>
 
 <div class="jumbotron jumbotron-fluid">
@@ -474,7 +480,7 @@ if (!isset($_SESSION['user'])) {
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="post" id="formAliment" action="../php/insertItemsInuser_alimenti.php">
+                    <form method="post" id="formAliment" onsubmit="return sendAliment();" action="../php/insertItemsInuser_alimenti.php">
                         <div class="modal-body">
                             <div class="it-datepicker-wrapper theme-dark">
                                 <div class="form-group">
@@ -503,7 +509,7 @@ if (!isset($_SESSION['user'])) {
 </div>
 
 
-<div class="table-responsive table-dark table-striped table-borderless table-hover">
+<div class="table-responsive table-dark table-striped table-borderless table-hover" id="table-alimenti">
     <table class="table table-striped table-sm">
         <thead>
         <tr>

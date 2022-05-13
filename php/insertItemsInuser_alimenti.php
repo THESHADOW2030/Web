@@ -9,8 +9,6 @@ if(!$conn)
 else
 {
     session_start();
-    echo "Connessione riuscita";
-    //echo $_SESSION['user'];
     if(isset($_SESSION['user']))
         $user = $_SESSION['user'];
     if (isset($_POST["date2"]))
@@ -22,30 +20,42 @@ else
     if (isset($_POST['calorieAssunteInput']))
         $calorieAssunte = $_POST['calorieAssunteInput'];
 
-    echo $user;     //la mettiamo
-    echo $_POST["date2"];     //la mettiamo
-  //  echo isset($_POST['date2']). "dadasadsa";
-    echo $orario;
-    echo $alimento;
-    echo $calorieAssunte;
+
 
    //insert into public.user_alimenti the values of username, alimento, calorie_assunte, data ora
     $query = "INSERT INTO public.user_alimenti (username, alimento, calorie_assunte, data, ora) VALUES ('$user', '$alimento', '$calorieAssunte', '$date', '$orario')";
     $result = pg_query($conn, $query);
     if(!$result)
     {
-        echo "Errore: impossibile inserire i dati nel database";
+        echo "0";
     }
     else
     {
-        echo "Inserimento avvenuto con successo";
+        //Added
+        echo '<table class="table table-striped table-sm">
+        <thead>
+        <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Orario</th>
+            <th scope="col">Alimento</th>
+            <th scope="col">Calorie Assunte</th>
+        </tr>
+        </thead>
+        <tbody>';
+        $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
+        $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+
+        while ($rowUser_info = pg_fetch_assoc($result))
+        {
+            echo '<tr>';
+            echo '<td>' . $rowUser_info['data'] . '</td>';
+            echo '<td>' . $rowUser_info['ora'] . '</td>';
+
+            echo '<td>' . $rowUser_info['alimento'] . '</td>';
+            echo '<td>' . $rowUser_info['calorie_assunte'] . '</td>';
+            echo '</tr>';
+        }
+        echo '</tbody></table>';
     }
-
-    //return to the page
-    header("Location: ../homepage/homepage.php");
-
 }
-
-
-
 ?>
