@@ -262,7 +262,7 @@ if (!isset($_SESSION['user'])) {
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form method="post" id="formAliment" action="../php/updatePeso.php">
+                                <form method="post" id="formWeight" action="../php/updatePeso.php">
                                     <div class="modal-body">
                                         <div class="it-datepicker-wrapper theme-dark">
                                             <div class="form-group">
