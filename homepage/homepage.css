@@ -216,6 +216,11 @@ html, body {
 
 }
 
+
+.card{
+    word-wrap: normal;
+}
+
 @media (min-width: 800px) {
     /*Selettore preso da "ispeziona elemento" da google chrome*/
     .grafico{

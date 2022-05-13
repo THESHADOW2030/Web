@@ -36,6 +36,8 @@ if (!isset($_SESSION['user'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InfoHealth</title>
@@ -158,6 +160,57 @@ if (!isset($_SESSION['user'])) {
     </div>
 
 
+
+    <div class="grafico" style="">
+
+        <canvas id="pesoChart" ></canvas>
+
+        <script>
+            const labels = [
+                'Gennaio',
+                'Febbraio',
+                'Marzo',
+                'Aprile',
+                'Maggio',
+                'Giugno',
+                'Luglio',
+                'Agosto',
+                'Settembre',
+                'Ottobre',
+                'Novembre',
+                'Dicembre',
+
+            ];
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Peso',
+                    backgroundColor: 'rgb(0, 0, 0)',
+                    borderColor: 'rgb(0, 0, 0)',
+                    data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 80],
+                }]
+            };
+
+            const config = {
+                type: 'line',
+                data: data,
+                options: {}
+            };
+        </script>
+        <script>
+            const pesoChart = new Chart(
+                document.getElementById('pesoChart'),
+                config
+            );
+        </script>
+
+
+
+    </div>
+
+
+
     <div class="row cards">
         <div class="col-sm-3">
             <div class="card">
@@ -166,19 +219,29 @@ if (!isset($_SESSION['user'])) {
                     <h3 class="card-title">Peso</h3>
                     <div class="row">
                         <div class="col-sm-6">
-                    <?php
-                    $q1 = "SELECT * FROM public.user_info WHERE username = $1";
-                    $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-                    $rowUser_info = pg_fetch_assoc($result);
-                   // while ($rowUser_info = pg_fetch_assoc($result)) {
-                        echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
-                   // }
-                    ?>
-                </div>
-                <div class="col-sm-6">
-                    <img class= "card-img icona" src="../resources/icons/wight.png">
-                </div>
-            </div>
+                            <?php
+                            $q1 = "SELECT * FROM public.user_info WHERE username = $1";
+                            $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+                            $rowUser_info = pg_fetch_assoc($result);
+                            $peso = 0;
+                            $data = 0;
+                            while ($rowUser_info = pg_fetch_assoc($result)) {
+                                //echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
+                                if ($rowUser_info['data'] > $data) {
+                                    $peso = $rowUser_info['peso'];
+                                    $data = $rowUser_info['data'];
+
+                                }
+                                // echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
+                            }
+                            echo '<p class="card-text">' . $peso . 'Kg</p>';
+
+                            ?>
+                        </div>
+                        <div class="col-sm-6">
+                            <img class= "card-img icona" src="../resources/icons/wight.png">
+                        </div>
+                    </div>
                     <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
                          aria-labelledby="modalViewPeso" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -193,6 +256,9 @@ if (!isset($_SESSION['user'])) {
                                     <div class="modal-body">
                                         <div class="it-datepicker-wrapper theme-dark">
                                             <div class="form-group">
+                                                <label for="DataPesoNuovo ">Data</label>
+                                                <input class="form-control it-date-datepicker" id="dataPesoNuovo"
+                                                       name="dataPesoNuovo" type="date">
                                                 <label for="pesoNuovo ">Nuovo Peso</label>
                                                 <input class="form-control it-date-datepicker" id="pesoNuovo"
                                                        name="pesoNuovo" type="number">
@@ -246,19 +312,19 @@ if (!isset($_SESSION['user'])) {
                     <h3 class="card-title ">Calorie Assunte</h3>
                     <div class="row">
                         <div class="col-sm-6">
-                    <?php
-                    $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
+                            <?php
+                            $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
 
-                    $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-                    $totale = 0;
-                    while ($rowUser_info = pg_fetch_assoc($result)) {
+                            $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+                            $totale = 0;
+                            while ($rowUser_info = pg_fetch_assoc($result)) {
 
 
-                        $totale = $totale + $rowUser_info['calorie_assunte'];
+                                $totale = $totale + $rowUser_info['calorie_assunte'];
 
-                    }
-                    echo '<p class="card-text">' . $totale . 'Kcal</p>';
-                    ?>
+                            }
+                            echo '<p class="card-text">' . $totale . 'Kcal</p>';
+                            ?>
                         </div>
                         <div class="col-sm-6">
                             <img class= "card-img" src="../resources/images/pizza6000x6000.png">
@@ -273,20 +339,20 @@ if (!isset($_SESSION['user'])) {
                     <h3 class="card-title">Passi</h3>
                     <div class="row">
                         <div class="col-sm-6">
-                    <?php
-                    $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
+                            <?php
+                            $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
 
 
-                    $result = pg_query_params($conn, $q1, array($_SESSION['user']));
+                            $result = pg_query_params($conn, $q1, array($_SESSION['user']));
 
-                    $totale = 0;
-                    while ($rowUser_info = pg_fetch_assoc($result)) {
+                            $totale = 0;
+                            while ($rowUser_info = pg_fetch_assoc($result)) {
 
-                        $totale = $totale + $rowUser_info['passi'];
+                                $totale = $totale + $rowUser_info['passi'];
 
-                    }
-                    echo '<p class="card-text">' . $totale . '</p>';
-                    ?>
+                            }
+                            echo '<p class="card-text">' . $totale . '</p>';
+                            ?>
                         </div>
                         <div class="col-sm-6">
                             <img class= "card-img" src="../resources/images/step6000x6000.png">
@@ -498,7 +564,7 @@ if (!isset($_SESSION['user'])) {
 
 
             ?>
-          <!--  <iframe width="886" height="498" src="https://www.youtube.com/embed/tmmwtLWLBlI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+            <!--  <iframe width="886" height="498" src="https://www.youtube.com/embed/tmmwtLWLBlI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
         </div>
     </div>
 </div>
