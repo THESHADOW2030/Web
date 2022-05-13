@@ -224,7 +224,7 @@ html, body {
 @media (min-width: 800px) {
     /*Selettore preso da "ispeziona elemento" da google chrome*/
     .grafico{
-        width: 800px;
+
         justify-content: center;
         margin: 0 auto;
 

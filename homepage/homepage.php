@@ -167,53 +167,6 @@ if (!isset($_SESSION['user'])) {
 
 
 
-    <div class="grafico" style="">
-
-        <canvas id="pesoChart" ></canvas>
-
-        <script>
-            const labels = [
-                'Gennaio',
-                'Febbraio',
-                'Marzo',
-                'Aprile',
-                'Maggio',
-                'Giugno',
-                'Luglio',
-                'Agosto',
-                'Settembre',
-                'Ottobre',
-                'Novembre',
-                'Dicembre',
-
-            ];
-
-            const data = {
-                labels: labels,
-                datasets: [{
-                    label: 'Peso',
-                    backgroundColor: 'rgb(0, 0, 0)',
-                    borderColor: 'rgb(0, 0, 0)',
-                    data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 80],
-                }]
-            };
-
-            const config = {
-                type: 'line',
-                data: data,
-                options: {}
-            };
-        </script>
-        <script>
-            const pesoChart = new Chart(
-                document.getElementById('pesoChart'),
-                config
-            );
-        </script>
-
-
-
-    </div>
 
 
 
@@ -373,6 +326,224 @@ if (!isset($_SESSION['user'])) {
             </div>
         </div>
     </div>
+
+
+
+    <div class="grafico" style="padding: 0px 15px; width: 90%">
+
+        <div class="row">
+            <div class="col-md-6">
+                <canvas id="pesoChart" ></canvas>
+
+                <script>
+                    const labels = [
+                        'Gennaio',
+                        'Febbraio',
+                        'Marzo',
+                        'Aprile',
+                        'Maggio',
+                        'Giugno',
+                        'Luglio',
+                        'Agosto',
+                        'Settembre',
+                        'Ottobre',
+                        'Novembre',
+                        'Dicembre',
+
+                    ];
+
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Peso',
+                            backgroundColor: 'rgb(0, 0, 0)',
+                            borderColor: 'rgb(0, 0, 0)',
+                            data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 85],
+                        }]
+                    };
+
+                    const config = {
+                        type: 'line',
+                        data: data,
+                        options: {}
+                    };
+                </script>
+                <script>
+                    const pesoChart = new Chart(
+                        document.getElementById('pesoChart'),
+                        config
+                    );
+                </script>
+
+
+
+
+
+
+
+
+
+              </div>
+        <div class="col-md-6">
+
+
+            <canvas id="calorieBruciateChart" ></canvas>
+
+            <script>
+                const labels = [
+                    'Gennaio',
+                    'Febbraio',
+                    'Marzo',
+                    'Aprile',
+                    'Maggio',
+                    'Giugno',
+                    'Luglio',
+                    'Agosto',
+                    'Settembre',
+                    'Ottobre',
+                    'Novembre',
+                    'Dicembre',
+
+                ];
+
+                const data = {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Peso',
+                        backgroundColor: 'rgb(0, 0, 0)',
+                        borderColor: 'rgb(0, 0, 0)',
+                        data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 80],
+                    }]
+                };
+
+                const config = {
+                    type: 'line',
+                    data: data,
+                    options: {}
+                };
+            </script>
+            <script>
+                const calorieBruciateChart = new Chart(
+                    document.getElementById('calorieBruciateChart'),
+                    config
+                );
+            </script>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <canvas id="calorieAssunteChart" ></canvas>
+
+                <script>
+                    const labels = [
+                        'Gennaio',
+                        'Febbraio',
+                        'Marzo',
+                        'Aprile',
+                        'Maggio',
+                        'Giugno',
+                        'Luglio',
+                        'Agosto',
+                        'Settembre',
+                        'Ottobre',
+                        'Novembre',
+                        'Dicembre',
+
+                    ];
+
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Peso',
+                            backgroundColor: 'rgb(0, 0, 0)',
+                            borderColor: 'rgb(0, 0, 0)',
+                            data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 80],
+                        }]
+                    };
+
+                    const config = {
+                        type: 'line',
+                        data: data,
+                        options: {}
+                    };
+                </script>
+                <script>
+                    const calorieAssunteChart = new Chart(
+                        document.getElementById('calorieAssunteChart'),
+                        config
+                    );
+                </script>
+
+
+
+
+
+
+
+
+
+            </div>
+            <div class="col-md-6">
+
+
+                <canvas id="passiChart" ></canvas>
+
+                <script>
+                    const labels = [
+                        'Gennaio',
+                        'Febbraio',
+                        'Marzo',
+                        'Aprile',
+                        'Maggio',
+                        'Giugno',
+                        'Luglio',
+                        'Agosto',
+                        'Settembre',
+                        'Ottobre',
+                        'Novembre',
+                        'Dicembre',
+
+                    ];
+
+                    const data = {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Peso',
+                            backgroundColor: 'rgb(0, 0, 0)',
+                            borderColor: 'rgb(0, 0, 0)',
+                            data: [100, 100, 95, 92, 84, 90, 60, 75, 66, 80],
+                        }]
+                    };
+
+                    const config = {
+                        type: 'line',
+                        data: data,
+                        options: {}
+                    };
+                </script>
+                <script>
+                    const passiChart = new Chart(
+                        document.getElementById('passiChart'),
+                        config
+                    );
+                </script>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
 
