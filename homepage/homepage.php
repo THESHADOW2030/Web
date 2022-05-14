@@ -101,7 +101,7 @@ if (!isset($_SESSION['user'])) {
 <!-- Modal -->
 <div class="modal fade" id="ImpostazioniModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
      aria-hidden="true">
-    <form method="post" action="settings.php">
+    <form method="post" action="settings.php" id="formImpostazioni" name="formImpostazioni">
 
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -114,12 +114,12 @@ if (!isset($_SESSION['user'])) {
 
                 <div class="modal-body">
 
-                    <form method="post" id="formSettings" action="../php/updatePeso.php">
+
                         <div class="modal-body">
                             <div class="it-datepicker-wrapper theme-dark">
                                 <div class="form-group">
-                                    <label for="pesoNuovo ">Username</label>
-                                    <input class="form-control it-date-datepicker" id="pesoNuovo" name="pesoNuovo"
+                                    <label for="username ">Username</label>
+                                    <input class="form-control it-date-datepicker" id="username" name="username"
                                            type="text">
                                     <label for="password" style="padding-top: 15px">Password</label>
                                     <input class="form-control it-date-datepicker" id="password" name="password"
@@ -139,14 +139,11 @@ if (!isset($_SESSION['user'])) {
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
                             <button type="submit" class="btn btn-primary">Salva</button>
                         </div>
-                    </form>
+
 
 
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Chiudi</button>
-                    <button type="button" class="btn btn-primary">Salva</button>
-                </div>
+
             </div>
         </div>
     </form>
@@ -331,8 +328,7 @@ if (!isset($_SESSION['user'])) {
             </div>
         </div>
     </div>
-
-
+</div>
 
     <div class="grafico" style="padding: 0px 15px; width: 90%">
 
