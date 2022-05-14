@@ -115,31 +115,30 @@ if (!isset($_SESSION['user'])) {
                 <div class="modal-body">
 
 
-                        <div class="modal-body">
-                            <div class="it-datepicker-wrapper theme-dark">
-                                <div class="form-group">
-                                    <label for="username ">Username</label>
-                                    <input class="form-control it-date-datepicker" id="username" name="username"
-                                           type="text">
-                                    <label for="password" style="padding-top: 15px">Password</label>
-                                    <input class="form-control it-date-datepicker" id="password" name="password"
-                                           type="number">
-                                    <label for="email" style="padding-top: 15px">Email</label>
-                                    <input class="form-control it-date-datepicker" id="email" name="email" type="email">
-                                    <label for="altezza" style="padding-top: 15px">Altezza</label>
-                                    <input class="form-control it-date-datepicker" id="altezza" name="altezza"
-                                           type="number">
-                                    <label for="peso" style="padding-top: 15px">Peso</label>
-                                    <input class="form-control it-date-datepicker" id="peso" name="peso" type="number">
+                    <div class="modal-body">
+                        <div class="it-datepicker-wrapper theme-dark">
+                            <div class="form-group">
+                                <label for="username ">Username</label>
+                                <input class="form-control it-date-datepicker" id="username" name="username"
+                                       type="text">
+                                <label for="password" style="padding-top: 15px">Password</label>
+                                <input class="form-control it-date-datepicker" id="password" name="password"
+                                       type="number">
+                                <label for="email" style="padding-top: 15px">Email</label>
+                                <input class="form-control it-date-datepicker" id="email" name="email" type="email">
+                                <label for="altezza" style="padding-top: 15px">Altezza</label>
+                                <input class="form-control it-date-datepicker" id="altezza" name="altezza"
+                                       type="number">
+                                <label for="peso" style="padding-top: 15px">Peso</label>
+                                <input class="form-control it-date-datepicker" id="peso" name="peso" type="number">
 
-                                </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
-                            <button type="submit" class="btn btn-primary">Salva</button>
-                        </div>
-
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
+                        <button type="submit" class="btn btn-primary">Salva</button>
+                    </div>
 
 
                 </div>
@@ -163,11 +162,6 @@ if (!isset($_SESSION['user'])) {
         <p class="lead">É bello rivederti</p>
 
     </div>
-
-
-
-
-
 
 
     <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
@@ -219,18 +213,18 @@ if (!isset($_SESSION['user'])) {
                                 $peso = 0;
                                 $data = 0;
 
-                            while ($rowUser_info = pg_fetch_assoc($result)) {
-                                //echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
-                                if ($rowUser_info['data'] > $data) {
-                                    $peso = $rowUser_info['peso'];
-                                    $data = $rowUser_info['data'];
+                                while ($rowUser_info = pg_fetch_assoc($result)) {
+                                    //echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
+                                    if ($rowUser_info['data'] > $data) {
+                                        $peso = $rowUser_info['peso'];
+                                        $data = $rowUser_info['data'];
 
 
+                                    }
+
+                                    // echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
                                 }
-
-                                // echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
-                            }
-                            echo '<p class="card-text">' . $peso . 'Kg</p>';
+                                echo '<p class="card-text">' . $peso . 'Kg</p>';
 
                                 ?>
                             </div>
@@ -314,28 +308,26 @@ if (!isset($_SESSION['user'])) {
 
                                     $totale = $totale + $rowUser_info['passi'];
 
-                            }
-                            echo '<p class="card-text">' . $totale . '</p>';
-                            ?>
+                                }
+                                echo '<p class="card-text">' . $totale . '</p>';
+                                ?>
+                            </div>
+                            <div class="col-sm-6">
+                                <img class="card-img" src="../resources/images/step6000x6000.png">
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <img class= "card-img" src="../resources/images/step6000x6000.png">
-                        </div>
+                        <!-- <a href="#" class="btn btn-primary float-right mybtn">Aggiorna</a> -->
                     </div>
-                    <!-- <a href="#" class="btn btn-primary float-right mybtn">Aggiorna</a> -->
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
 
-        <div class="grafico" style="padding: 0px 15px; width: 90%">
-
-            <div class="row">
-                <div class="col-md-6">
-                    <canvas id="pesoChart"></canvas>
-
+    <div class="grafico" style="padding: 0px 15px; width: 90%">
+        <div class="row">
+            <div class="col-md-6">
+                <canvas id="pesoChart"></canvas>
                 <script>
                     const labelsPeso = [
                         'Gennaio',
@@ -424,7 +416,7 @@ if (!isset($_SESSION['user'])) {
                                 //$pesoSomma[$key] = $value / $occorrenze[$key];
 
                             }
-                            echo  json_encode(array_values($pesoSomma));
+                            echo json_encode(array_values($pesoSomma));
                             ?>
                         }]
                     };
@@ -443,18 +435,11 @@ if (!isset($_SESSION['user'])) {
                 </script>
 
 
-
-
-
-
-
-
-
             </div>
             <div class="col-md-6">
 
 
-                <canvas id="calorieBruciateChart" ></canvas>
+                <canvas id="calorieBruciateChart"></canvas>
 
                 <script>
                     const labelsBruciate = [
@@ -532,10 +517,6 @@ if (!isset($_SESSION['user'])) {
                                 $month = substr($data, 5, 2);
 
 
-
-
-
-
                                 //see if the month is already in the array
 
                                 //if the month is already in the array, then add the calorie_brucitate to the value
@@ -554,7 +535,7 @@ if (!isset($_SESSION['user'])) {
                             }
 
 
-                            echo  json_encode(array_values($calorieBruciateSomma));
+                            echo json_encode(array_values($calorieBruciateSomma));
 
 
                             ?>
@@ -578,7 +559,7 @@ if (!isset($_SESSION['user'])) {
         </div>
         <div class="row">
             <div class="col-md-6">
-                <canvas id="calorieAssunteChart" ></canvas>
+                <canvas id="calorieAssunteChart"></canvas>
 
                 <script>
                     const labelsAssunte = [
@@ -655,10 +636,6 @@ if (!isset($_SESSION['user'])) {
                                 $month = substr($data, 5, 2);
 
 
-
-
-
-
                                 //see if the month is already in the array
 
                                 //if the month is already in the array, then add the calorie_brucitate to the value
@@ -677,7 +654,7 @@ if (!isset($_SESSION['user'])) {
                             }
 
 
-                            echo  json_encode(array_values($calorieBruciateSomma));
+                            echo json_encode(array_values($calorieBruciateSomma));
 
 
                             ?>,
@@ -698,18 +675,11 @@ if (!isset($_SESSION['user'])) {
                 </script>
 
 
-
-
-
-
-
-
-
             </div>
             <div class="col-md-6">
 
 
-                <canvas id="passiChart" ></canvas>
+                <canvas id="passiChart"></canvas>
 
                 <script>
                     const labelsPassi = [
@@ -789,10 +759,6 @@ if (!isset($_SESSION['user'])) {
                                 $month = substr($data, 5, 2);
 
 
-
-
-
-
                                 //see if the month is already in the array
 
                                 //if the month is already in the array, then add the calorie_brucitate to the value
@@ -811,7 +777,7 @@ if (!isset($_SESSION['user'])) {
                             }
 
 
-                            echo  json_encode(array_values($calorieBruciateSomma));
+                            echo json_encode(array_values($calorieBruciateSomma));
 
 
                             ?>,
@@ -933,15 +899,11 @@ if (!isset($_SESSION['user'])) {
             </div>
 
 
-
         </div>
     </div>
 
 
-
-
 </div>
-
 
 
 <div class="modal fade" id="modalViewAttivita" tabindex="-1" role="dialog"
@@ -989,7 +951,6 @@ if (!isset($_SESSION['user'])) {
     </div>
 </div>
 <!-- <a href="#" class="btn btn-dark float-right ">Aggiungi Allenamento</a> -->
-
 
 
 <div class="modal fade" id="modalViewAlimento" tabindex="-1" role="dialog" aria-labelledby="modalViewAlimento"
