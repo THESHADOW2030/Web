@@ -10,6 +10,7 @@ function sendAliment()
         success: function(response)
         {
             $('#table-alimenti').load('homepage.php #table-alimenti');
+            $('#row-cards').load('homepage.php #row-cards');
             $('#modalViewAlimento').modal('hide');
         },
         error: function(xhr, status, error)
@@ -55,6 +56,7 @@ function sendActivity()
         success: function(response)
         {
             $('#table-attivita').load('homepage.php #table-attivita');
+            $('#row-cards').load('homepage.php #row-cards');
             $('#modalViewAttivita').modal('hide');
         },
         error: function(xhr, status, error)
