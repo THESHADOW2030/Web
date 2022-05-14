@@ -212,8 +212,19 @@ html, body {
 }
 
 
+
+@media (max-width: 371px) {
+    /*Selettore preso da "ispeziona elemento" da google chrome*/
+    .nav-logo{
+        display: none;
+    }
+}
+
+
+
 .grafico{
     display: inline-block;
+
 
 }
 
