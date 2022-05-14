@@ -22,7 +22,27 @@ if(!$conn)
         $query = "SELECT * FROM user_info WHERE username = '$username'";
         $result = pg_query($conn, $query);
         $row = pg_fetch_assoc($result);
-        echo $row['username'];
+        $flag = 1;
+        if (isset($row['username'])){
+            $flag = 0;
+        }
+        if ($flag == 1){
+
+            //update the username
+            $query = "UPDATE user_info SET username = '$username' WHERE username = '$user'";
+            $result = pg_query($conn, $query);
+
+            echo "Username aggiornato";
+            $_SESSION['user'] = $username;
+            //update the username in the user_activity table
+            $query = "UPDATE user_activity SET username = '$username' WHERE username = '$user'";
+            $result = pg_query($conn, $query);
+            //update the username in the users table
+            $query = "UPDATE users SET username = '$username' WHERE username = '$user'";
+            $result = pg_query($conn, $query);
+            //update the username in the user_info table
+            $query = "UPDATE user_alimenti SET username = '$username' WHERE username = '$user'";
+            $result = pg_query($conn, $query);
 
 
 
@@ -32,28 +52,17 @@ if(!$conn)
 
 
 
+        }
 
 
 
 
-     //   $_SESSION['user'] = $username;
 
-       $query = "UPDATE users SET username = '$username' WHERE username = '$user'";
-        $result = pg_query($conn, $query);
 
-        //update the foreign key in user_alimenti
-    //    $query2 = "UPDATE user_alimenti SET username = '$username' WHERE username = '$user'";
-      //  $result = pg_query($conn, $query2);
-    //    if (!$result) {
-      //      echo "Errore nell'esecuzione della query";
-        //}
-       // else {
-          //  echo "Username aggiornato";
-        //}
 
 
     }
-    if (isset($_POST['password'])){
+    if (isset($_POST['password']) && $_POST['password'] != ""){
         $password = $_POST['password'];
         $query = "UPDATE users SET password = '$password' WHERE username = '$user'";
         $result = pg_query($conn, $query);
@@ -64,7 +73,8 @@ if(!$conn)
             echo "Password aggiornata";
         }
     }
-    if (isset($_POST['email'])){
+    if (isset($_POST['email']) && $_POST['email'] != ""){
+
         $email = $_POST['email'];
         $query = "UPDATE users SET email = '$email' WHERE username = '$user'";
         $result = pg_query($conn, $query);
@@ -75,8 +85,10 @@ if(!$conn)
             echo "Email aggiornata";
         }
     }
-    if (isset($_POST['altezza'])){
+    if (isset($_POST['altezza']) && $_POST['altezza'] != ""){
+
         $altezza = $_POST['altezza'];
+        echo $altezza . "aaaaaaaaaaa";
         $query = "UPDATE user_info SET altezza = '$altezza' WHERE username = '$user'";
         $result = pg_query($conn, $query);
         if (!$result) {
@@ -86,7 +98,7 @@ if(!$conn)
             echo "Altezza aggiornata";
         }
     }
-    if (isset($_POST['peso'])){
+    if (isset($_POST['peso']) && $_POST['peso'] != ""){
         $pesoNuovo = $_POST['peso'];
         //dataNuovoPeso put the current date
         $dataNuovoPeso = date("Y-m-d");
@@ -135,7 +147,7 @@ if(!$conn)
 
 }
 
-
+header("Location: homepage.php");
 
 
 
