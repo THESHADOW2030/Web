@@ -95,7 +95,7 @@ function sendSettings(){
         //    $('#grafico').load('homepage.php #grafico');
           //  $('#pesoChart').load('homepage.php #pesoChart');
 
-
+        //
 
 
             $('#ImpostazioniModal').modal('hide');
