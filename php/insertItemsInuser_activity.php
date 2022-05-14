@@ -54,8 +54,7 @@ else
         echo "Inserimento avvenuto con successo";
     }
 
-    //return to the page
-    header("Location: ../homepage/homepage.php");
+
 
 
 
