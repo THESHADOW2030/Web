@@ -101,8 +101,8 @@ if (!isset($_SESSION['user'])) {
 <!-- Modal -->
 <div class="modal fade" id="ImpostazioniModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
      aria-hidden="true">
-    <form method="post" action="settings.php" id="formImpostazioni" name="formImpostazioni">
-
+    <form method="post" id="formSettings" onsubmit="return sendSettings();"
+          action="../php/settings.php">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -147,8 +147,9 @@ if (!isset($_SESSION['user'])) {
     </form>
 </div>
 
+
 <div class="jumbotron jumbotron-fluid">
-    <div class="container">
+    <div class="container" id="helloUser">
         <?php
         // echo $_SESSION['user'];
         if (isset($_SESSION['user'])) {
@@ -329,14 +330,14 @@ if (!isset($_SESSION['user'])) {
     </div>
 
 
-        <div class="grafico" style="padding: 0px 15px; width: 90%">
+        <div class="grafico" id="grafico" style="padding: 0px 15px; width: 90%">
 
             <div class="row">
                 <div class="col-md-6">
                     <canvas id="pesoChart"></canvas>
 
                 <script>
-                    const labelsPeso = [
+                    var labelsPeso = [
                         'Gennaio',
                         'Febbraio',
                         'Marzo',
@@ -352,7 +353,7 @@ if (!isset($_SESSION['user'])) {
 
                     ];
 
-                    const dataPeso = {
+                    var dataPeso = {
                         labels: labelsPeso,
                         datasets: [{
                             label: 'Peso Medio',
@@ -428,14 +429,14 @@ if (!isset($_SESSION['user'])) {
                         }]
                     };
 
-                    const configPeso = {
+                    var configPeso = {
                         type: 'line',
                         data: dataPeso,
                         options: {}
                     };
                 </script>
                 <script>
-                    const pesoChart = new Chart(
+                    var pesoChart = new Chart(
                         document.getElementById('pesoChart'),
                         configPeso
                     );
@@ -456,7 +457,7 @@ if (!isset($_SESSION['user'])) {
                 <canvas id="calorieBruciateChart" ></canvas>
 
                 <script>
-                    const labelsBruciate = [
+                    var labelsBruciate = [
                         'Gennaio',
                         'Febbraio',
                         'Marzo',
@@ -472,7 +473,7 @@ if (!isset($_SESSION['user'])) {
 
                     ];
 
-                    const dataBruciate = {
+                    var dataBruciate = {
                         labels: labelsBruciate,
                         datasets: [{
                             label: 'Calorie Bruciate Medie',
@@ -560,14 +561,14 @@ if (!isset($_SESSION['user'])) {
                         }]
                     };
 
-                    const configBruciate = {
+                    var configBruciate = {
                         type: 'line',
                         data: dataBruciate,
                         options: {}
                     };
                 </script>
                 <script>
-                    const calorieBruciateChart = new Chart(
+                    var calorieBruciateChart = new Chart(
                         document.getElementById('calorieBruciateChart'),
                         configBruciate
                     );
@@ -580,7 +581,7 @@ if (!isset($_SESSION['user'])) {
                 <canvas id="calorieAssunteChart" ></canvas>
 
                 <script>
-                    const labelsAssunte = [
+                    var labelsAssunte = [
                         'Gennaio',
                         'Febbraio',
                         'Marzo',
@@ -596,7 +597,7 @@ if (!isset($_SESSION['user'])) {
 
                     ];
 
-                    const dataAssunte = {
+                    var dataAssunte = {
                         labels: labelsAssunte,
                         datasets: [{
                             label: 'Calorie Assunte Medie',
@@ -683,14 +684,14 @@ if (!isset($_SESSION['user'])) {
                         }]
                     };
 
-                    const configAssunte = {
+                    var configAssunte = {
                         type: 'line',
                         data: dataAssunte,
                         options: {}
                     };
                 </script>
                 <script>
-                    const calorieAssunteChart = new Chart(
+                    var calorieAssunteChart = new Chart(
                         document.getElementById('calorieAssunteChart'),
                         configAssunte
                     );
@@ -711,7 +712,7 @@ if (!isset($_SESSION['user'])) {
                 <canvas id="passiChart" ></canvas>
 
                 <script>
-                    const labelsPassi = [
+                    var labelsPassi = [
                         'Gennaio',
                         'Febbraio',
                         'Marzo',
@@ -727,7 +728,7 @@ if (!isset($_SESSION['user'])) {
 
                     ];
 
-                    const dataPassi = {
+                    var dataPassi = {
                         labels: labelsPassi,
                         datasets: [{
                             label: 'Passi Medie',
@@ -817,14 +818,14 @@ if (!isset($_SESSION['user'])) {
                         }]
                     };
 
-                    const configPassi = {
+                    var configPassi = {
                         type: 'line',
                         data: dataPassi,
                         options: {}
                     };
                 </script>
                 <script>
-                    const passiChart = new Chart(
+                    var passiChart = new Chart(
                         document.getElementById('passiChart'),
                         configPassi
                     );

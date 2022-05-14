@@ -72,3 +72,44 @@ function refreshTable(){
         console.log("testo");
     });
 }
+
+
+function sendSettings(){
+    var form = $("#formSettings");
+    var actionUrl = form.attr('action');
+    console.log("sending data...");
+
+    //print the data in the form
+
+    $.ajax({
+        type: 'POST',
+        url: actionUrl,
+        data: form.serialize(),
+        success: function(response)
+        {
+            //print the response
+            console.log(response);
+
+            $('#row-cards').load('homepage.php #row-cards');
+            $('#helloUser').load('homepage.php #helloUser');
+        //    $('#grafico').load('homepage.php #grafico');
+          //  $('#pesoChart').load('homepage.php #pesoChart');
+
+
+
+
+            $('#ImpostazioniModal').modal('hide');
+
+            console.log("Data sent settings");
+
+        },
+        error: function(xhr, status, error)
+        {
+            alert(xhr.responseText);
+        }
+    });
+    return false;
+}
+
+
+
