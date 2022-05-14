@@ -33,6 +33,7 @@ function sendWeight()
         {
             $('#row-cards').load('homepage.php #row-cards');
             $('#modalViewPeso').modal('hide');
+            console.log("Data sent");
         },
         error: function(xhr, status, error)
         {

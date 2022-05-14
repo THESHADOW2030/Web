@@ -53,7 +53,7 @@ if (!isset($_SESSION['user'])) {
         </div>
     </a>
 
-    <a class="nd3 nds" data-toggle="modal" data-target="#modalViewAllenamento">
+    <a class="nd3 nds" data-toggle="modal" data-target="#modalViewAttivita">
         <div class="tooltipss">
             <span class="tooltiptextss">Aggiungi Allenamento</span>
             <img class="reminder" src="../resources/icons/running24x24white.png"/>
@@ -488,8 +488,8 @@ if (!isset($_SESSION['user'])) {
 
 
 
-<div class="modal fade" id="modalViewAllenamento" tabindex="-1" role="dialog"
-     aria-labelledby="modalViewAllenamentoTitle" aria-hidden="true">
+<div class="modal fade" id="modalViewAttivita" tabindex="-1" role="dialog"
+     aria-labelledby="modalViewAttivitaTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
