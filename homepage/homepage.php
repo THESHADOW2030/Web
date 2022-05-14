@@ -170,7 +170,39 @@ if (!isset($_SESSION['user'])) {
 
 
 
-
+    <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
+         aria-labelledby="modalViewPeso" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Peso</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" id="formWeight" onsubmit="return sendWeight();"
+                      action="../php/updatePeso.php">
+                    <div class="modal-body">
+                        <div class="it-datepicker-wrapper theme-dark">
+                            <div class="form-group">
+                                <label for="DataPesoNuovo ">Data</label>
+                                <input class="form-control it-date-datepicker" id="dataPesoNuovo"
+                                       name="dataPesoNuovo" type="date">
+                                <label for="pesoNuovo ">Nuovo Peso</label>
+                                <input class="form-control it-date-datepicker" id="pesoNuovo"
+                                       name="pesoNuovo" type="number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta
+                        </button>
+                        <button type="submit" class="btn btn-primary">Aggiorna Peso</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <div id="row-cards">
         <div class="row cards">
             <div class="col-sm-3">
@@ -206,39 +238,7 @@ if (!isset($_SESSION['user'])) {
                                 <img class="card-img icona" src="../resources/icons/wight.png">
                             </div>
                         </div>
-                        <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
-                             aria-labelledby="modalViewPeso" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Peso</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <form method="post" id="formWeight" onsubmit="return sendWeight();"
-                                          action="../php/updatePeso.php">
-                                        <div class="modal-body">
-                                            <div class="it-datepicker-wrapper theme-dark">
-                                                <div class="form-group">
-                                                    <label for="DataPesoNuovo ">Data</label>
-                                                    <input class="form-control it-date-datepicker" id="dataPesoNuovo"
-                                                           name="dataPesoNuovo" type="date">
-                                                    <label for="pesoNuovo ">Nuovo Peso</label>
-                                                    <input class="form-control it-date-datepicker" id="pesoNuovo"
-                                                           name="pesoNuovo" type="number">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta
-                                            </button>
-                                            <button type="submit" class="btn btn-primary">Aggiorna Peso</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -327,7 +327,7 @@ if (!isset($_SESSION['user'])) {
             </div>
         </div>
     </div>
-
+    </div>
 
 
         <div class="grafico" style="padding: 0px 15px; width: 90%">
