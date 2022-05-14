@@ -204,7 +204,7 @@ html, body {
     }
 }
 
-@media (max-width: 394px) {
+@media (max-width: 405px) {
     /*Selettore preso da "ispeziona elemento" da google chrome*/
     .nav-menu ul a {
         margin: 0 10px;
