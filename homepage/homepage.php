@@ -122,8 +122,7 @@ if (!isset($_SESSION['user'])) {
                                     <input class="form-control it-date-datepicker" id="username" name="username"
                                            type="text">
                                     <label for="password" style="padding-top: 15px">Password</label>
-                                    <input class="form-control it-date-datepicker" id="password" name="password"
-                                           type="number">
+                                    <input class="form-control it-date-datepicker" id="password" name="password">
                                     <label for="email" style="padding-top: 15px">Email</label>
                                     <input class="form-control it-date-datepicker" id="email" name="email" type="email">
                                     <label for="altezza" style="padding-top: 15px">Altezza</label>
