@@ -11,6 +11,24 @@ function sendAliment()
         {
             $('#table-alimenti').load('homepage.php #table-alimenti');
             $('#row-cards').load('homepage.php #row-cards');
+
+
+
+
+            calorieAssunteChart
+            console.log(response);
+
+            var array = JSON.parse(response);
+            console.log(array);
+
+            //get the month from array[1] formatted like yyyy-mm-dd
+            //var month = array[1].substring(5,7);
+            // console.log(month);
+            calorieAssunteChart.data.datasets[0].data =  array;
+            calorieAssunteChart.update();
+
+
+
             $('#modalViewAlimento').modal('hide');
         },
         error: function(xhr, status, error)
@@ -33,6 +51,16 @@ function sendWeight()
         success: function(response)
         {
             $('#row-cards').load('homepage.php #row-cards');
+
+            var array = JSON.parse(response);
+            console.log(array);
+
+            //get the month from array[1] formatted like yyyy-mm-dd
+            //var month = array[1].substring(5,7);
+            // console.log(month);
+            pesoChart.data.datasets[0].data =  array;
+            pesoChart.update();
+
             $('#modalViewPeso').modal('hide');
             console.log("Data sent");
         },
@@ -57,6 +85,24 @@ function sendActivity()
         {
             $('#table-attivita').load('homepage.php #table-attivita');
             $('#row-cards').load('homepage.php #row-cards');
+
+            console.log(response);
+
+            var array = JSON.parse(response);
+            console.log(array);
+
+            //get the month from array[1] formatted like yyyy-mm-dd
+            //var month = array[1].substring(5,7);
+            // console.log(month);
+            calorieBruciateChart.data.datasets[0].data =  array[0];
+            calorieBruciateChart.update();
+
+            passiChart.data.datasets[0].data =  array[1];
+            passiChart.update();
+
+
+
+
             $('#modalViewAttivita').modal('hide');
         },
         error: function(xhr, status, error)
