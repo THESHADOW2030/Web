@@ -6,13 +6,13 @@ $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres pas
 
 if(!$conn)
 {
-    echo "Errore: impossibile raggiungere i nostri database";
+    // echo "Errore: impossibile raggiungere i nostri database";
 }
 else
 {
     session_start();
-    echo "Connessione riuscita";
-    //echo $_SESSION['user'];
+    // echo "Connessione riuscita";
+    //// echo $_SESSION['user'];
     if(isset($_SESSION['user']))
         $user = $_SESSION['user'];
     if (isset($_POST["dateAllenamento"]))
@@ -34,11 +34,11 @@ else
     if (isset($_POST['durata']))
         $durata = $_POST['durata'];
 
-    echo $user;
-    echo $date;
-    echo $attivita;
-    echo $calorie_bruciateInput;
-    echo $passiInput;
+    // echo $user;
+    // echo $date;
+    // echo $attivita;
+    // echo $calorie_bruciateInput;
+    // echo $passiInput;
 
     //insert into user_activity(username, activity, calorie_bruciate, durata_minuti, data, passi ) values ('$user', '$attivita', $calorie_bruciateInput, $durata, '$date', $passiInput);
 
@@ -47,11 +47,11 @@ else
     $result = pg_query($conn, $query);
     if(!$result)
     {
-        echo "Errore: impossibile inserire i dati nel database";
+        // echo "Errore: impossibile inserire i dati nel database";
     }
     else
     {
-        echo "Inserimento avvenuto con successo";
+        // echo "Inserimento avvenuto con successo";
     }
 
 

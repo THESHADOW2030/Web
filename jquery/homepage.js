@@ -88,14 +88,23 @@ function sendSettings(){
         success: function(response)
         {
             //print the response
-            console.log(response);
+            //console.log(response);
 
             $('#row-cards').load('homepage.php #row-cards');
             $('#helloUser').load('homepage.php #helloUser');
-        //    $('#grafico').load('homepage.php #grafico');
-          //  $('#pesoChart').load('homepage.php #pesoChart');
 
-        //
+
+            //transfrom the string response to array
+            var array = JSON.parse(response);
+            console.log(array);
+
+            //get the month from array[1] formatted like yyyy-mm-dd
+            //var month = array[1].substring(5,7);
+           // console.log(month);
+            pesoChart.data.datasets[0].data =  array;
+            pesoChart.update();
+
+
 
 
             $('#ImpostazioniModal').modal('hide');

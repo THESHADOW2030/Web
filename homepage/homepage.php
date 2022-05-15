@@ -334,9 +334,11 @@ if (!isset($_SESSION['user'])) {
 
             <div class="row">
                 <div class="col-md-6">
+
+                    <div id="pesoChardDivv">
                     <canvas id="pesoChart"></canvas>
 
-                <script>
+                <script id="scriptPeso">
                     var labelsPeso = [
                         'Gennaio',
                         'Febbraio',
@@ -434,25 +436,25 @@ if (!isset($_SESSION['user'])) {
                         data: dataPeso,
                         options: {}
                     };
-                </script>
-                <script>
+
                     var pesoChart = new Chart(
                         document.getElementById('pesoChart'),
                         configPeso
                     );
+
+
                 </script>
 
 
 
 
 
-
+                    </div>
 
 
 
             </div>
             <div class="col-md-6">
-
 
                 <canvas id="calorieBruciateChart" ></canvas>
 
