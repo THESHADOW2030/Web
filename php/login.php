@@ -33,7 +33,7 @@ if(!$conn)
 
 
             //Redirect to homepage
-            ("Location: ../homepage/homepage.html");
+            //("Location: ../homepage/homepage.html");
         }
         else
         {
