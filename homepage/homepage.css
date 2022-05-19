@@ -189,9 +189,10 @@ html, body {
 }
 .card-img
 {
-    object-fit:cover;
+    object-fit: contain;
     width: 100%;
     height: auto;
+    max-height: 120px;
 }
 
 
@@ -203,7 +204,7 @@ html, body {
     }
 }
 
-@media (max-width: 394px) {
+@media (max-width: 405px) {
     /*Selettore preso da "ispeziona elemento" da google chrome*/
     .nav-menu ul a {
         margin: 0 10px;
@@ -211,8 +212,19 @@ html, body {
 }
 
 
+
+@media (max-width: 371px) {
+    /*Selettore preso da "ispeziona elemento" da google chrome*/
+    .nav-logo{
+        display: none;
+    }
+}
+
+
+
 .grafico{
     display: inline-block;
+
 
 }
 
@@ -224,7 +236,7 @@ html, body {
 @media (min-width: 800px) {
     /*Selettore preso da "ispeziona elemento" da google chrome*/
     .grafico{
-        width: 800px;
+
         justify-content: center;
         margin: 0 auto;
 
