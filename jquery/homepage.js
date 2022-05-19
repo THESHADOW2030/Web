@@ -52,6 +52,7 @@ function sendWeight()
         {
             $('#row-cards').load('homepage.php #row-cards');
 
+
             var array = JSON.parse(response);
             console.log(array);
 

@@ -26,7 +26,7 @@ a{color:inherit;text-decoration:none}
 	height:100%;
 	position:absolute;
 	padding:90px 70px 50px 70px;
-	background:rgba(40,57,101,.9);
+	background:rgb(50,50,50);
 }
 .login-html .sign-in-htm,
 .login-html .sign-up-htm
@@ -175,20 +175,63 @@ a{color:inherit;text-decoration:none}
 	align-items: center;
 }
 
-.image-fader
+.backgroundLoading
 {
-	width: 100%;
-	height: 100%;
-	position: relative;
-}
-
-.image-fader img
-{
-	opacity: 1;
 	width: 100%;
 	height: 100%;
 	position: absolute;
 }
+.color0
+{
+
+	-webkit-clip-path: polygon(0% 0%, 25% 0%, 0% 25%, 0% 0%);
+	background: rgb(0,0,0);
+}
+.color1
+{
+	-webkit-clip-path: polygon(25% 0%, 50% 0%, 0% 50%, 0% 25%);
+	background: rgb(64,64,64);
+
+
+}
+.color2
+{
+	-webkit-clip-path: polygon(50% 0%, 75% 0%, 0% 75%, 0% 50%);
+	background: rgb(96,96,96);
+
+}
+.color3
+{
+
+	-webkit-clip-path: polygon(75% 0%, 100% 0%, 0% 100%, 0% 75%);
+	background: rgb(128,128,128);
+}
+.color4
+{
+
+	-webkit-clip-path: polygon(100% 0%, 100% 25%, 25% 100%, 0% 100%);
+	background: rgb(160,160,160);
+}
+
+.color5
+{
+	-webkit-clip-path: polygon(100% 25%, 100% 50%, 50% 100%, 25% 100%);
+	background: rgb(192,192,192);
+}
+
+.color6
+{
+	-webkit-clip-path: polygon(100% 50%, 100% 75%, 75% 100%, 50% 100%);
+	background: rgb(224,224,224);
+
+}
+
+.color7
+{
+	-webkit-clip-path: polygon(100% 75%, 100% 100%, 75% 100%);
+	background: rgb(255,255,255);
+}
+
 
 
 
