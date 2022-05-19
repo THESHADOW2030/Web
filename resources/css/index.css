@@ -482,6 +482,9 @@
     .nav-logo{
         display: none;
     }
+    .nav{
+        justify-content: center;
+    }
 }
 
 
