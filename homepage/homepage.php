@@ -1,7 +1,7 @@
 <?php
 //TODO: Add preselected arguments on modal views (example: preset day as actual day)
-//TODO: Execute php using ajax
-//TODO: fix top and button padding in nav class (they are actually different)
+
+
 //TODO: add icons inside cards
 //TODO: Idea: Add button to scroll down with animation (less important)
 //NON MOSTRARE IL PROGETTO CON LO USERNAME LUPOSAYMON. IL TESTO VIENE TAGLIATO
