@@ -517,10 +517,11 @@
     }
 
     .our-team {
-        height: 50%;
+        height: auto;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: center;
 
     }
 
