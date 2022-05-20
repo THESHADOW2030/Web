@@ -1,10 +1,11 @@
 <?php
 //TODO: Add preselected arguments on modal views (example: preset day as actual day)
-
-
-//TODO: add icons inside cards
 //TODO: Idea: Add button to scroll down with animation (less important)
-//NON MOSTRARE IL PROGETTO CON LO USERNAME LUPOSAYMON. IL TESTO VIENE TAGLIATO
+//TODO: Change settings modal view, adding maybe profile picture
+//TODO: Add charts by week,mounth and year
+//TODO: Add "steps done" separately
+//TODO: Add Dark Mode
+//TODO:
 session_start();
 //connect to database
 //$conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=password");
@@ -19,7 +20,6 @@ if (!isset($_SESSION['user'])) {
     header("Location: ../index.html");
 }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,7 @@ if (!isset($_SESSION['user'])) {
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../resources/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
     <link rel="stylesheet" type="text/css" href="./homepage.css">
     <link rel="stylesheet" type="text/css" href="actionButton.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
