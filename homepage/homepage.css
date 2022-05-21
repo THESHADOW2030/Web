@@ -204,27 +204,29 @@ html, body {
     }
 }
 
-@media (max-width: 405px) {
-    /*Selettore preso da "ispeziona elemento" da google chrome*/
-    .nav-menu ul a {
-        margin: 0 10px;
-    }
-}
 
 
 
-@media (max-width: 371px) {
+
+@media (max-width: 404px) {
     /*Selettore preso da "ispeziona elemento" da google chrome*/
     .nav-logo{
         display: none;
     }
 }
 
-
+@media (max-width: 600px)
+{
+    .display-3
+    {
+        font-size: 13vw;
+    }
+}
 
 .grafico{
     display: inline-block;
-
+    padding: 0 5%;
+    width: 100%;
 
 }
 
@@ -245,7 +247,10 @@ html, body {
     }
 }
 
-
+ul
+{
+    margin: 0;
+}
 
 .cardTable {
     max-height: 99999px;

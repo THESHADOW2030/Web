@@ -26,13 +26,19 @@ function registration()
     var elementUsername = $("#userRegistration")[0];
     var elementEmail = $("#email")[0];
 
+    var elementPassword = $("#repeatpassword")[0];
+
     elementUsername.addEventListener('input',e => {
         elementUsername.setCustomValidity(''); //this was missing
     });
     elementEmail.addEventListener('input',e => {
         elementEmail.setCustomValidity(''); //this was missing
     });
+    elementPassword.addEventListener('input',e => {
+        elementPassword.setCustomValidity(''); //this was missing
+    });
 
+    var output = '0';
     console.log("sending data...");
     var request = $.ajax({
         type: 'POST',
@@ -43,19 +49,37 @@ function registration()
             console.log(response);
             if(response==='1')
             {
-                elementUsername.setCustomValidity('//TODO:reindirizzamento');
-                elementUsername.reportValidity();
+              //  elementUsername.setCustomValidity('//TODO:reindirizzamento');
+                //elementUsername.reportValidity();
+                window.location.href = "homepage/homepage.php";
+                output = '1';
+                console.log("registration ok");
+                return '1';
 
             }
-            else if(response==='0')
+            else if(response==='10')
             {
                 elementUsername.setCustomValidity('Username già esistente!');
                 elementUsername.reportValidity();
+
+                console.log('10');
+
+
             }
-            else if(response==='-1')
+            else if(response==='11')
             {
                 elementEmail.setCustomValidity('Email già esistente!');
                 elementEmail.reportValidity();
+
+            }
+            else if(response === '20'){
+
+                console.log("20");
+
+                elementPassword.setCustomValidity('Password non corrispondenti');
+                elementPassword.reportValidity();
+               // return false;
+
             }
         },
         error: function(xhr, status, error)
@@ -67,7 +91,16 @@ function registration()
    request.done(function(response)
    {
        console.log(response);
+       console.log(output);
+       if (response === '1')
+       {
+           window.location.href = "homepage/homepage.php";
+       }
+      // window.location.href = "homepage/homepage.php";
+       return false;
    });
+
+ return false;
 }
 
 function login()
@@ -81,7 +114,7 @@ function login()
     });
 
     console.log("sending data...");
-    $.ajax({
+    var request = $.ajax({
         type: 'POST',
         url: actionUrl,
         data: form.serialize(),
@@ -106,6 +139,19 @@ function login()
             alert(xhr.responseText);
         }
     });
+
+    request.done(function(response)
+    {
+        console.log(response);
+        console.log(output);
+        if (response === '1')
+        {
+            window.location.href = "homepage/homepage.php";
+        }
+        // window.location.href = "homepage/homepage.php";
+        return false;
+    });
+
     return false;
 }
 

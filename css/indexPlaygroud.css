@@ -1,0 +1,65 @@
+.descrizioneProgetto{
+    /*Put this div under header class*/
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    color: white;
+
+
+}
+
+
+.logoInDescrizione{
+    /*Set this image to be as big as the containing div*/
+    width: 100%;
+    height: 100%;
+    /*Set the image to be in the center of the div*/
+
+
+}
+
+
+/*Do a media query*/
+@media screen and (max-width: 576px) {
+    .logoInDescrizione {
+        /*Set this image to be as big as the containing div*/
+        width: 100px;
+        /*Center the image*/
+    margin-left: 30%;
+
+
+
+    }
+
+}
+
+.IlNostroTeam{
+    background-color: #242424;
+}
+
+
+.IlNostroTeam
+{
+    width: 100%;
+    height: 50%;
+    background-color: #242424;
+    display: flex;
+    align-items:center;
+    position: relative;
+    color: white;
+
+}
+
+
+
+
+
+.row{
+width: 100%;
+}
+
+@media screen and (max-width: 1055px) {
+    .col{
+        max-width: 200px;
+    }
+}
