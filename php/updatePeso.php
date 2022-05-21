@@ -33,17 +33,6 @@ else {
     }
     else {
 
-
-
-
-
-
-
-
-
-
-
-
         $query = "SELECT * FROM user_info WHERE username = '$user'";
         $result = pg_query($conn, $query);
         //define an array to store the data

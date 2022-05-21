@@ -39,6 +39,7 @@ function sendAliment()
     return false;
 }
 
+
 function sendWeight()
 {
     var form = $("#formWeight");
@@ -59,8 +60,8 @@ function sendWeight()
             //get the month from array[1] formatted like yyyy-mm-dd
             //var month = array[1].substring(5,7);
             // console.log(month);
-            pesoChart.data.datasets[0].data =  array;
-            pesoChart.update();
+            pesoChartDay.data.datasets[0].data =  array;
+            pesoChartDay.update();
 
             $('#modalViewPeso').modal('hide');
             console.log("Data sent");
@@ -72,6 +73,7 @@ function sendWeight()
     });
     return false;
 }
+
 
 function sendActivity()
 {
@@ -113,6 +115,8 @@ function sendActivity()
     });
     return false;
 }
+
+
 function refreshTable(){
     $('#table-alimenti').load('homepage.php #table-alimenti', function(){
         setTimeout(refreshTable, 5000);
@@ -166,6 +170,16 @@ function sendSettings(){
     });
     return false;
 }
+
+$(function() {
+    $("input[name$='radio']").on("click",function() {
+        var test = $(this).val();
+        console.log("test");
+        $("div.chartGroup").hide();
+        $("#chart" + test).show();
+
+    });
+});
 
 
 
