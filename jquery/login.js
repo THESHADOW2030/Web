@@ -119,8 +119,6 @@ function login()
         {
             console.log(response);
             if(response==='1') {
-                element.setCustomValidity('//TODO:reindirizzamento');
-                element.reportValidity();
                 console.log("success");
                 //Redirect to the page
                 window.location.href = "homepage/homepage.php";

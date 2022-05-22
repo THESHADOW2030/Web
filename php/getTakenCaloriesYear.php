@@ -14,7 +14,7 @@ $output = array();
 //get the avarage peso for each day in the current month and year
 for ($i = 1; $i<=12; $i++)
 {
-    $query = "SELECT AVG(calorie_assunte) FROM public.user_alimenti where
+    $query = "SELECT AVG(calorie_assunte) FROM public.user_alimenti WHERE username = '$user' AND
                                         EXTRACT(MONTH FROM data) = $i  AND EXTRACT(YEAR FROM data) = extract(YEAR FROM CURRENT_DATE)"  ;
 
     $result = pg_query($conn, $query);
