@@ -22,7 +22,7 @@ $(window).scroll(function () {
     }
     else if (!isScrolledIntoView($('#our-project-text-id')))
     {
-        //TODO:fix it
+
         /*
         $('#our-project-text-id').removeClass('our-project-text-animation');
         $('#our-project-title-id').removeClass('our-project-title-animation');
