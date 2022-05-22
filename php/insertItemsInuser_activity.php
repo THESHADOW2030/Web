@@ -34,6 +34,9 @@ else
     if (isset($_POST['durata']))
         $durata = $_POST['durata'];
 
+    if (isset($_POST['orarioAllenamento']))
+        $orarioAllenamento = $_POST['orarioAllenamento'];
+
     // echo $user;
     // echo $date;
     // echo $attivita;
@@ -42,7 +45,7 @@ else
 
     //insert into user_activity(username, activity, calorie_bruciate, durata_minuti, data, passi ) values ('$user', '$attivita', $calorie_bruciateInput, $durata, '$date', $passiInput);
 
-    $query = "INSERT INTO public.user_activity (username, activity, calorie_bruciate, durata_minuti, data, passi ) VALUES ('$user', '$attivita', '$calorie_bruciateInput', '$durata', '$date', $passiInput)";
+    $query = "INSERT INTO public.user_activity (username, activity, calorie_bruciate, durata_minuti, data, passi, ora ) VALUES ('$user', '$attivita', '$calorie_bruciateInput', '$durata', '$date', '$passiInput', '$orarioAllenamento')";
 
     $result = pg_query($conn, $query);
     if(!$result)

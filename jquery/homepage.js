@@ -15,7 +15,7 @@ function sendAliment()
 
 
 
-            calorieAssunteChart
+            calorieAssunteChartDay
             console.log(response);
 
             var array = JSON.parse(response);
@@ -24,8 +24,8 @@ function sendAliment()
             //get the month from array[1] formatted like yyyy-mm-dd
             //var month = array[1].substring(5,7);
             // console.log(month);
-            calorieAssunteChart.data.datasets[0].data =  array;
-            calorieAssunteChart.update();
+            calorieAssunteChartDay.data.datasets[0].data =  array;
+            calorieAssunteChartDay.update();
 
 
 
@@ -54,13 +54,12 @@ function sendWeight()
             $('#row-cards').load('homepage.php #row-cards');
 
 
-            var array = JSON.parse(response);
-            console.log(array);
+
 
             //get the month from array[1] formatted like yyyy-mm-dd
             //var month = array[1].substring(5,7);
             // console.log(month);
-            pesoChartDay.data.datasets[0].data =  array;
+
             pesoChartDay.update();
 
             $('#modalViewPeso').modal('hide');
@@ -97,11 +96,11 @@ function sendActivity()
             //get the month from array[1] formatted like yyyy-mm-dd
             //var month = array[1].substring(5,7);
             // console.log(month);
-            calorieBruciateChart.data.datasets[0].data =  array[0];
-            calorieBruciateChart.update();
+            calorieBruciateChartDay.data.datasets[0].data =  array[0];
+            calorieBruciateChartDay.update();
 
-            passiChart.data.datasets[0].data =  array[1];
-            passiChart.update();
+            passiChartDay.data.datasets[0].data =  array[1];
+            passiChartDay.update();
 
 
 
