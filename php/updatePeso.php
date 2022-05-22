@@ -16,6 +16,8 @@ else {
         $pesoNuovo = $_POST['pesoNuovo'];
     if (isset($_POST["dataPesoNuovo"]))
         $dataNuovoPeso = $_POST['dataPesoNuovo'];
+    if (isset($_POST["orarioPeso"]))
+        $orarioPeso = $_POST['orarioPeso'];
 
     // echo $user;
     // echo $pesoNuovo;
@@ -24,9 +26,17 @@ else {
     //update user_info with new weight
 //    $query = "UPDATE user_info SET peso = $pesoNuovo WHERE username = '$user'";
     //insert new peso with the new date
-    $query2 = "INSERT INTO user_info (username, peso, data) VALUES ('$user', '$pesoNuovo', '$dataNuovoPeso')";
+    if ((isset($_POST["orarioPeso"])))
+        $query2 = "INSERT INTO user_info (username, peso, data, ora) VALUES ('$user', '$pesoNuovo', '$dataNuovoPeso', '$orarioPeso')";
+    else
+        $query2 = "INSERT INTO user_info (username, peso, data) VALUES ('$user', '$pesoNuovo', '$dataNuovoPeso')";
+    $result = pg_query($conn, $query2);
+    if (!$result) {
+        // // echo "Errore nell'esecuzione della query";
+    }
+    else{
 
-
+    }
 
 }
 ?>
