@@ -256,6 +256,9 @@ if (!isset($_SESSION['user'])) {
 
                                 $totale = 0;
                                 while ($rowUser_info = pg_fetch_assoc($result)) {
+                                    if($rowUser_info['data'] > '2022-12-31' || $rowUser_info['data'] < '2022-01-01'){
+                                        continue;
+                                    }
 
                                     $totale = $totale + $rowUser_info['calorie_bruciate'];
 
@@ -283,7 +286,9 @@ if (!isset($_SESSION['user'])) {
                                 $totale = 0;
                                 while ($rowUser_info = pg_fetch_assoc($result)) {
 
-
+                                    if($rowUser_info['data'] > '2022-12-31' || $rowUser_info['data'] < '2022-01-01'){
+                                        continue;
+                                    }
                                     $totale = $totale + $rowUser_info['calorie_assunte'];
 
                                 }
@@ -311,7 +316,9 @@ if (!isset($_SESSION['user'])) {
 
                                 $totale = 0;
                                 while ($rowUser_info = pg_fetch_assoc($result)) {
-
+                                    if($rowUser_info['data'] > '2022-12-31' || $rowUser_info['data'] < '2022-01-01'){
+                                        continue;
+                                    }
                                     $totale = $totale + $rowUser_info['passi'];
 
                             }
