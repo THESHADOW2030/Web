@@ -49,13 +49,10 @@ function registration()
             console.log(response);
             if(response==='1')
             {
-              //  elementUsername.setCustomValidity('//TODO:reindirizzamento');
-                //elementUsername.reportValidity();
                 window.location.href = "homepage/homepage.php";
                 output = '1';
                 console.log("registration ok");
                 return '1';
-
             }
             else if(response==='10')
             {

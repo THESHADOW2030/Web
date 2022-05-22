@@ -44,7 +44,7 @@ if (!isset($_SESSION['user'])) {
     <title>InfoHealth</title>
     <link rel="icon" href="../resources/images/logo4000x4000.png">
 </head>
-<body style="background: black">
+<body>
 <div id="container-floating">
     <a class="nd4 nds" data-toggle="modal" data-target="#modalViewAlimento">
         <div class="tooltipss">
@@ -145,6 +145,126 @@ if (!isset($_SESSION['user'])) {
         </div>
     </form>
 </div>
+<div class="modal fade" id="modalViewAttivita" tabindex="-1" role="dialog"
+     aria-labelledby="modalViewAttivitaTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Allenamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" id="formActivity" onsubmit="return sendActivity();"
+                  action="../php/insertItemsInuser_activity.php">
+                <div class="modal-body">
+                    <div class="it-datepicker-wrapper theme-dark">
+                        <div class="form-group">
+                            <label for="dateAllenamento">Data Allenamento</label>
+                            <input class="form-control it-date-datepicker" id="dateAllenamento"
+                                   name="dateAllenamento" type="date">
+
+                            <label for="orarioAllenamento" style="padding-top: 15px"> Orario Allenamento</label>
+                            <input class="form-control it-time-picker" id="orarioAllenamento" name="orarioAllenamento"
+                                   type="time">
+
+                            <label for="durata">Durata Allenamento</label>
+                            <input class="form-control it-date-datepicker" id="durata" name="durata"
+                                   type="number">
+
+
+                            <label for="attivita" style="padding-top: 15px">Attività Svolta</label>
+                            <input class="form-control" id="attivita" name="attivita" type="text">
+                            <label for="calorie_bruciateInput" style="padding-top: 15px">Calorie
+                                Bruciate</label>
+                            <input class="form-control" id="calorie_bruciateInput" name="calorie_bruciateInput"
+                                   type="number">
+                            <label for="passiInput" style="padding-top: 15px">Passi Effettuati</label>
+                            <input class="form-control" id="passiInput" name="passiInput" type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
+                    <button type="submit" class="btn btn-primary">Aggiungi Allenamento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalViewAlimento" tabindex="-1" role="dialog" aria-labelledby="modalViewAlimento"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Alimento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" id="formAliment" onsubmit="return sendAliment();"
+                  action="../php/insertItemsInuser_alimenti.php">
+                <div class="modal-body">
+                    <div class="it-datepicker-wrapper theme-dark">
+                        <div class="form-group">
+                            <label for="date2 ">Data Alimento</label>
+                            <input class="form-control it-date-datepicker" id="date2" name="date2" type="date">
+                            <label for="orario" style="padding-top: 15px"> Orario Pasto</label>
+                            <input class="form-control it-time-picker" id="orario" name="orario" type="time">
+                            <label for="alimentoInput" style="padding-top: 15px">Alimento Mangiato</label>
+                            <input class="form-control" id="alimentoInput" name="alimentoInput" type="text">
+                            <label for="calorie_bruciateInput" style="padding-top: 15px">Calorie
+                                Alimento</label>
+                            <input class="form-control" id="calorieAssunteInput" name="calorieAssunteInput"
+                                   type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
+                    <button type="submit" class="btn btn-primary">Aggiungi Alimento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
+     aria-labelledby="modalViewPeso" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Peso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post" id="formWeight" onsubmit="return sendWeight();"
+                  action="../php/updatePeso.php">
+                <div class="modal-body">
+                    <div class="it-datepicker-wrapper theme-dark">
+                        <div class="form-group">
+                            <label for="DataPesoNuovo ">Data</label>
+                            <input class="form-control it-date-datepicker" id="dataPesoNuovo"
+                                   name="dataPesoNuovo" type="date">
+                            <label for="orarioPeso" style="padding-top: 15px"> Orario Peso</label>
+                            <input class="form-control it-time-picker" id="orarioPeso" name="orarioPeso" type="time">
+                            <label for="pesoNuovo ">Nuovo Peso</label>
+                            <input class="form-control it-date-datepicker" id="pesoNuovo"
+                                   name="pesoNuovo" type="number">
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta
+                    </button>
+                    <button type="submit" class="btn btn-primary">Aggiorna Peso</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 <div class="jumbotron jumbotron-fluid">
@@ -159,44 +279,11 @@ if (!isset($_SESSION['user'])) {
 
         ?>
         <!--<h1 class="display-3" id ="benvenuto">Benvenuto GigaChad</h1> -->
-        <p class="lead">É bello rivederti</p>
+        <p class="lead">É bello rivederti.</p>
 
     </div>
 
 
-    <div class="modal fade" id="modalViewPeso" tabindex="-1" role="dialog"
-         aria-labelledby="modalViewPeso" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Peso</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form method="post" id="formWeight" onsubmit="return sendWeight();"
-                      action="../php/updatePeso.php">
-                    <div class="modal-body">
-                        <div class="it-datepicker-wrapper theme-dark">
-                            <div class="form-group">
-                                <label for="DataPesoNuovo ">Data</label>
-                                <input class="form-control it-date-datepicker" id="dataPesoNuovo"
-                                       name="dataPesoNuovo" type="date">
-                                <label for="pesoNuovo ">Nuovo Peso</label>
-                                <input class="form-control it-date-datepicker" id="pesoNuovo"
-                                       name="pesoNuovo" type="number">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta
-                        </button>
-                        <button type="submit" class="btn btn-primary">Aggiorna Peso</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <div id="row-cards">
         <div class="row cards">
             <div class="col-sm-3">
@@ -250,9 +337,6 @@ if (!isset($_SESSION['user'])) {
 
                                 $totale = 0;
                                 while ($rowUser_info = pg_fetch_assoc($result)) {
-                                    if($rowUser_info['data'] > '2022-12-31' || $rowUser_info['data'] < '2022-01-01'){
-                                        continue;
-                                    }
 
                                     $totale = $totale + $rowUser_info['calorie_bruciate'];
 
@@ -280,9 +364,7 @@ if (!isset($_SESSION['user'])) {
                                 $totale = 0;
                                 while ($rowUser_info = pg_fetch_assoc($result)) {
 
-                                    if($rowUser_info['data'] > '2022-12-31' || $rowUser_info['data'] < '2022-01-01'){
-                                        continue;
-                                    }
+
                                     $totale = $totale + $rowUser_info['calorie_assunte'];
 
                                 }
@@ -310,9 +392,7 @@ if (!isset($_SESSION['user'])) {
 
                                 $totale = 0;
                                 while ($rowUser_info = pg_fetch_assoc($result)) {
-                                    if($rowUser_info['data'] > '2022-12-31' || $rowUser_info['data'] < '2022-01-01'){
-                                        continue;
-                                    }
+
                                     $totale = $totale + $rowUser_info['passi'];
 
                                 }
@@ -334,186 +414,112 @@ if (!isset($_SESSION['user'])) {
 </div>
 <div class="grafico" id="grafico">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="chartGroup" id="chart0">
                     <div class="row" style="justify-content: center">
                         <div class="col-md-5">
-
-                            <div id="pesoChardDiv">
-                                <canvas id="pesoChartDay"></canvas>
-                                <script id="scriptPesoDay">
-                                    var labelsPeso = [
-                                        '0:00',
-                                        '2:00',
-                                        '4:00',
-                                        '6:00',
-                                        '8:00',
-                                        '10:00',
-                                        '12:00',
-                                        '14:00',
-                                        '16:00',
-                                        '18:00',
-                                        '20:00',
-                                        '22:00',
-                                    ];
-
-                                    var dataPesoDay = {
-                                        labels: labelsPeso,
-                                        datasets: [{
-                                            label: 'Peso Medio',
-                                            backgroundColor: '#d3a411',
-                                            borderColor: '#d3a411',
-                                            data: <?php
-                                            $user = $_SESSION['user'];
-
-                                            $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                            //get all the rows from the user_info table where username is the same as the user logged in
-                                            $query = "SELECT AVG(peso) FROM user_info WHERE username = '$user' AND data = CURRENT_DATE";
-                                            $result = pg_query($conn, $query);
-                                            //define an array to store the data
-                                            $pesoSommaDay = array();
-                                            //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                            $pesoSommaDay["01"] = pg_fetch_array($result)['avg'];
-
-
-
-
-
-                                            echo  json_encode(array_values($pesoSommaDay));
-                                            ?>
-                                        }]
-                                    };
-                                    var configPesoDay = {
-                                        type: 'line',
-                                        data: dataPesoDay,
-                                        options: {}
-                                    };
-                                    var pesoChartDay = new Chart(
-                                        document.getElementById('pesoChartDay'),
-                                        configPesoDay
-                                    );
-                                </script>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-
-                            <canvas id="calorieBruciateChartDay"></canvas>
-
-                            <script>
-                                var labelsBruciateDay = [
-                                    '0',
-                                    '2',
-                                    '4',
-                                    '6',
-                                    '8',
-                                    '10',
-                                    '12',
-                                    '14',
-                                    '16',
-                                    '18',
-                                    '20',
-                                    '22',
-
+                            <canvas id="pesoChartDay"></canvas>
+                            <script id="scriptPesoDay">
+                                var labelsPeso = [
+                                    '00:00',
+                                    '01:00',
+                                    '02:00',
+                                    '03:00',
+                                    '04:00',
+                                    '05:00',
+                                    '06:00',
+                                    '07:00',
+                                    '08:00',
+                                    '09:00',
+                                    '10:00',
+                                    '11:00',
+                                    '12:00',
+                                    '13:00',
+                                    '14:00',
+                                    '15:00',
+                                    '16:00',
+                                    '17:00',
+                                    '18:00',
+                                    '19:00',
+                                    '20:00',
+                                    '21:00',
+                                    '22:00',
+                                    '23:00'
                                 ];
 
+                                var dataPesoDay = {
+                                    labels: labelsPeso,
+                                    datasets: [{
+                                        label: 'Peso Medio',
+                                        backgroundColor: '#d3a411',
+                                        borderColor: '#d3a411',
+                                        data: {}
+                                    }]
+                                };
+                                var configPesoDay = {
+                                    type: 'line',
+                                    data: dataPesoDay,
+                                    options: {}
+                                };
+                                var weightDay = new Chart(
+                                    document.getElementById('pesoChartDay'),
+                                    configPesoDay
+                                );
+                                updateWeightDay();
+                            </script>
+
+                        </div>
+                        <div class="col-md-5">
+                            <canvas id="calorieBruciateChartDay"></canvas>
+                            <script>
+                                var labelsBruciateDay = [
+                                    '00:00',
+                                    '01:00',
+                                    '02:00',
+                                    '03:00',
+                                    '04:00',
+                                    '05:00',
+                                    '06:00',
+                                    '07:00',
+                                    '08:00',
+                                    '09:00',
+                                    '10:00',
+                                    '11:00',
+                                    '12:00',
+                                    '13:00',
+                                    '14:00',
+                                    '15:00',
+                                    '16:00',
+                                    '17:00',
+                                    '18:00',
+                                    '19:00',
+                                    '20:00',
+                                    '21:00',
+                                    '22:00',
+                                    '23:00'
+                                ];
                                 var dataBruciateDay = {
                                     labels: labelsBruciateDay,
                                     datasets: [{
                                         label: 'Calorie Bruciate Medie',
                                         backgroundColor: '#3c80f6',
                                         borderColor: '#3c80f6',
-                                        data: <?php
-
-                                        $user = $_SESSION['user'];
-
-                                        $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                        //get all the rows from the user_info table where username is the same as the user logged in
-                                        $query = "SELECT * FROM user_activity WHERE username = '$user'";
-                                        $result = pg_query($conn, $query);
-                                        //define an array to store the data
-                                        $calorieBruciateSommaDay = array();
-                                        $occorrenze = array();
-
-                                        //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                        $calorieBruciateSommaDay["01"] = 0;
-                                        $calorieBruciateSommaDay["02"] = 0;
-                                        $calorieBruciateSommaDay["03"] = 0;
-                                        $calorieBruciateSommaDay["04"] = 0;
-                                        $calorieBruciateSommaDay["05"] = 0;
-                                        $calorieBruciateSommaDay["06"] = 0;
-                                        $calorieBruciateSommaDay["07"] = 0;
-                                        $calorieBruciateSommaDay["08"] = 0;
-                                        $calorieBruciateSommaDay["09"] = 0;
-                                        $calorieBruciateSommaDay["10"] = 0;
-                                        $calorieBruciateSommaDay["11"] = 0;
-                                        $calorieBruciateSommaDay["12"] = 0;
-                                        $occorrenze["01"] = 0;
-                                        $occorrenze["02"] = 0;
-                                        $occorrenze["03"] = 0;
-                                        $occorrenze["04"] = 0;
-                                        $occorrenze["05"] = 0;
-                                        $occorrenze["06"] = 0;
-                                        $occorrenze["07"] = 0;
-                                        $occorrenze["08"] = 0;
-                                        $occorrenze["09"] = 0;
-                                        $occorrenze["10"] = 0;
-                                        $occorrenze["11"] = 0;
-                                        $occorrenze["12"] = 0;
-
-
-                                        while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                            $data = $rowUser_info['data'];
-
-                                            $year = substr($data, 0, 4);
-                                            $currentYear = date("Y");
-                                            if ($year != $currentYear) {
-                                                continue;
-                                            }
-                                            //if data is not null, then print the data
-                                            //get the current month from data
-                                            $month = substr($data, 5, 2);
-
-
-                                            //see if the month is already in the array
-
-                                            //if the month is already in the array, then add the calorie_brucitate to the value
-                                            $calorieBruciateSommaDay[$month] += $rowUser_info['calorie_bruciate'];
-                                            //increment the number of occurences
-                                            $occorrenze[$month] += 1;
-                                        }
-                                        //for each element in the array, divide the peso by the number of occurences to get the average
-                                        foreach ($calorieBruciateSommaDay as $key => $value) {
-                                            //if value is 0, then don't divide by 0
-                                            if ($value != 0) {
-                                                $calorieBruciateSommaDay[$key] = $value / $occorrenze[$key];
-                                            }
-                                            //$calorieBruciateSommaDay[$key] = $value / $occorrenze[$key];
-
-                                        }
-
-
-                                        echo json_encode(array_values($calorieBruciateSommaDay));
-
-
-                                        ?>
+                                        data: {}
                                     }]
                                 };
-
                                 var configBruciateDay = {
                                     type: 'line',
                                     data: dataBruciateDay,
                                     options: {}
                                 };
-                            </script>
-                            <script>
-                                var calorieBruciateChartDay = new Chart(
+                                var burnedCaloriesDay = new Chart(
                                     document.getElementById('calorieBruciateChartDay'),
                                     configBruciateDay
                                 );
+                                updateBurnedCaloriesDay();
                             </script>
-
                         </div>
                     </div>
                     <div class="row" style="justify-content: center">
@@ -522,18 +528,30 @@ if (!isset($_SESSION['user'])) {
 
                             <script>
                                 var labelsAssunteDay = [
-                                    '0',
-                                    '2',
-                                    '4',
-                                    '6',
-                                    '8',
-                                    '10',
-                                    '12',
-                                    '14',
-                                    '16',
-                                    '18',
-                                    '20',
-                                    '22',
+                                    '00:00',
+                                    '01:00',
+                                    '02:00',
+                                    '03:00',
+                                    '04:00',
+                                    '05:00',
+                                    '06:00',
+                                    '07:00',
+                                    '08:00',
+                                    '09:00',
+                                    '10:00',
+                                    '11:00',
+                                    '12:00',
+                                    '13:00',
+                                    '14:00',
+                                    '15:00',
+                                    '16:00',
+                                    '17:00',
+                                    '18:00',
+                                    '19:00',
+                                    '20:00',
+                                    '21:00',
+                                    '22:00',
+                                    '23:00'
 
                                 ];
 
@@ -543,119 +561,52 @@ if (!isset($_SESSION['user'])) {
                                         label: 'Calorie Assunte Medie',
                                         backgroundColor: '#158a23',
                                         borderColor: '#158a23',
-                                        data: <?php
-
-                                        $user = $_SESSION['user'];
-
-                                        $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                        //get all the rows from the user_info table where username is the same as the user logged in
-                                        $query = "SELECT * FROM user_alimenti WHERE username = '$user'";
-                                        $result = pg_query($conn, $query);
-                                        //define an array to store the data
-                                        $calorieBruciateSommaDay = array();
-                                        $occorrenze = array();
-
-                                        //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                        $calorieBruciateSommaDay["01"] = 0;
-                                        $calorieBruciateSommaDay["02"] = 0;
-                                        $calorieBruciateSommaDay["03"] = 0;
-                                        $calorieBruciateSommaDay["04"] = 0;
-                                        $calorieBruciateSommaDay["05"] = 0;
-                                        $calorieBruciateSommaDay["06"] = 0;
-                                        $calorieBruciateSommaDay["07"] = 0;
-                                        $calorieBruciateSommaDay["08"] = 0;
-                                        $calorieBruciateSommaDay["09"] = 0;
-                                        $calorieBruciateSommaDay["10"] = 0;
-                                        $calorieBruciateSommaDay["11"] = 0;
-                                        $calorieBruciateSommaDay["12"] = 0;
-                                        $occorrenze["01"] = 0;
-                                        $occorrenze["02"] = 0;
-                                        $occorrenze["03"] = 0;
-                                        $occorrenze["04"] = 0;
-                                        $occorrenze["05"] = 0;
-                                        $occorrenze["06"] = 0;
-                                        $occorrenze["07"] = 0;
-                                        $occorrenze["08"] = 0;
-                                        $occorrenze["09"] = 0;
-                                        $occorrenze["10"] = 0;
-                                        $occorrenze["11"] = 0;
-                                        $occorrenze["12"] = 0;
-
-
-                                        while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                            $data = $rowUser_info['data'];
-                                            $year = substr($data, 0, 4);
-                                            $currentYear = date("Y");
-                                            if ($year != $currentYear) {
-                                                continue;
-                                            }
-                                            //if data is not null, then print the data
-                                            //get the current month from data
-                                            $month = substr($data, 5, 2);
-
-
-                                            //see if the month is already in the array
-
-                                            //if the month is already in the array, then add the calorie_brucitate to the value
-                                            $calorieBruciateSommaDay[$month] += $rowUser_info['calorie_assunte'];
-                                            //increment the number of occurences
-                                            $occorrenze[$month] += 1;
-                                        }
-                                        //for each element in the array, divide the peso by the number of occurences to get the average
-                                        foreach ($calorieBruciateSommaDay as $key => $value) {
-                                            //if value is 0, then don't divide by 0
-                                            if ($value != 0) {
-                                                $calorieBruciateSommaDay[$key] = $value / $occorrenze[$key];
-                                            }
-                                            //$calorieBruciateSommaDay[$key] = $value / $occorrenze[$key];
-
-                                        }
-
-
-                                        echo json_encode(array_values($calorieBruciateSommaDay));
-
-
-                                        ?>,
+                                        data: {}
                                     }]
                                 };
-
 
                                 var configAssunteDay = {
                                     type: 'line',
                                     data: dataAssunteDay,
                                     options: {}
                                 };
-                            </script>
-                            <script>
-                                var calorieAssunteChartDay = new Chart(
+
+                                var takenCaloriesDay = new Chart(
                                     document.getElementById('calorieAssunteChartDay'),
                                     configAssunteDay
                                 );
+                                updateTakenCaloriesDay();
                             </script>
-
-
                         </div>
                         <div class="col-md-5">
-
-
                             <canvas id="passiChartDay"></canvas>
-
                             <script>
-                                var labelsPassiDay = [
-                                    '0',
-                                    '2',
-                                    '4',
-                                    '6',
-                                    '8',
-                                    '10',
-                                    '12',
-                                    '14',
-                                    '16',
-                                    '18',
-                                    '20',
-                                    '22',
 
+                                var labelsPassiDay = [
+                                    '00:00',
+                                    '01:00',
+                                    '02:00',
+                                    '03:00',
+                                    '04:00',
+                                    '05:00',
+                                    '06:00',
+                                    '07:00',
+                                    '08:00',
+                                    '09:00',
+                                    '10:00',
+                                    '11:00',
+                                    '12:00',
+                                    '13:00',
+                                    '14:00',
+                                    '15:00',
+                                    '16:00',
+                                    '17:00',
+                                    '18:00',
+                                    '19:00',
+                                    '20:00',
+                                    '21:00',
+                                    '22:00',
+                                    '23:00'
                                 ];
 
                                 var dataPassiDay = {
@@ -664,83 +615,7 @@ if (!isset($_SESSION['user'])) {
                                         label: 'Passi Medie',
                                         backgroundColor: '#00d29f',
                                         borderColor: '#00d29f',
-                                        data: <?php
-
-                                        $user = $_SESSION['user'];
-
-                                        $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                        //get all the rows from the user_info table where username is the same as the user logged in
-                                        $query = "SELECT * FROM user_activity WHERE username = '$user'";
-                                        $result = pg_query($conn, $query);
-                                        //define an array to store the data
-                                        $calorieBruciateSommaDay = array();
-                                        $occorrenze = array();
-
-                                        //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                        $calorieBruciateSommaDay["01"] = 0;
-                                        $calorieBruciateSommaDay["02"] = 0;
-                                        $calorieBruciateSommaDay["03"] = 0;
-                                        $calorieBruciateSommaDay["04"] = 0;
-                                        $calorieBruciateSommaDay["05"] = 0;
-                                        $calorieBruciateSommaDay["06"] = 0;
-                                        $calorieBruciateSommaDay["07"] = 0;
-                                        $calorieBruciateSommaDay["08"] = 0;
-                                        $calorieBruciateSommaDay["09"] = 0;
-                                        $calorieBruciateSommaDay["10"] = 0;
-                                        $calorieBruciateSommaDay["11"] = 0;
-                                        $calorieBruciateSommaDay["12"] = 0;
-                                        $occorrenze["01"] = 0;
-                                        $occorrenze["02"] = 0;
-                                        $occorrenze["03"] = 0;
-                                        $occorrenze["04"] = 0;
-                                        $occorrenze["05"] = 0;
-                                        $occorrenze["06"] = 0;
-                                        $occorrenze["07"] = 0;
-                                        $occorrenze["08"] = 0;
-                                        $occorrenze["09"] = 0;
-                                        $occorrenze["10"] = 0;
-                                        $occorrenze["11"] = 0;
-                                        $occorrenze["12"] = 0;
-
-
-                                        while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                            $data = $rowUser_info['data'];
-                                            //if data is not null, then print the data
-                                            //get the current month from data
-
-                                            $year = substr($data, 0, 4);
-                                            $currentYear = date("Y");
-                                            if ($year != $currentYear) {
-                                                continue;
-                                            }
-
-
-                                            $month = substr($data, 5, 2);
-
-
-                                            //see if the month is already in the array
-
-                                            //if the month is already in the array, then add the calorie_brucitate to the value
-                                            $calorieBruciateSommaDay[$month] += $rowUser_info['passi'];
-                                            //increment the number of occurences
-                                            $occorrenze[$month] += 1;
-                                        }
-                                        //for each element in the array, divide the peso by the number of occurences to get the average
-                                        foreach ($calorieBruciateSommaDay as $key => $value) {
-                                            //if value is 0, then don't divide by 0
-                                            if ($value != 0) {
-                                                $calorieBruciateSommaDay[$key] = $value / $occorrenze[$key];
-                                            }
-                                            //$calorieBruciateSommaDay[$key] = $value / $occorrenze[$key];
-
-                                        }
-
-
-                                        echo json_encode(array_values($calorieBruciateSommaDay));
-
-
-                                        ?>,
+                                        data: {}
                                     }]
                                 };
 
@@ -749,144 +624,279 @@ if (!isset($_SESSION['user'])) {
                                     data: dataPassiDay,
                                     options: {}
                                 };
-                            </script>
-                            <script>
-                                var passiChartDay = new Chart(
+                                var stepsDay = new Chart(
                                     document.getElementById('passiChartDay'),
                                     configPassiDay
                                 );
+                                updateStepsDay();
                             </script>
-
                         </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <div class="chartGroup" id="chart1" style="display:none">
+                <div class="chartGroup" id="chart1">
                     <div class="row" style="justify-content: center">
                         <div class="col-md-5">
+                            <canvas id="pesoChart"></canvas>
+                            <script id="scriptPesoMonth">
+                                var labelsPeso = [
+                                    '1',
+                                    '2',
+                                    '3',
+                                    '4',
+                                    '5',
+                                    '6',
+                                    '7',
+                                    '8',
+                                    '9',
+                                    '10',
+                                    '11',
+                                    '12',
+                                    '13',
+                                    '14',
+                                    '15',
+                                    '16',
+                                    '17',
+                                    '18',
+                                    '19',
+                                    '20',
+                                    '21',
+                                    '22',
+                                    '23',
+                                    '24',
+                                    '25',
+                                    '26',
+                                    '27',
+                                    '28',
+                                    '29',
+                                    '30',
+                                    '31'
 
-                            <div id="pesoChardDivv">
-                                <canvas id="pesoChart"></canvas>
+                                ];
 
-                                <script id="scriptPeso">
-                                    var labelsPeso = [
-                                        'Gennaio',
-                                        'Febbraio',
-                                        'Marzo',
-                                        'Aprile',
-                                        'Maggio',
-                                        'Giugno',
-                                        'Luglio',
-                                        'Agosto',
-                                        'Settembre',
-                                        'Ottobre',
-                                        'Novembre',
-                                        'Dicembre',
-
-                                    ];
-
-                                    var dataPeso = {
-                                        labels: labelsPeso,
-                                        datasets: [{
-                                            label: 'Peso Medio',
-                                            backgroundColor: '#d3a411',
-                                            borderColor: '#d3a411',
-                                            data: <?php
-                                            $user = $_SESSION['user'];
-
-                                            $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                            //get all the rows from the user_info table where username is the same as the user logged in
-                                            $query = "SELECT * FROM user_info WHERE username = '$user'";
-                                            $result = pg_query($conn, $query);
-                                            //define an array to store the data
-                                            $pesoSomma = array();
-                                            $occorrenze = array();
-                                            //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                            $pesoSomma["01"] = 0;
-                                            $pesoSomma["02"] = 0;
-                                            $pesoSomma["03"] = 0;
-                                            $pesoSomma["04"] = 0;
-                                            $pesoSomma["05"] = 0;
-                                            $pesoSomma["06"] = 0;
-                                            $pesoSomma["07"] = 0;
-                                            $pesoSomma["08"] = 0;
-                                            $pesoSomma["09"] = 0;
-                                            $pesoSomma["10"] = 0;
-                                            $pesoSomma["11"] = 0;
-                                            $pesoSomma["12"] = 0;
-                                            $occorrenze["01"] = 0;
-                                            $occorrenze["02"] = 0;
-                                            $occorrenze["03"] = 0;
-                                            $occorrenze["04"] = 0;
-                                            $occorrenze["05"] = 0;
-                                            $occorrenze["06"] = 0;
-                                            $occorrenze["07"] = 0;
-                                            $occorrenze["08"] = 0;
-                                            $occorrenze["09"] = 0;
-                                            $occorrenze["10"] = 0;
-                                            $occorrenze["11"] = 0;
-                                            $occorrenze["12"] = 0;
-
-                                            while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                                $data = $rowUser_info['data'];
-                                                $year = substr($data, 0, 4);
-                                                $currentYear = date("Y");
-                                                if ($year != $currentYear) {
-                                                    continue;
-                                                }
-                                                //if data is not null, then print the data
-                                                //get the current month from data
-                                                $month = substr($data, 5, 2);
-
-
-                                                //see if the month is already in the array
-
-                                                //if the month is already in the array, then add the peso to the value
-                                                $pesoSomma[$month] += $rowUser_info['peso'];
-                                                //increment the number of occurences
-                                                $occorrenze[$month] += 1;
-                                            }
-                                            //for each element in the array, divide the peso by the number of occurences to get the average
-                                            foreach ($pesoSomma as $key => $value) {
-                                                //if value is 0, then don't divide by 0
-                                                if ($value != 0) {
-                                                    $pesoSomma[$key] = $value / $occorrenze[$key];
-                                                }
-                                                //$pesoSomma[$key] = $value / $occorrenze[$key];
-
-                                            }
-                                            echo  json_encode(array_values($pesoSomma));
-                                            ?>
-                                        }]
-                                    };
-
-                                    var configPeso = {
-                                        type: 'line',
-                                        data: dataPeso,
-                                        options: {}
-                                    };
-
-                                    var pesoChart = new Chart(
-                                        document.getElementById('pesoChart'),
-                                        configPeso
-                                    );
-
-
-                                </script>
-
-
-                            </div>
-
-
+                                var dataPeso = {
+                                    labels: labelsPeso,
+                                    datasets: [{
+                                        label: 'Peso Medio',
+                                        backgroundColor: '#d3a411',
+                                        borderColor: '#d3a411',
+                                        data: {}
+                                    }]
+                                };
+                                var configPeso = {
+                                    type: 'line',
+                                    data: dataPeso,
+                                    options: {}
+                                };
+                                var weightMonth = new Chart(
+                                    document.getElementById('pesoChart'),
+                                    configPeso
+                                );
+                                updateWeightMonth();
+                            </script>
                         </div>
                         <div class="col-md-5">
 
-                            <canvas id="calorieBruciateChart"></canvas>
+                            <canvas id="calorieBruciateChartMonth"></canvas>
 
                             <script>
                                 var labelsBruciate = [
+                                    '1',
+                                    '2',
+                                    '3',
+                                    '4',
+                                    '5',
+                                    '6',
+                                    '7',
+                                    '8',
+                                    '9',
+                                    '10',
+                                    '11',
+                                    '12',
+                                    '13',
+                                    '14',
+                                    '15',
+                                    '16',
+                                    '17',
+                                    '18',
+                                    '19',
+                                    '20',
+                                    '21',
+                                    '22',
+                                    '23',
+                                    '24',
+                                    '25',
+                                    '26',
+                                    '27',
+                                    '28',
+                                    '29',
+                                    '30',
+                                    '31'
+
+                                ];
+
+                                var dataBruciate = {
+                                    labels: labelsBruciate,
+                                    datasets: [{
+                                        label: 'Calorie Bruciate Medie',
+                                        backgroundColor: '#3c80f6',
+                                        borderColor: '#3c80f6',
+                                        data: {}
+                                    }]
+                                };
+
+                                var configBruciate = {
+                                    type: 'line',
+                                    data: dataBruciate,
+                                    options: {}
+                                };
+                                var burnedCaloriesMonth = new Chart(
+                                    document.getElementById('calorieBruciateChartMonth'),
+                                    configBruciate
+                                );
+                                updateBurnedCaloriesMonth();
+                            </script>
+                        </div>
+                    </div>
+                    <div class="row" style="justify-content: center">
+                        <div class="col-md-5">
+                            <canvas id="calorieAssunteChartMonth"></canvas>
+
+                            <script>
+                                var labelsAssunte = [
+                                    '1',
+                                    '2',
+                                    '3',
+                                    '4',
+                                    '5',
+                                    '6',
+                                    '7',
+                                    '8',
+                                    '9',
+                                    '10',
+                                    '11',
+                                    '12',
+                                    '13',
+                                    '14',
+                                    '15',
+                                    '16',
+                                    '17',
+                                    '18',
+                                    '19',
+                                    '20',
+                                    '21',
+                                    '22',
+                                    '23',
+                                    '24',
+                                    '25',
+                                    '26',
+                                    '27',
+                                    '28',
+                                    '29',
+                                    '30',
+                                    '31'
+
+                                ];
+
+                                var dataAssunte = {
+                                    labels: labelsAssunte,
+                                    datasets: [{
+                                        label: 'Calorie Assunte Medie',
+                                        backgroundColor: '#158a23',
+                                        borderColor: '#158a23',
+                                        data: {}
+                                    }]
+                                };
+
+                                var configAssunte = {
+                                    type: 'line',
+                                    data: dataAssunte,
+                                    options: {}
+                                };
+                                var takenCaloriesMonth = new Chart(
+                                    document.getElementById('calorieAssunteChartMonth'),
+                                    configAssunte
+                                );
+                                updateTakenCaloriesMonth();
+                            </script>
+                        </div>
+                        <div class="col-md-5">
+
+
+                            <canvas id="passiChartMonth"></canvas>
+
+                            <script>
+                                var labelsPassi = [
+                                    '1',
+                                    '2',
+                                    '3',
+                                    '4',
+                                    '5',
+                                    '6',
+                                    '7',
+                                    '8',
+                                    '9',
+                                    '10',
+                                    '11',
+                                    '12',
+                                    '13',
+                                    '14',
+                                    '15',
+                                    '16',
+                                    '17',
+                                    '18',
+                                    '19',
+                                    '20',
+                                    '21',
+                                    '22',
+                                    '23',
+                                    '24',
+                                    '25',
+                                    '26',
+                                    '27',
+                                    '28',
+                                    '29',
+                                    '30',
+                                    '31'
+
+                                ];
+
+                                var dataPassi = {
+                                    labels: labelsPassi,
+                                    datasets: [{
+                                        label: 'Passi Medie',
+                                        backgroundColor: '#00d29f',
+                                        borderColor: '#00d29f',
+                                        data: {}
+                                    }]
+                                };
+
+                                var configPassi = {
+                                    type: 'line',
+                                    data: dataPassi,
+                                    options: {}
+                                };
+                                var stepsMonth = new Chart(
+                                    document.getElementById('passiChartMonth'),
+                                    configPassi
+                                );
+                                updateStepsMonth();
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="chartGroup" id="chart2">
+                    <div class="row" style="justify-content: center">
+                        <div class="col-md-5">
+
+
+                            <canvas id="pesoChartYear"></canvas>
+
+                            <script>
+                                var labelsPeso = [
                                     'Gennaio',
                                     'Febbraio',
                                     'Marzo',
@@ -902,87 +912,57 @@ if (!isset($_SESSION['user'])) {
 
                                 ];
 
+                                var dataPeso = {
+                                    labels: labelsPeso,
+                                    datasets: [{
+                                        label: 'Peso Medio',
+                                        backgroundColor: '#d3a411',
+                                        borderColor: '#d3a411',
+                                        data: {}
+                                    }]
+                                };
+
+                                var configPeso = {
+                                    type: 'line',
+                                    data: dataPeso,
+                                    options: {}
+                                };
+
+                                var weightYear = new Chart(
+                                    document.getElementById('pesoChartYear'),
+                                    configPeso
+                                );
+                                updateWeightYear();
+                            </script>
+
+                        </div>
+                        <div class="col-md-5">
+
+                            <canvas id="calorieBruciateChartYear"></canvas>
+
+                            <script>
+                                var labelsBruciate = [
+                                    'Gennaio',
+                                    'Febbraio',
+                                    'Marzo',
+                                    'Aprile',
+                                    'Maggio',
+                                    'Giugno',
+                                    'Luglio',
+                                    'Agosto',
+                                    'Settembre',
+                                    'Ottobre',
+                                    'Novembre',
+                                    'Dicembre',
+                                ];
+
                                 var dataBruciate = {
                                     labels: labelsBruciate,
                                     datasets: [{
                                         label: 'Calorie Bruciate Medie',
                                         backgroundColor: '#3c80f6',
                                         borderColor: '#3c80f6',
-                                        data: <?php
-
-                                        $user = $_SESSION['user'];
-
-                                        $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                        //get all the rows from the user_info table where username is the same as the user logged in
-                                        $query = "SELECT * FROM user_activity WHERE username = '$user'";
-                                        $result = pg_query($conn, $query);
-                                        //define an array to store the data
-                                        $calorieBruciateSomma = array();
-                                        $occorrenze = array();
-
-                                        //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                        $calorieBruciateSomma["01"] = 0;
-                                        $calorieBruciateSomma["02"] = 0;
-                                        $calorieBruciateSomma["03"] = 0;
-                                        $calorieBruciateSomma["04"] = 0;
-                                        $calorieBruciateSomma["05"] = 0;
-                                        $calorieBruciateSomma["06"] = 0;
-                                        $calorieBruciateSomma["07"] = 0;
-                                        $calorieBruciateSomma["08"] = 0;
-                                        $calorieBruciateSomma["09"] = 0;
-                                        $calorieBruciateSomma["10"] = 0;
-                                        $calorieBruciateSomma["11"] = 0;
-                                        $calorieBruciateSomma["12"] = 0;
-                                        $occorrenze["01"] = 0;
-                                        $occorrenze["02"] = 0;
-                                        $occorrenze["03"] = 0;
-                                        $occorrenze["04"] = 0;
-                                        $occorrenze["05"] = 0;
-                                        $occorrenze["06"] = 0;
-                                        $occorrenze["07"] = 0;
-                                        $occorrenze["08"] = 0;
-                                        $occorrenze["09"] = 0;
-                                        $occorrenze["10"] = 0;
-                                        $occorrenze["11"] = 0;
-                                        $occorrenze["12"] = 0;
-
-
-                                        while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                            $data = $rowUser_info['data'];
-
-                                            $year = substr($data, 0, 4);
-                                            $currentYear = date("Y");
-                                            if ($year != $currentYear) {
-                                                continue;
-                                            }
-                                            //if data is not null, then print the data
-                                            //get the current month from data
-                                            $month = substr($data, 5, 2);
-
-
-                                            //see if the month is already in the array
-
-                                            //if the month is already in the array, then add the calorie_brucitate to the value
-                                            $calorieBruciateSomma[$month] += $rowUser_info['calorie_bruciate'];
-                                            //increment the number of occurences
-                                            $occorrenze[$month] += 1;
-                                        }
-                                        //for each element in the array, divide the peso by the number of occurences to get the average
-                                        foreach ($calorieBruciateSomma as $key => $value) {
-                                            //if value is 0, then don't divide by 0
-                                            if ($value != 0) {
-                                                $calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-                                            }
-                                            //$calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-
-                                        }
-
-
-                                        echo json_encode(array_values($calorieBruciateSomma));
-
-
-                                        ?>
+                                        data: {}
                                     }]
                                 };
 
@@ -991,19 +971,17 @@ if (!isset($_SESSION['user'])) {
                                     data: dataBruciate,
                                     options: {}
                                 };
-                            </script>
-                            <script>
-                                var calorieBruciateChart = new Chart(
-                                    document.getElementById('calorieBruciateChart'),
+                                var burnedCaloriesYear = new Chart(
+                                    document.getElementById('calorieBruciateChartYear'),
                                     configBruciate
                                 );
+                                updateBurnedCaloriesYear();
                             </script>
-
                         </div>
                     </div>
                     <div class="row" style="justify-content: center">
                         <div class="col-md-5">
-                            <canvas id="calorieAssunteChart"></canvas>
+                            <canvas id="calorieAssunteChartYear"></canvas>
 
                             <script>
                                 var labelsAssunte = [
@@ -1028,103 +1006,23 @@ if (!isset($_SESSION['user'])) {
                                         label: 'Calorie Assunte Medie',
                                         backgroundColor: '#158a23',
                                         borderColor: '#158a23',
-                                        data: <?php
-
-                                        $user = $_SESSION['user'];
-
-                                        $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                        //get all the rows from the user_info table where username is the same as the user logged in
-                                        $query = "SELECT * FROM user_alimenti WHERE username = '$user'";
-                                        $result = pg_query($conn, $query);
-                                        //define an array to store the data
-                                        $calorieBruciateSomma = array();
-                                        $occorrenze = array();
-
-                                        //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                        $calorieBruciateSomma["01"] = 0;
-                                        $calorieBruciateSomma["02"] = 0;
-                                        $calorieBruciateSomma["03"] = 0;
-                                        $calorieBruciateSomma["04"] = 0;
-                                        $calorieBruciateSomma["05"] = 0;
-                                        $calorieBruciateSomma["06"] = 0;
-                                        $calorieBruciateSomma["07"] = 0;
-                                        $calorieBruciateSomma["08"] = 0;
-                                        $calorieBruciateSomma["09"] = 0;
-                                        $calorieBruciateSomma["10"] = 0;
-                                        $calorieBruciateSomma["11"] = 0;
-                                        $calorieBruciateSomma["12"] = 0;
-                                        $occorrenze["01"] = 0;
-                                        $occorrenze["02"] = 0;
-                                        $occorrenze["03"] = 0;
-                                        $occorrenze["04"] = 0;
-                                        $occorrenze["05"] = 0;
-                                        $occorrenze["06"] = 0;
-                                        $occorrenze["07"] = 0;
-                                        $occorrenze["08"] = 0;
-                                        $occorrenze["09"] = 0;
-                                        $occorrenze["10"] = 0;
-                                        $occorrenze["11"] = 0;
-                                        $occorrenze["12"] = 0;
-
-
-                                        while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                            $data = $rowUser_info['data'];
-                                            $year = substr($data, 0, 4);
-                                            $currentYear = date("Y");
-                                            if ($year != $currentYear) {
-                                                continue;
-                                            }
-                                            //if data is not null, then print the data
-                                            //get the current month from data
-                                            $month = substr($data, 5, 2);
-
-
-                                            //see if the month is already in the array
-
-                                            //if the month is already in the array, then add the calorie_brucitate to the value
-                                            $calorieBruciateSomma[$month] += $rowUser_info['calorie_assunte'];
-                                            //increment the number of occurences
-                                            $occorrenze[$month] += 1;
-                                        }
-                                        //for each element in the array, divide the peso by the number of occurences to get the average
-                                        foreach ($calorieBruciateSomma as $key => $value) {
-                                            //if value is 0, then don't divide by 0
-                                            if ($value != 0) {
-                                                $calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-                                            }
-                                            //$calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-
-                                        }
-
-
-                                        echo json_encode(array_values($calorieBruciateSomma));
-
-
-                                        ?>,
+                                        data: {}
                                     }]
                                 };
-
                                 var configAssunte = {
                                     type: 'line',
                                     data: dataAssunte,
                                     options: {}
                                 };
-                            </script>
-                            <script>
-                                var calorieAssunteChart = new Chart(
-                                    document.getElementById('calorieAssunteChart'),
+                                var takenCaloriesYear = new Chart(
+                                    document.getElementById('calorieAssunteChartYear'),
                                     configAssunte
                                 );
+                                updateTakenCaloriesYear();
                             </script>
-
-
                         </div>
                         <div class="col-md-5">
-
-
-                            <canvas id="passiChart"></canvas>
-
+                            <canvas id="passiChartYear"></canvas>
                             <script>
                                 var labelsPassi = [
                                     'Gennaio',
@@ -1141,600 +1039,31 @@ if (!isset($_SESSION['user'])) {
                                     'Dicembre',
 
                                 ];
-
                                 var dataPassi = {
                                     labels: labelsPassi,
                                     datasets: [{
                                         label: 'Passi Medie',
                                         backgroundColor: '#00d29f',
                                         borderColor: '#00d29f',
-                                        data: <?php
-
-                                        $user = $_SESSION['user'];
-
-                                        $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                        //get all the rows from the user_info table where username is the same as the user logged in
-                                        $query = "SELECT * FROM user_activity WHERE username = '$user'";
-                                        $result = pg_query($conn, $query);
-                                        //define an array to store the data
-                                        $calorieBruciateSomma = array();
-                                        $occorrenze = array();
-
-                                        //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                        $calorieBruciateSomma["01"] = 0;
-                                        $calorieBruciateSomma["02"] = 0;
-                                        $calorieBruciateSomma["03"] = 0;
-                                        $calorieBruciateSomma["04"] = 0;
-                                        $calorieBruciateSomma["05"] = 0;
-                                        $calorieBruciateSomma["06"] = 0;
-                                        $calorieBruciateSomma["07"] = 0;
-                                        $calorieBruciateSomma["08"] = 0;
-                                        $calorieBruciateSomma["09"] = 0;
-                                        $calorieBruciateSomma["10"] = 0;
-                                        $calorieBruciateSomma["11"] = 0;
-                                        $calorieBruciateSomma["12"] = 0;
-                                        $occorrenze["01"] = 0;
-                                        $occorrenze["02"] = 0;
-                                        $occorrenze["03"] = 0;
-                                        $occorrenze["04"] = 0;
-                                        $occorrenze["05"] = 0;
-                                        $occorrenze["06"] = 0;
-                                        $occorrenze["07"] = 0;
-                                        $occorrenze["08"] = 0;
-                                        $occorrenze["09"] = 0;
-                                        $occorrenze["10"] = 0;
-                                        $occorrenze["11"] = 0;
-                                        $occorrenze["12"] = 0;
-
-
-                                        while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                            $data = $rowUser_info['data'];
-                                            //if data is not null, then print the data
-                                            //get the current month from data
-
-                                            $year = substr($data, 0, 4);
-                                            $currentYear = date("Y");
-                                            if ($year != $currentYear) {
-                                                continue;
-                                            }
-
-
-                                            $month = substr($data, 5, 2);
-
-
-                                            //see if the month is already in the array
-
-                                            //if the month is already in the array, then add the calorie_brucitate to the value
-                                            $calorieBruciateSomma[$month] += $rowUser_info['passi'];
-                                            //increment the number of occurences
-                                            $occorrenze[$month] += 1;
-                                        }
-                                        //for each element in the array, divide the peso by the number of occurences to get the average
-                                        foreach ($calorieBruciateSomma as $key => $value) {
-                                            //if value is 0, then don't divide by 0
-                                            if ($value != 0) {
-                                                $calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-                                            }
-                                            //$calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-
-                                        }
-
-
-                                        echo json_encode(array_values($calorieBruciateSomma));
-
-
-                                        ?>,
+                                        data: {}
                                     }]
                                 };
-
                                 var configPassi = {
                                     type: 'line',
                                     data: dataPassi,
                                     options: {}
                                 };
-                            </script>
-                            <script>
-                                var passiChart = new Chart(
-                                    document.getElementById('passiChart'),
+                                var stepsYear = new Chart(
+                                    document.getElementById('passiChartYear'),
                                     configPassi
                                 );
+                                updateStepsYear();
                             </script>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="chartGroup" id="chart2" style="display:none">
-                    <div class="row" style="justify-content: center">
-                        <div class="col-md-5">
-
-                            <div id="pesoChardDivv">
-                                <canvas id="pesoChart"></canvas>
-
-                                <script id="scriptPeso">
-                                    var labelsPeso = [
-                                        'Gennaio',
-                                        'Febbraio',
-                                        'Marzo',
-                                        'Aprile',
-                                        'Maggio',
-                                        'Giugno',
-                                        'Luglio',
-                                        'Agosto',
-                                        'Settembre',
-                                        'Ottobre',
-                                        'Novembre',
-                                        'Dicembre',
-
-                                    ];
-
-                                    var dataPeso = {
-                                        labels: labelsPeso,
-                                        datasets: [{
-                                            label: 'Peso Medio',
-                                            backgroundColor: '#d3a411',
-                                            borderColor: '#d3a411',
-                                            data: <?php
-                                            $user = $_SESSION['user'];
-
-                                            $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                            //get all the rows from the user_info table where username is the same as the user logged in
-                                            $query = "SELECT * FROM user_info WHERE username = '$user'";
-                                            $result = pg_query($conn, $query);
-                                            //define an array to store the data
-                                            $pesoSomma = array();
-                                            $occorrenze = array();
-                                            //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                            $pesoSomma["01"] = 0;
-                                            $pesoSomma["02"] = 0;
-                                            $pesoSomma["03"] = 0;
-                                            $pesoSomma["04"] = 0;
-                                            $pesoSomma["05"] = 0;
-                                            $pesoSomma["06"] = 0;
-                                            $pesoSomma["07"] = 0;
-                                            $pesoSomma["08"] = 0;
-                                            $pesoSomma["09"] = 0;
-                                            $pesoSomma["10"] = 0;
-                                            $pesoSomma["11"] = 0;
-                                            $pesoSomma["12"] = 0;
-                                            $occorrenze["01"] = 0;
-                                            $occorrenze["02"] = 0;
-                                            $occorrenze["03"] = 0;
-                                            $occorrenze["04"] = 0;
-                                            $occorrenze["05"] = 0;
-                                            $occorrenze["06"] = 0;
-                                            $occorrenze["07"] = 0;
-                                            $occorrenze["08"] = 0;
-                                            $occorrenze["09"] = 0;
-                                            $occorrenze["10"] = 0;
-                                            $occorrenze["11"] = 0;
-                                            $occorrenze["12"] = 0;
-
-                                            while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                                $data = $rowUser_info['data'];
-                                                $year = substr($data, 0, 4);
-                                                $currentYear = date("Y");
-                                                if ($year != $currentYear) {
-                                                    continue;
-                                                }
-                                                //if data is not null, then print the data
-                                                //get the current month from data
-                                                $month = substr($data, 5, 2);
-
-
-                                                //see if the month is already in the array
-
-                                                //if the month is already in the array, then add the peso to the value
-                                                $pesoSomma[$month] += $rowUser_info['peso'];
-                                                //increment the number of occurences
-                                                $occorrenze[$month] += 1;
-                                            }
-                                            //for each element in the array, divide the peso by the number of occurences to get the average
-                                            foreach ($pesoSomma as $key => $value) {
-                                                //if value is 0, then don't divide by 0
-                                                if ($value != 0) {
-                                                    $pesoSomma[$key] = $value / $occorrenze[$key];
-                                                }
-                                                //$pesoSomma[$key] = $value / $occorrenze[$key];
-
-                                            }
-                                            echo json_encode(array_values($pesoSomma));
-                                            ?>
-                                        }]
-                                    };
-
-                                    var configPeso = {
-                                        type: 'line',
-                                        data: dataPeso,
-                                        options: {}
-                                    };
-
-                                    var pesoChart = new Chart(
-                                        document.getElementById('pesoChart'),
-                                        configPeso
-                                    );
-
-
-                                </script>
-
-
-                            </div>
-
-
-                        </div>
-                        <div class="col-md-5">
-
-                            <canvas id="calorieBruciateChart"></canvas>
-
-                            <script>
-                                var labelsBruciate = [
-                                    'Gennaio',
-                                    'Febbraio',
-                                    'Marzo',
-                                    'Aprile',
-                                    'Maggio',
-                                    'Giugno',
-                                    'Luglio',
-                                    'Agosto',
-                                    'Settembre',
-                                    'Ottobre',
-                                    'Novembre',
-                                    'Dicembre',
-
-                                ];
-
-                                var dataBruciate = {
-                                    labels: labelsBruciate,
-                                    datasets: [{
-                                        label: 'Calorie Bruciate Medie',
-                                        backgroundColor: '#3c80f6',
-                                        borderColor: '#3c80f6',
-                                        data: <?php
-
-                                        $user = $_SESSION['user'];
-
-                                        $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                        //get all the rows from the user_info table where username is the same as the user logged in
-                                        $query = "SELECT * FROM user_activity WHERE username = '$user'";
-                                        $result = pg_query($conn, $query);
-                                        //define an array to store the data
-                                        $calorieBruciateSomma = array();
-                                        $occorrenze = array();
-
-                                        //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                        $calorieBruciateSomma["01"] = 0;
-                                        $calorieBruciateSomma["02"] = 0;
-                                        $calorieBruciateSomma["03"] = 0;
-                                        $calorieBruciateSomma["04"] = 0;
-                                        $calorieBruciateSomma["05"] = 0;
-                                        $calorieBruciateSomma["06"] = 0;
-                                        $calorieBruciateSomma["07"] = 0;
-                                        $calorieBruciateSomma["08"] = 0;
-                                        $calorieBruciateSomma["09"] = 0;
-                                        $calorieBruciateSomma["10"] = 0;
-                                        $calorieBruciateSomma["11"] = 0;
-                                        $calorieBruciateSomma["12"] = 0;
-                                        $occorrenze["01"] = 0;
-                                        $occorrenze["02"] = 0;
-                                        $occorrenze["03"] = 0;
-                                        $occorrenze["04"] = 0;
-                                        $occorrenze["05"] = 0;
-                                        $occorrenze["06"] = 0;
-                                        $occorrenze["07"] = 0;
-                                        $occorrenze["08"] = 0;
-                                        $occorrenze["09"] = 0;
-                                        $occorrenze["10"] = 0;
-                                        $occorrenze["11"] = 0;
-                                        $occorrenze["12"] = 0;
-
-
-                                        while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                            $data = $rowUser_info['data'];
-
-                                            $year = substr($data, 0, 4);
-                                            $currentYear = date("Y");
-                                            if ($year != $currentYear) {
-                                                continue;
-                                            }
-                                            //if data is not null, then print the data
-                                            //get the current month from data
-                                            $month = substr($data, 5, 2);
-
-
-                                            //see if the month is already in the array
-
-                                            //if the month is already in the array, then add the calorie_brucitate to the value
-                                            $calorieBruciateSomma[$month] += $rowUser_info['calorie_bruciate'];
-                                            //increment the number of occurences
-                                            $occorrenze[$month] += 1;
-                                        }
-                                        //for each element in the array, divide the peso by the number of occurences to get the average
-                                        foreach ($calorieBruciateSomma as $key => $value) {
-                                            //if value is 0, then don't divide by 0
-                                            if ($value != 0) {
-                                                $calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-                                            }
-                                            //$calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-
-                                        }
-
-
-                                        echo json_encode(array_values($calorieBruciateSomma));
-
-
-                                        ?>
-                                    }]
-                                };
-
-                                var configBruciate = {
-                                    type: 'line',
-                                    data: dataBruciate,
-                                    options: {}
-                                };
-                            </script>
-                            <script>
-                                var calorieBruciateChart = new Chart(
-                                    document.getElementById('calorieBruciateChart'),
-                                    configBruciate
-                                );
-                            </script>
-
-                        </div>
-                    </div>
-                    <div class="row" style="justify-content: center">
-                        <div class="col-md-5">
-                            <canvas id="calorieAssunteChart"></canvas>
-
-                            <script>
-                                var labelsAssunte = [
-                                    'Gennaio',
-                                    'Febbraio',
-                                    'Marzo',
-                                    'Aprile',
-                                    'Maggio',
-                                    'Giugno',
-                                    'Luglio',
-                                    'Agosto',
-                                    'Settembre',
-                                    'Ottobre',
-                                    'Novembre',
-                                    'Dicembre',
-
-                                ];
-
-                                var dataAssunte = {
-                                    labels: labelsAssunte,
-                                    datasets: [{
-                                        label: 'Calorie Assunte Medie',
-                                        backgroundColor: '#158a23',
-                                        borderColor: '#158a23',
-                                        data: <?php
-
-                                        $user = $_SESSION['user'];
-
-                                        $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                        //get all the rows from the user_info table where username is the same as the user logged in
-                                        $query = "SELECT * FROM user_alimenti WHERE username = '$user'";
-                                        $result = pg_query($conn, $query);
-                                        //define an array to store the data
-                                        $calorieBruciateSomma = array();
-                                        $occorrenze = array();
-
-                                        //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                        $calorieBruciateSomma["01"] = 0;
-                                        $calorieBruciateSomma["02"] = 0;
-                                        $calorieBruciateSomma["03"] = 0;
-                                        $calorieBruciateSomma["04"] = 0;
-                                        $calorieBruciateSomma["05"] = 0;
-                                        $calorieBruciateSomma["06"] = 0;
-                                        $calorieBruciateSomma["07"] = 0;
-                                        $calorieBruciateSomma["08"] = 0;
-                                        $calorieBruciateSomma["09"] = 0;
-                                        $calorieBruciateSomma["10"] = 0;
-                                        $calorieBruciateSomma["11"] = 0;
-                                        $calorieBruciateSomma["12"] = 0;
-                                        $occorrenze["01"] = 0;
-                                        $occorrenze["02"] = 0;
-                                        $occorrenze["03"] = 0;
-                                        $occorrenze["04"] = 0;
-                                        $occorrenze["05"] = 0;
-                                        $occorrenze["06"] = 0;
-                                        $occorrenze["07"] = 0;
-                                        $occorrenze["08"] = 0;
-                                        $occorrenze["09"] = 0;
-                                        $occorrenze["10"] = 0;
-                                        $occorrenze["11"] = 0;
-                                        $occorrenze["12"] = 0;
-
-
-                                        while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                            $data = $rowUser_info['data'];
-                                            $year = substr($data, 0, 4);
-                                            $currentYear = date("Y");
-                                            if ($year != $currentYear) {
-                                                continue;
-                                            }
-                                            //if data is not null, then print the data
-                                            //get the current month from data
-                                            $month = substr($data, 5, 2);
-
-
-                                            //see if the month is already in the array
-
-                                            //if the month is already in the array, then add the calorie_brucitate to the value
-                                            $calorieBruciateSomma[$month] += $rowUser_info['calorie_assunte'];
-                                            //increment the number of occurences
-                                            $occorrenze[$month] += 1;
-                                        }
-                                        //for each element in the array, divide the peso by the number of occurences to get the average
-                                        foreach ($calorieBruciateSomma as $key => $value) {
-                                            //if value is 0, then don't divide by 0
-                                            if ($value != 0) {
-                                                $calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-                                            }
-                                            //$calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-
-                                        }
-
-
-                                        echo json_encode(array_values($calorieBruciateSomma));
-
-
-                                        ?>,
-                                    }]
-                                };
-
-                                var configAssunte = {
-                                    type: 'line',
-                                    data: dataAssunte,
-                                    options: {}
-                                };
-                            </script>
-                            <script>
-                                var calorieAssunteChart = new Chart(
-                                    document.getElementById('calorieAssunteChart'),
-                                    configAssunte
-                                );
-                            </script>
-
-
-                        </div>
-                        <div class="col-md-5">
-
-
-                            <canvas id="passiChart"></canvas>
-
-                            <script>
-                                var labelsPassi = [
-                                    'Gennaio',
-                                    'Febbraio',
-                                    'Marzo',
-                                    'Aprile',
-                                    'Maggio',
-                                    'Giugno',
-                                    'Luglio',
-                                    'Agosto',
-                                    'Settembre',
-                                    'Ottobre',
-                                    'Novembre',
-                                    'Dicembre',
-
-                                ];
-
-                                var dataPassi = {
-                                    labels: labelsPassi,
-                                    datasets: [{
-                                        label: 'Passi Medie',
-                                        backgroundColor: '#00d29f',
-                                        borderColor: '#00d29f',
-                                        data: <?php
-
-                                        $user = $_SESSION['user'];
-
-                                        $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
-                                        //get all the rows from the user_info table where username is the same as the user logged in
-                                        $query = "SELECT * FROM user_activity WHERE username = '$user'";
-                                        $result = pg_query($conn, $query);
-                                        //define an array to store the data
-                                        $calorieBruciateSomma = array();
-                                        $occorrenze = array();
-
-                                        //initializing the array in this manner: the key is a string of two digits representing the year, the value is an array of two digits representing the month
-                                        $calorieBruciateSomma["01"] = 0;
-                                        $calorieBruciateSomma["02"] = 0;
-                                        $calorieBruciateSomma["03"] = 0;
-                                        $calorieBruciateSomma["04"] = 0;
-                                        $calorieBruciateSomma["05"] = 0;
-                                        $calorieBruciateSomma["06"] = 0;
-                                        $calorieBruciateSomma["07"] = 0;
-                                        $calorieBruciateSomma["08"] = 0;
-                                        $calorieBruciateSomma["09"] = 0;
-                                        $calorieBruciateSomma["10"] = 0;
-                                        $calorieBruciateSomma["11"] = 0;
-                                        $calorieBruciateSomma["12"] = 0;
-                                        $occorrenze["01"] = 0;
-                                        $occorrenze["02"] = 0;
-                                        $occorrenze["03"] = 0;
-                                        $occorrenze["04"] = 0;
-                                        $occorrenze["05"] = 0;
-                                        $occorrenze["06"] = 0;
-                                        $occorrenze["07"] = 0;
-                                        $occorrenze["08"] = 0;
-                                        $occorrenze["09"] = 0;
-                                        $occorrenze["10"] = 0;
-                                        $occorrenze["11"] = 0;
-                                        $occorrenze["12"] = 0;
-
-
-                                        while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                            $data = $rowUser_info['data'];
-                                            //if data is not null, then print the data
-                                            //get the current month from data
-
-                                            $year = substr($data, 0, 4);
-                                            $currentYear = date("Y");
-                                            if ($year != $currentYear) {
-                                                continue;
-                                            }
-
-
-                                            $month = substr($data, 5, 2);
-
-
-                                            //see if the month is already in the array
-
-                                            //if the month is already in the array, then add the calorie_brucitate to the value
-                                            $calorieBruciateSomma[$month] += $rowUser_info['passi'];
-                                            //increment the number of occurences
-                                            $occorrenze[$month] += 1;
-                                        }
-                                        //for each element in the array, divide the peso by the number of occurences to get the average
-                                        foreach ($calorieBruciateSomma as $key => $value) {
-                                            //if value is 0, then don't divide by 0
-                                            if ($value != 0) {
-                                                $calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-                                            }
-                                            //$calorieBruciateSomma[$key] = $value / $occorrenze[$key];
-
-                                        }
-
-
-                                        echo json_encode(array_values($calorieBruciateSomma));
-
-
-                                        ?>,
-                                    }]
-                                };
-
-                                var configPassi = {
-                                    type: 'line',
-                                    data: dataPassi,
-                                    options: {}
-                                };
-                            </script>
-                            <script>
-                                var passiChart = new Chart(
-                                    document.getElementById('passiChart'),
-                                    configPassi
-                                );
-                            </script>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -1743,12 +1072,14 @@ if (!isset($_SESSION['user'])) {
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+        <br>
+        <br>
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
     </div>
-
-
-
-
-
 
 
 </div>
@@ -1849,97 +1180,9 @@ if (!isset($_SESSION['user'])) {
             </div>
         </div>
 
-
     </div>
 </div>
 
-
-<div class="modal fade" id="modalViewAttivita" tabindex="-1" role="dialog"
-     aria-labelledby="modalViewAttivitaTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Allenamento</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post" id="formActivity" onsubmit="return sendActivity();"
-                  action="../php/insertItemsInuser_activity.php">
-
-                <div class="modal-body">
-                    <div class="it-datepicker-wrapper theme-dark">
-                        <div class="form-group">
-                            <label for="dateAllenamento">Data Allenamento</label>
-                            <input class="form-control it-date-datepicker" id="dateAllenamento"
-                                   name="dateAllenamento" type="date">
-
-                            <label for="orarioAllenamento" style="padding-top: 15px"> Orario Allenamento</label>
-                            <input class="form-control it-time-picker" id="orarioAllenamento" name="orarioAllenamento" type="time">
-
-                            <label for="durata">Durata Allenamento</label>
-                            <input class="form-control it-date-datepicker" id="durata" name="durata"
-                                   type="number">
-
-
-                            <label for="attivita" style="padding-top: 15px">Attività Svolta</label>
-                            <input class="form-control" id="attivita" name="attivita" type="text">
-                            <label for="calorie_bruciateInput" style="padding-top: 15px">Calorie
-                                Bruciate</label>
-                            <input class="form-control" id="calorie_bruciateInput" name="calorie_bruciateInput"
-                                   type="number">
-                            <label for="passiInput" style="padding-top: 15px">Passi Effettuati</label>
-                            <input class="form-control" id="passiInput" name="passiInput" type="number">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
-                    <button type="submit" class="btn btn-primary">Aggiungi Allenamento</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- <a href="#" class="btn btn-dark float-right ">Aggiungi Allenamento</a> -->
-
-
-<div class="modal fade" id="modalViewAlimento" tabindex="-1" role="dialog" aria-labelledby="modalViewAlimento"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Nuovo Alimento</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post" id="formAliment" onsubmit="return sendAliment();"
-                  action="../php/insertItemsInuser_alimenti.php">
-                <div class="modal-body">
-                    <div class="it-datepicker-wrapper theme-dark">
-                        <div class="form-group">
-                            <label for="date2 ">Data Alimento</label>
-                            <input class="form-control it-date-datepicker" id="date2" name="date2" type="date">
-                            <label for="orario" style="padding-top: 15px"> Orario Pasto</label>
-                            <input class="form-control it-time-picker" id="orario" name="orario" type="time">
-                            <label for="alimentoInput" style="padding-top: 15px">Alimento Mangiato</label>
-                            <input class="form-control" id="alimentoInput" name="alimentoInput" type="text">
-                            <label for="calorie_bruciateInput" style="padding-top: 15px">Calorie
-                                Alimento</label>
-                            <input class="form-control" id="calorieAssunteInput" name="calorieAssunteInput"
-                                   type="number">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
-                    <button type="submit" class="btn btn-primary">Aggiungi Alimento</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
