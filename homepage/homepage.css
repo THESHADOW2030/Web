@@ -285,7 +285,9 @@ ul
     filter: invert(1);
 }
 
+.carousel-control-next, .carousel-control-prev
+{
+    width: 20px;
 
-
-
+}
 

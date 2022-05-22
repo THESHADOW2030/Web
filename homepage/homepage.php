@@ -5,7 +5,7 @@
 //TODO: Add charts by week,mounth and year
 //TODO: Add "steps done" separately
 //TODO: Add Dark Mode
-//TODO:
+//TODO: Fix steps card!!
 session_start();
 //connect to database
 //$conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=password");
@@ -288,7 +288,6 @@ if (!isset($_SESSION['user'])) {
         <div class="row cards">
             <div class="col-sm-3">
                 <div class="card">
-
                     <div class="card-body">
                         <h3 class="card-title">Peso</h3>
                         <div class="row">
@@ -296,20 +295,16 @@ if (!isset($_SESSION['user'])) {
                                 <?php
                                 $q1 = "SELECT * FROM public.user_info WHERE username = $1";
                                 $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-                                // $rowUser_info = pg_fetch_assoc($result);
                                 $peso = 0;
                                 $data = 0;
 
-                                while ($rowUser_info = pg_fetch_assoc($result)) {
-                                    //echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
-                                    if ($rowUser_info['data'] > $data) {
+                                while ($rowUser_info = pg_fetch_assoc($result))
+                                {
+                                    if ($rowUser_info['data'] > $data)
+                                    {
                                         $peso = $rowUser_info['peso'];
                                         $data = $rowUser_info['data'];
-
-
                                     }
-
-                                    // echo '<p class="card-text">' . $rowUser_info['peso'] . 'Kg</p>';
                                 }
                                 echo '<p class="card-text">' . $peso . 'Kg</p>';
 
@@ -330,18 +325,16 @@ if (!isset($_SESSION['user'])) {
                         <div class="row">
                             <div class="col-sm-6">
                                 <?php
-                                $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
+                                $user = $_SESSION['user'];
+                                $q1 = "SELECT SUM(calorie_bruciate) FROM public.user_activity WHERE username = '$user' AND data = CURRENT_DATE";
+                                $result = pg_query($conn, $q1);
 
+                                $totale = pg_fetch_row($result);
+                                if ($totale[0] != null)
+                                    echo '<p class="card-text">' . $totale[0] . 'Kcal</p>';
+                                else
+                                    echo '<p class="card-text">' . 0  . 'Kcal</p>';
 
-                                $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-
-                                $totale = 0;
-                                while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                    $totale = $totale + $rowUser_info['calorie_bruciate'];
-
-                                }
-                                echo '<p class="card-text">' . $totale . 'Kcal</p>';
                                 ?>
                             </div>
                             <div class="col-sm-6">
@@ -358,17 +351,15 @@ if (!isset($_SESSION['user'])) {
                         <div class="row">
                             <div class="col-sm-6">
                                 <?php
-                                $q1 = "SELECT * FROM public.user_alimenti WHERE username = $1";
 
-                                $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-                                $totale = 0;
-                                while ($rowUser_info = pg_fetch_assoc($result)) {
-
-
-                                    $totale = $totale + $rowUser_info['calorie_assunte'];
-
-                                }
-                                echo '<p class="card-text">' . $totale . 'Kcal</p>';
+                                $user = $_SESSION['user'];
+                                $q1 = "SELECT SUM(calorie_assunte) FROM public.user_alimenti WHERE username = '$user' AND data = CURRENT_DATE";
+                                $result = pg_query($conn, $q1);
+                                $totale = pg_fetch_row($result);
+                                if ($totale[0] != null)
+                                    echo '<p class="card-text">' . $totale[0] . 'Kcal</p>';
+                                else
+                                    echo '<p class="card-text">' . 0  . 'Kcal</p>';
                                 ?>
                             </div>
                             <div class="col-sm-6">
@@ -385,18 +376,14 @@ if (!isset($_SESSION['user'])) {
                         <div class="row">
                             <div class="col-sm-6">
                                 <?php
-                                $q1 = "SELECT * FROM public.user_activity WHERE username = $1";
-
-
-                                $result = pg_query_params($conn, $q1, array($_SESSION['user']));
-
-                                $totale = 0;
-                                while ($rowUser_info = pg_fetch_assoc($result)) {
-
-                                    $totale = $totale + $rowUser_info['passi'];
-
-                                }
-                                echo '<p class="card-text">' . $totale . '</p>';
+                                $user = $_SESSION['user'];
+                                $q1 = "SELECT SUM(calorie_assunte) FROM public.user_alimenti WHERE username = '$user' AND data = CURRENT_DATE";
+                                $result = pg_query($conn, $q1);
+                                $totale = pg_fetch_row($result);
+                                if ($totale[0] != null)
+                                    echo '<p class="card-text">' . $totale[0] . ' passi</p>';
+                                else
+                                    echo '<p class="card-text">' . 0  . ' passi</p>';
                                 ?>
                             </div>
                             <div class="col-sm-6">
