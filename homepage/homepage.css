@@ -284,8 +284,9 @@ ul
 {
     filter: invert(1);
 }
+.btn-secondary{
+    background-color: #7c878f;
 
-
-
+}
 
 

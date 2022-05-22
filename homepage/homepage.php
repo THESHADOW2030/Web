@@ -136,7 +136,7 @@ if (!isset($_SESSION['user'])) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
-                        <button type="submit" class="btn btn-primary">Salva</button>
+                        <button type="submit" class="btn btn-dark">Salva</button>
                     </div>
 
 
@@ -186,7 +186,7 @@ if (!isset($_SESSION['user'])) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
-                    <button type="submit" class="btn btn-primary">Aggiungi Allenamento</button>
+                    <button type="submit" class="btn btn-dark">Aggiungi Allenamento</button>
                 </div>
             </form>
         </div>
@@ -222,7 +222,7 @@ if (!isset($_SESSION['user'])) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
-                    <button type="submit" class="btn btn-primary">Aggiungi Alimento</button>
+                    <button type="submit" class="btn btn-dark">Aggiungi Alimento</button>
                 </div>
             </form>
         </div>
@@ -259,7 +259,7 @@ if (!isset($_SESSION['user'])) {
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta
                     </button>
-                    <button type="submit" class="btn btn-primary">Aggiorna Peso</button>
+                    <button type="submit" class="btn btn-dark">Aggiorna Peso</button>
                 </div>
             </form>
         </div>
@@ -403,7 +403,7 @@ if (!isset($_SESSION['user'])) {
                                 <img class="card-img" src="../resources/images/step6000x6000.png">
                             </div>
                         </div>
-                        <!-- <a href="#" class="btn btn-primary float-right mybtn">Aggiorna</a> -->
+                        <!-- <a href="#" class="btn btn-dark float-right mybtn">Aggiorna</a> -->
                     </div>
                 </div>
             </div>
