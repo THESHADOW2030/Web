@@ -14,7 +14,8 @@ create table user_info
 (
     username char(255),
     peso     integer default 0,
-    data     date
+    data     date,
+    altezza  integer default 0
 );
 
 comment on table user_info is 'Qui ci saranno le informazioni sul peso, sui passi e sulle calorie bruciate e assunte
@@ -38,9 +39,7 @@ alter table user_activity
 
 create table user_alimenti
 (
-    username        char(255)
-        constraint user_alimenti_users__fk
-            references users,
+    username        char(255),
     alimento        char(255),
     calorie_assunte integer default 0,
     data            date,
