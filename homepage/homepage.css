@@ -291,3 +291,10 @@ ul
 
 }
 
+.btn-secondary{
+    background-color: #afbed0;
+    border-color: #afbed0;
+}
+.btn-secondary:hover{
+    background-color: #7c878f;
+}
