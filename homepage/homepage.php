@@ -377,7 +377,7 @@ if (!isset($_SESSION['user'])) {
                             <div class="col-sm-6">
                                 <?php
                                 $user = $_SESSION['user'];
-                                $q1 = "SELECT SUM(calorie_assunte) FROM public.user_alimenti WHERE username = '$user' AND data = CURRENT_DATE";
+                                $q1 = "SELECT SUM(passi) FROM public.user_activity WHERE username = '$user' AND data = CURRENT_DATE";
                                 $result = pg_query($conn, $q1);
                                 $totale = pg_fetch_row($result);
                                 if ($totale[0] != null)
