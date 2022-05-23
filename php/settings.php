@@ -19,12 +19,13 @@ if(!$conn)
         $username = $_POST['username'];
 
         //check whether the username is already in the database
-        $query = "SELECT * FROM user_info WHERE username = '$username'";
+        $query = "SELECT * FROM public.users WHERE username = '$username'";
         $result = pg_query($conn, $query);
         $row = pg_fetch_assoc($result);
         $flag = 1;
         if (isset($row['username'])){
             $flag = 0;
+            echo '1';
         }
         if ($flag == 1){
 

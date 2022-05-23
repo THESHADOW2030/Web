@@ -276,11 +276,24 @@ function sendSettings()
     var actionUrl = form.attr('action');
     console.log("sending data...");
 
+    var usernameField = $("#username")[0];
+
+    usernameField.addEventListener('input',e => {
+        usernameField.setCustomValidity(''); //this was missing
+    });
     //print the data in the form
 
     $.ajax({
         type: 'POST', url: actionUrl, data: form.serialize(), success: function (response)
         {
+
+            if(response === '1'){
+                usernameField.setCustomValidity('Username già esistente!');
+                usernameField.reportValidity();
+                console.log(response);
+            }
+
+
             $('#row-cards').load('homepage.php #row-cards');
             $('#helloUser').load('homepage.php #helloUser');
 
@@ -288,7 +301,14 @@ function sendSettings()
             updateWeightMonth();
             updateWeightYear();
 
-            $('#ImpostazioniModal').modal('hide');
+            if(response === '1'){
+
+            }
+            else{
+                $('#modalViewSettings').modal('hide');
+            }
+
+      //      $('#ImpostazioniModal').modal('hide');
             console.log("Data sent settings");
         }, error: function (xhr, status, error)
         {
