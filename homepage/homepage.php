@@ -135,6 +135,7 @@ if (!isset($_SESSION['user'])) {
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" onclick=" return deleteProfile()">Elimina Profilo</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Scarta</button>
                         <button type="submit" class="btn btn-dark">Salva</button>
                     </div>

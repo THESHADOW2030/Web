@@ -39,6 +39,22 @@ function updateWeightYear()
 }
 
 
+function deleteProfile(){
+    jQuery.ajax({
+        type: 'POST', url: '../php/deleteProfile.php', success: function (dataChart)
+        {
+
+        }, error: function (xhr, status, error)
+        {
+
+        }
+    });
+
+    location.href = "../index.html";
+
+
+}
+
 function updateBurnedCaloriesDay()
 {
     jQuery.ajax({
