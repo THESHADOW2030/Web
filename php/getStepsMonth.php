@@ -11,7 +11,6 @@ $user = $_SESSION['user'];
 $output = array();
 
 
-//get the avarage peso for each day in the current month and year
 for ($i = 1; $i<=31; $i++)
 {
     $query = "SELECT AVG(passi) FROM public.user_activity WHERE username = '$user' 

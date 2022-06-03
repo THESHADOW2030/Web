@@ -28,12 +28,6 @@ if(!$conn)
             $_SESSION['user'] = $user;
             $_SESSION['password'] = $password;
             echo "1";
-            //Start session
-
-
-
-            //Redirect to homepage
-            //("Location: ../homepage/homepage.html");
         }
         else
         {

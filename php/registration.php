@@ -60,8 +60,7 @@ if(!$conn)
                     //Start session
                     $_SESSION['user'] = $user;
                     $_SESSION['password'] = $password;
-                    //Redirect to homepage
-                //    header("Location: ../homepage/homepage.html");
+
                 } else {
                     echo "0";
                 }
@@ -73,87 +72,5 @@ if(!$conn)
 
 
 
-/*
 
-
-
-
-
-        return;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        $result = pg_query_params($conn, $q1, array($user));
-        $result1 = pg_query_params($conn, $q3, array($email));
-        if($line = pg_fetch_array($result,null,PGSQL_ASSOC))
-        {
-            echo "0";
-            $q2 = "INSERT INTO public.users (username, password,email) VALUES ($1, $2,$3);";
-            $data = pg_query_params($conn, $q2, array($user, $password,$email));
-            if ($data)  //ho inserito correttamente l'utente
-            {
-                echo "1";
-                $_SESSION['user'] = $user;
-                header("Location: ../homepage/homepage.php");
-
-
-            }
-            else
-            {
-                echo "Errore Interno!!";
-            }
-
-            $q3 = "INSERT INTO public.user_info (username) VALUES ($1)";
-            $data = pg_query_params($conn, $q3, array($user));
-
-
-
-
-
-          //  header("Location: ../login.html");
-        }
-        elseif($line = pg_fetch_array($result1,null,PGSQL_ASSOC))
-        {
-            echo "-1";
-
-        }
-        else
-        {
-            $q2 = "INSERT INTO public.users (username, password,email) VALUES ($1, $2,$3);";
-            $data = pg_query_params($conn, $q2, array($user, $password,$email));
-            if ($data)
-            {
-                $_SESSION['user'] = $user;
-                header("Location: ../homepage/homepage.php");
-
-            }
-            else
-            {
-                echo "Errore Interno!";
-            }
-            //header("Location: ../login.html");
-        }
-    }
-*/
 ?>

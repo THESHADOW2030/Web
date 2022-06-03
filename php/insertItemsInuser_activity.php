@@ -6,12 +6,11 @@ $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres pas
 
 if(!$conn)
 {
-    // echo "Errore: impossibile raggiungere i nostri database";
+
 }
 else {
     session_start();
-    // echo "Connessione riuscita";
-    //// echo $_SESSION['user'];
+
     if (isset($_SESSION['user']))
         $user = $_SESSION['user'];
     if (isset($_POST["dateAllenamento"]))

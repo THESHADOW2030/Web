@@ -7,8 +7,6 @@
 //TODO: Add Dark Mode
 //TODO: Fix steps card!!
 session_start();
-//connect to database
-//$conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=password");
 
 $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres password=THEDARK2030");
 
@@ -22,7 +20,7 @@ if (!isset($_SESSION['user'])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../resources/images/logo4000x4000.png">

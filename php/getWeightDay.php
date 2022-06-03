@@ -8,7 +8,7 @@ session_start();
 $user = $_SESSION['user'];
 
 $output = array();
-//get the avarage peso row from user_info from current date
+
 for ($i = 0; $i<24; $i++)
 {
     $query = "SELECT AVG(peso) FROM public.user_info WHERE username = '$user' AND data = current_date

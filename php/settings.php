@@ -4,7 +4,7 @@ $conn = pg_connect("host=localhost port=5432 dbname=InfoHealth user=postgres pas
 
 if(!$conn)
 {
-    // echo "Errore: impossibile raggiungere i nostri database";
+
 }else{
 
     session_start();
@@ -91,14 +91,7 @@ if(!$conn)
 
 
         $result = pg_query($conn, $query2);
-        if (!$result)
-        {
-            // echo "Errore nell'esecuzione della query";
-        }
-        else
-        {
-            // echo "Peso aggiornato";
-        }
+
     }
 }
 

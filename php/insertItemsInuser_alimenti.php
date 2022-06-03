@@ -70,8 +70,7 @@ else
         if ($year != $currentYear) {
             continue;
         }
-        //if data is not null, then print the data
-        //get the current month from data
+
         $month = substr($data, 5, 2);
 
 
@@ -79,20 +78,17 @@ else
 
 
 
-        //see if the month is already in the array
 
-        //if the month is already in the array, then add the calorie_brucitate to the value
         $calorieBruciateSomma[$month] += $rowUser_info['calorie_assunte'];
         //increment the number of occurences
         $occorrenze[$month] += 1;
     }
-    //for each element in the array, divide the peso by the number of occurences to get the average
+
     foreach ($calorieBruciateSomma as $key => $value) {
-        //if value is 0, then don't divide by 0
+
         if ($value != 0) {
             $calorieBruciateSomma[$key] = $value / $occorrenze[$key];
         }
-        //$calorieBruciateSomma[$key] = $value / $occorrenze[$key];
 
     }
 
